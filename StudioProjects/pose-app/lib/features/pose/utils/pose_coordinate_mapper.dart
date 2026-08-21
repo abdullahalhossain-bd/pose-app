@@ -1,5 +1,7 @@
 import 'dart:ui';
 
+import 'package:flutter/painting.dart' show BoxFit;
+
 import '../domain/entities/pose_sample.dart';
 import '../domain/enums/pose_landmark_type.dart';
 
@@ -68,11 +70,11 @@ class PoseCoordinateMapper {
   Offset _applySensorRotation(Offset p) {
     switch (sensorRotationDegrees) {
       case 90:
-        return Offset(p.y, 1 - p.x);
+        return Offset(p.dy, 1.0 - p.dx);
       case 180:
-        return Offset(1 - p.x, 1 - p.y);
+        return Offset(1.0 - p.dx, 1.0 - p.dy);
       case 270:
-        return Offset(1 - p.y, p.x);
+        return Offset(1.0 - p.dy, p.dx);
       case 0:
       default:
         return p;

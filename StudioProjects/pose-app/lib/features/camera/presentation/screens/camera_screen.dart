@@ -8,6 +8,7 @@ import '../../../ai/presentation/overlays/ai_overlay_layer.dart';
 import '../../../ai/presentation/providers/ai_providers.dart';
 import '../../../ai/presentation/widgets/ai_status_banner.dart';
 import '../../../capture/domain/entities/capture_attempt.dart';
+import '../../../capture/domain/entities/capture_score.dart';
 import '../../../capture/domain/enums/capture_enums.dart';
 import '../../../capture/presentation/overlays/capture_overlay_layer.dart';
 import '../../../capture/presentation/providers/capture_providers.dart';
@@ -53,16 +54,17 @@ class _CameraScreenState extends ConsumerState<CameraScreen>
               CaptureFailureReason.encoderError,
             );
           } else {
+            final effectiveScore = score ??
+                CaptureScore(
+                  factors: const <FactorScore>[],
+                  overall: 0.8,
+                  suppressReason: CaptureSuppressReason.none,
+                  stableForFrames: 0,
+                  timestamp: 0,
+                );
             ref.read(captureStateProvider.notifier).onCaptureSuccess(
               imagePath: path,
-              score: score ??
-                  const CaptureScore(
-                    factors: [],
-                    overall: 0.8,
-                    suppressReason: CaptureSuppressReason.none,
-                    stableForFrames: 0,
-                    timestamp: 0,
-                  ),
+              score: effectiveScore,
             );
           }
         }
@@ -391,6 +393,8 @@ class _BottomControls extends ConsumerWidget {
 /// Day 11: Auto-capture toggle chip. Lets the user enable/disable
 /// smart capture directly from the camera screen.
 class _AutoCaptureToggle extends ConsumerWidget {
+  const _AutoCaptureToggle();
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final enabled = ref.watch(capturePrefsProvider.select((p) => p.autoCaptureEnabled));

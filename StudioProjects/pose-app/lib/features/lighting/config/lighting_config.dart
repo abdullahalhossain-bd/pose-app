@@ -1,5 +1,7 @@
 import 'package:flutter/foundation.dart';
 
+import '../domain/enums/lighting_enums.dart';
+
 /// All tunable knobs for lighting analysis. Override via Riverpod
 /// (`lightingConfigProvider`) — never read from widgets directly.
 @immutable

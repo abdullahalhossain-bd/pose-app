@@ -1,12 +1,15 @@
 import 'dart:typed_data';
+import 'dart:ui' show Size;
 
 import 'package:fpdart/fpdart.dart';
 import 'package:google_mlkit_commons/google_mlkit_commons.dart';
-import 'package:google_mlkit_pose_detection/google_mlkit_pose_detection.dart';
+import 'package:google_mlkit_pose_detection/google_mlkit_pose_detection.dart'
+    hide PoseLandmark, PoseLandmarkType;
 
 import '../../../../core/error/failures.dart';
 import '../../../ai/domain/entities/ai_frame.dart';
-import '../../../ai/domain/entities/detection.dart' show BoundingBox, DetectionResult;
+import '../../../ai/domain/entities/detection.dart'
+    show BoundingBox, DetectionResult;
 import '../../../ai/domain/repositories/inference_backend.dart';
 import '../../../pose/domain/entities/pose_sample.dart';
 import '../../../pose/domain/enums/pose_landmark_type.dart';

@@ -20,7 +20,7 @@ import '../../performance/ai_performance_monitor.dart';
 import '../../performance/thermal_monitor.dart';
 import '../../pipeline/ai_pipeline.dart';
 import '../../state/ai_state.dart';
-import 'ai_state_controller.dart';
+import '../../state/ai_state_controller.dart';
 
 /// ── Config ─────────────────────────────────────────────────────────
 final aiConfigProvider = StateProvider<AiConfig>((ref) => const AiConfig());

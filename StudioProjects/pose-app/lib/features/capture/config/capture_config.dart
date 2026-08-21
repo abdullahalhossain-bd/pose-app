@@ -1,5 +1,7 @@
 import 'package:flutter/foundation.dart';
 
+import '../domain/enums/capture_enums.dart';
+
 /// Sensitivity presets the user can pick from in Settings. Higher
 /// sensitivity = lower threshold = more eager to capture (but more
 /// false positives). Lower sensitivity = stricter.

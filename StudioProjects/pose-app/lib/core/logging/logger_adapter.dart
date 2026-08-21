@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart' show kReleaseMode;
 import 'package:logger/logger.dart' as pkg;
 
 import 'app_logger.dart';

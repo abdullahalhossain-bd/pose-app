@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../config/composition_config.dart' show GridOverlayType;
 import '../domain/entities/composition_recommendation.dart';
 import '../domain/enums/composition_enums.dart';
 import '../domain/enums/scene_type.dart';
-import '../overlays/composition_grid_painter.dart';
+import 'composition_grid_painter.dart';
 import '../presentation/providers/composition_providers.dart';
 
 /// গ্রিড ওভারলে + রেকমেন্ডেশন কার্ড রেন্ডার করে। উভয়ই আলাদাভাবে টগল করা।

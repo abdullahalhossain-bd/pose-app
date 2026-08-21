@@ -97,7 +97,8 @@ class PosePipelineStage {
     final tracked = tracker.update(filtered);
 
     // 4. Smooth: per-landmark One-Euro filter on each tracked pose.
-    final smoothed = tracked.map(smoother.smooth).toList();
+    final List<PoseSample> smoothed =
+        tracked.map(smoother.smooth).toList();
 
     // 5. Decide state.
     final context = processor.classify(

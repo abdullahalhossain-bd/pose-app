@@ -82,6 +82,11 @@ class ErrorHandler {
             cause: error,
             stackTrace: stackTrace,
           ),
+        _ => UnexpectedFailure(
+            message: error.message,
+            cause: error,
+            stackTrace: stackTrace,
+          ),
       };
     }
 

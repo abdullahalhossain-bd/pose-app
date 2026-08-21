@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../domain/entities/detection.dart';
 import '../../state/ai_state.dart';
 import '../providers/ai_providers.dart';
+import 'ai_overlay_painters.dart';
 
 /// Safe drawing layer — the single widget the camera screen hosts on
 /// top of the preview. It composes any active overlays based on the

@@ -1,4 +1,5 @@
 import 'dart:io' show stderr;
+import 'dart:ui' show PlatformDispatcher;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

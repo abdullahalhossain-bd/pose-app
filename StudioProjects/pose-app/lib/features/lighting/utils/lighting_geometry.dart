@@ -1,7 +1,7 @@
 import 'dart:math' as math;
 import 'dart:typed_data';
 
-import '../../../pose/domain/entities/pose_sample.dart';
+import '../../pose/domain/entities/pose_sample.dart';
 
 /// Pure helpers for luminance + RGB analysis. Stateless, side-effect
 /// free — every function trivially unit-testable.

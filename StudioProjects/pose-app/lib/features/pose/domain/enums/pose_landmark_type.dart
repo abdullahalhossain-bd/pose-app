@@ -40,8 +40,8 @@ enum PoseLandmarkType {
   leftFootIndex(31),
   rightFootIndex(32);
 
-  const PoseLandmarkType(this.index);
-  final int index;
+  const PoseLandmarkType(this.mlKitIndex);
+  final int mlKitIndex;
 
   static PoseLandmarkType fromMlKit(int raw) {
     if (raw < 0 || raw >= values.length) {

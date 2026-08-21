@@ -1,3 +1,5 @@
+import 'user.dart';
+
 /// Result of a successful sign-in. Carries the user + the refreshable
 /// auth token the data layer will store.
 class AuthSession {

@@ -1,8 +1,9 @@
 import 'package:fpdart/fpdart.dart';
 
 import '../../../../core/error/failures.dart';
-import '../../entities/ai_frame.dart';
-import "../../entities/detection.dart';
+import '../../domain/entities/ai_frame.dart';
+import '../../domain/entities/detection.dart';
+import '../../domain/repositories/inference_backend.dart';
 
 /// Stub backend used during Day 8 foundation work. Returns no
 /// detections but exercises the full pipeline so we can verify

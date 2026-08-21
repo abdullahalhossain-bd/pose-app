@@ -36,9 +36,9 @@ class PoseProcessor {
   /// Returns null if the batch is empty.
   PoseSample? pickPrimary(List<PoseSample> poses) {
     if (poses.isEmpty) return null;
-    return List<PoseSample>.from(poses)
-      ..sort((a, b) => b.confidence.compareTo(a.confidence))
-      .first;
+    final sorted = List<PoseSample>.from(poses)
+      ..sort((a, b) => b.confidence.compareTo(a.confidence));
+    return sorted.first;
   }
 
   /// Compute edge-case context for a pose batch.

@@ -6,7 +6,6 @@ import '../../../guidance/engine/guidance_engine.dart';
 import '../../../guidance/presentation/providers/guidance_providers.dart';
 import '../../../pose/presentation/providers/pose_providers.dart';
 
-import '../../../../core/di/providers.dart';
 import '../../config/capture_config.dart';
 import '../../domain/entities/capture_attempt.dart';
 import '../../domain/entities/capture_score.dart';
@@ -191,6 +190,8 @@ class CaptureStateController extends StateNotifier<CaptureState> {
       success: true,
       failureReason: CaptureFailureReason.none,
       imagePath: imagePath,
+      pose: null,
+      guidanceSignal: null,
       tip: null,
     );
     _ref.read(lastCaptureAttemptProvider.notifier).state = attempt;
@@ -210,8 +211,8 @@ class CaptureStateController extends StateNotifier<CaptureState> {
   /// ক্যামেরা স্ক্রিন একটি ব্যর্থ ক্যাপচারের পরে এটি কল করে।
   void onCaptureFailure(CaptureFailureReason reason) {
     final score = _ref.read(captureScoreProvider) ??
-        const CaptureScore(
-          factors: [],
+        CaptureScore(
+          factors: const <FactorScore>[],
           overall: 0,
           suppressReason: CaptureSuppressReason.captureFailed,
           stableForFrames: 0,
@@ -224,6 +225,8 @@ class CaptureStateController extends StateNotifier<CaptureState> {
       success: false,
       failureReason: reason,
       imagePath: null,
+      pose: null,
+      guidanceSignal: null,
       tip: CaptureAttempt.tipForFailure(reason),
     );
     _ref.read(lastCaptureAttemptProvider.notifier).state = attempt;

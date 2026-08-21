@@ -1,5 +1,7 @@
 import 'package:flutter/foundation.dart';
 
+import '../domain/enums/composition_enums.dart';
+
 /// Visual grid overlays the user can toggle in the camera screen.
 enum GridOverlayType {
   none,

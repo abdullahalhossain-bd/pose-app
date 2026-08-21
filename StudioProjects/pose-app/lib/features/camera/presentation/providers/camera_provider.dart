@@ -9,7 +9,7 @@ import '../../../ai/domain/entities/ai_frame.dart';
 @immutable
 class CameraState {
   const CameraState({
-    this.permissionStatus = PermissionStatus.undetermined,
+    this.permissionStatus = PermissionStatus.denied,
     this.controller,
     this.flashMode = FlashMode.off,
     this.lensDirection = CameraLensDirection.back,
@@ -147,7 +147,7 @@ class CameraNotifier extends StateNotifier<CameraState> {
       for (final p in image.planes)
         AiFramePlane(
           bytes: p.bytes,
-          width: p.width,
+          width: p.width ?? image.width,
           height: p.height ?? image.height,
           bytesPerPixel: p.bytesPerPixel ?? 1,
         ),

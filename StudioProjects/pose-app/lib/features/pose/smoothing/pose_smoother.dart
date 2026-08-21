@@ -1,5 +1,5 @@
 import '../domain/entities/pose_sample.dart'
-    show PoseLandmark, PoseLandmarkType;
+    show PoseLandmark, PoseSample;
 import '../domain/enums/pose_landmark_type.dart';
 import 'one_euro_filter.dart';
 

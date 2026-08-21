@@ -13,6 +13,7 @@ class AppTypography {
   static const String fontFamily = 'Roboto';
 
   static TextTheme buildTextTheme(Brightness brightness) {
-    return Typography.material2021().textTheme.resolve(brightness);
+    final typography = Typography.material2021();
+    return brightness == Brightness.dark ? typography.white : typography.black;
   }
 }
