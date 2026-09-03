@@ -8,12 +8,38 @@ class _LiveSquatCheckPageState extends State<LiveSquatCheckPage> with WidgetsBin
   bool running=false,busy=false,front=true; int reps=0,frames=0;
   String status='READY',phase='Standing',feedback='Stand sideways and keep your whole body in frame.'; double? knee; String? error;
   dynamic latestPose;
+  bool _reachedBottom=false,_ascendingSeen=false; int _bottomFrames=0,_ascendingFrames=0;
 
   @override void initState(){super.initState();WidgetsBinding.instance.addObserver(this);initCamera();}
   Future<void> initCamera() async { try { await camera?.dispose(); final list=await availableCameras(); if(list.isEmpty) throw CameraException('NoCamera','No camera found.'); final selected=list.firstWhere((c)=>c.lensDirection==(front?CameraLensDirection.front:CameraLensDirection.back),orElse:()=>list.first); final c=CameraController(selected,ResolutionPreset.medium,enableAudio:false,imageFormatGroup:ImageFormatGroup.yuv420); final ready=c.initialize(); if(mounted)setState((){camera=c;cameraReady=ready;error=null;latestPose=null;}); await ready; } on CameraException catch(e){if(mounted)setState(()=>error=e.description??'Camera could not start.');} }
   Future<void> initDetector() async { if(detector!=null)return; final d=NpuPoseDetector(config:PoseDetectorConfig.realtime()); await d.initialize(); detector=d; }
-  Future<void> start() async { final c=camera; if(c==null||!c.value.isInitialized||running)return; try {setState((){error=null;status='GETTING READY';reps=0;frames=0;phase='Standing';knee=null;latestPose=null;}); await initDetector(); setState((){running=true;status='MOVE';feedback='Lower down with control.';}); await c.startImageStream(onFrame);}catch(e){if(mounted)setState((){running=false;error='Pose detection could not start: $e';});} }
-  Future<void> onFrame(CameraImage image) async { if(!running||busy||detector==null)return; busy=true;frames++; try { final planes=image.planes.map((p)=><String,dynamic>{'bytes':p.bytes,'bytesPerRow':p.bytesPerRow,'bytesPerPixel':p.bytesPerPixel}).toList(); final result=await detector!.processFrame(planes:planes,width:image.width,height:image.height,format:'yuv420',rotation:camera?.description.sensorOrientation??90); if(!result.hasPoses){if(mounted&&frames%8==0)setState((){status='FIND YOUR BODY';feedback='Step back until your head, hips, knees and feet are visible.';latestPose=null;});return;} final pose=result.firstPose!; if(pose.getVisibleLandmarks(threshold:.55).length<8){if(mounted&&frames%8==0)setState((){status='LOW CONFIDENCE';feedback='Improve lighting and keep your whole body in frame.';latestPose=pose;});return;} final angle=pose.calculateAngle(LandmarkType.leftHip,LandmarkType.leftKnee,LandmarkType.leftAnkle); if(angle==null)return; final old=phase; String next; if(angle>155){next='Standing';if(old=='Ascending'||old=='Bottom')reps++;}else if(angle>110)next=old=='Bottom'?'Ascending':'Descending';else next='Bottom'; var message=next=='Bottom'?'Good depth — keep your chest controlled.':'Keep the movement smooth.'; if(angle<70)message='Avoid collapsing too deep; stay controlled.'; if(mounted&&frames%2==0)setState((){phase=next;knee=angle;feedback=message;status=next=='Bottom'?'GREAT':'MOVE';latestPose=pose;}); }catch(e){if(mounted&&frames%30==0)setState(()=>error='Frame skipped: $e');}finally{busy=false;} }
+  void _resetRepState(){reps=0;phase='Standing';_reachedBottom=false;_ascendingSeen=false;_bottomFrames=0;_ascendingFrames=0;}
+  void _updateRepState(double angle){
+    if(angle>165){
+      if(phase=='Ascending'&&_reachedBottom&&_ascendingSeen){reps++;_reachedBottom=false;_ascendingSeen=false;_bottomFrames=0;_ascendingFrames=0;}
+      phase='Standing';
+      return;
+    }
+    if(phase=='Standing'){
+      if(angle<=150)phase='Descending';
+      return;
+    }
+    if(phase=='Descending'){
+      if(angle<=105){_bottomFrames++;if(_bottomFrames>=2){_reachedBottom=true;phase='Bottom';}}
+      return;
+    }
+    if(phase=='Bottom'){
+      if(angle>=115){_ascendingFrames++;if(_ascendingFrames>=2){_ascendingSeen=true;phase='Ascending';}}
+      else {_ascendingFrames=0;}
+      return;
+    }
+    if(phase=='Ascending'){
+      if(angle<115){phase='Bottom';_ascendingSeen=false;_ascendingFrames=0;}
+      return;
+    }
+  }
+  Future<void> start() async { final c=camera; if(c==null||!c.value.isInitialized||running)return; try {setState((){error=null;status='GETTING READY';_resetRepState();frames=0;knee=null;latestPose=null;}); await initDetector(); setState((){running=true;status='MOVE';feedback='Lower down with control.';}); await c.startImageStream(onFrame);}catch(e){if(mounted)setState((){running=false;error='Pose detection could not start: $e';});} }
+  Future<void> onFrame(CameraImage image) async { if(!running||busy||detector==null)return; busy=true;frames++; try { final planes=image.planes.map((p)=>{'bytes':p.bytes,'bytesPerRow':p.bytesPerRow,'bytesPerPixel':p.bytesPerPixel}).toList(); final result=await detector!.processFrame(planes:planes,width:image.width,height:image.height,format:'yuv420',rotation:camera?.description.sensorOrientation??90); if(!result.hasPoses){if(mounted&&frames%8==0)setState((){status='FIND YOUR BODY';feedback='Step back until your head, hips, knees and feet are visible.';latestPose=null;});return;} final pose=result.firstPose!; if(pose.getVisibleLandmarks(threshold:.55).length<8){if(mounted&&frames%8==0)setState((){status='LOW CONFIDENCE';feedback='Improve lighting and keep your whole body in frame.';latestPose=pose;});return;} final angle=pose.calculateAngle(LandmarkType.leftHip,LandmarkType.leftKnee,LandmarkType.leftAnkle); if(angle==null)return; _updateRepState(angle); var message=phase=='Bottom'?'Good depth — keep your chest controlled.':phase=='Ascending'?'Drive up with control.':phase=='Descending'?'Lower down with control.':'Stand tall, then begin your next rep.'; if(angle<70)message='Avoid collapsing too deep; stay controlled.'; if(mounted&&frames%2==0)setState((){knee=angle;feedback=message;status=phase=='Bottom'?'GREAT':'MOVE';latestPose=pose;}); }catch(e){if(mounted&&frames%30==0)setState(()=>error='Frame skipped: $e');}finally{busy=false;} }
   Future<void> stop() async {if(camera?.value.isStreamingImages==true)await camera!.stopImageStream();if(mounted)setState((){running=false;status='SESSION COMPLETE';feedback=reps==0?'No complete reps detected. Try again with your full body visible.':'Nice work — you completed $reps ${reps==1?'rep':'reps'}.';});}
   Future<void> switchCamera() async {if(running)return;setState(()=>front=!front);await initCamera();}
   @override void didChangeAppLifecycleState(AppLifecycleState state){if(state!=AppLifecycleState.resumed&&running)stop();}
