@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'features/pose_check/pose_check_page.dart';
+
 void main() {
   runApp(const PoseApp());
 }
@@ -16,7 +18,6 @@ class PoseApp extends StatelessWidget {
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF6C5CE7)),
         scaffoldBackgroundColor: const Color(0xFFF8F7FC),
-        fontFamily: 'sans',
       ),
       home: const HomePage(),
     );
@@ -40,6 +41,12 @@ class _HomePageState extends State<HomePage> {
     _ProfilePage(),
   ];
 
+  void _openPoseCheck() {
+    Navigator.of(context).push(
+      MaterialPageRoute<void>(builder: (_) => const PoseCheckPage()),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,32 +63,22 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
+
+  Widget _dashboard() => _Dashboard(onStartPoseCheck: _openPoseCheck);
 }
 
 class _Dashboard extends StatelessWidget {
-  const _Dashboard();
+  const _Dashboard({this.onStartPoseCheck});
+  final VoidCallback? onStartPoseCheck;
 
   @override
   Widget build(BuildContext context) {
     return ListView(
       padding: const EdgeInsets.fromLTRB(20, 18, 20, 24),
       children: [
-        Row(
-          children: [
-            Expanded(
-              child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: const [
-                Text('Good morning 👋', style: TextStyle(fontSize: 15, color: Colors.black54)),
-                SizedBox(height: 4),
-                Text('Ready to move?', style: TextStyle(fontSize: 28, fontWeight: FontWeight.w800)),
-              ]),
-            ),
-            CircleAvatar(
-              radius: 24,
-              backgroundColor: Color(0xFFE8E3FF),
-              child: Icon(Icons.person, color: Color(0xFF6C5CE7)),
-            ),
-          ],
-        ),
+        const Text('Good morning 👋', style: TextStyle(fontSize: 15, color: Colors.black54)),
+        const SizedBox(height: 4),
+        const Text('Ready to move?', style: TextStyle(fontSize: 28, fontWeight: FontWeight.w800)),
         const SizedBox(height: 24),
         Container(
           padding: const EdgeInsets.all(22),
@@ -96,7 +93,7 @@ class _Dashboard extends StatelessWidget {
             const SizedBox(height: 18),
             FilledButton.icon(
               style: FilledButton.styleFrom(backgroundColor: Colors.white, foregroundColor: Color(0xFF5A4BCF)),
-              onPressed: () => _showComingSoon(context),
+              onPressed: onStartPoseCheck,
               icon: const Icon(Icons.camera_alt_outlined),
               label: const Text('Start pose check'),
             ),
@@ -105,7 +102,7 @@ class _Dashboard extends StatelessWidget {
         const SizedBox(height: 24),
         const Text('Today', style: TextStyle(fontSize: 20, fontWeight: FontWeight.w800)),
         const SizedBox(height: 12),
-        Row(children: const [
+        const Row(children: [
           Expanded(child: _MetricCard(value: '0', label: 'Sessions', icon: Icons.timer_outlined)),
           SizedBox(width: 12),
           Expanded(child: _MetricCard(value: '0', label: 'Minutes', icon: Icons.schedule_outlined)),
@@ -119,10 +116,6 @@ class _Dashboard extends StatelessWidget {
         const _WorkoutTile(title: 'Squat Form', subtitle: 'Technique • 8 min', icon: Icons.directions_run),
       ],
     );
-  }
-
-  void _showComingSoon(BuildContext context) {
-    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Camera + pose detection is the next product milestone.')));
   }
 }
 
@@ -159,7 +152,6 @@ class _WorkoutTile extends StatelessWidget {
         title: Text(title, style: const TextStyle(fontWeight: FontWeight.w700)),
         subtitle: Text(subtitle),
         trailing: const Icon(Icons.chevron_right),
-        onTap: () {},
       ),
     );
   }
