@@ -43,20 +43,3 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
-
-# Environment files — never commit secrets. .env.example should be the template.
-.env
-.env.*
-!.env.example
-
-# Generated code
-*.g.dart
-*.freezed.dart
-*.config.dart
-
-# Coverage
-coverage/
-
-# Riverpod / build_runner
-.dart_tool/
-build_runner/

@@ -1,11 +1,11 @@
 {
-    "name": "pose",
-    "short_name": "pose",
+    "name": "AI Visual Director",
+    "short_name": "AI Visual Director",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "AI Visual Director — real-time AI pose, composition, and lighting guidance for better photos.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
