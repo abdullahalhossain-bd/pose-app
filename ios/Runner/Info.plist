@@ -26,6 +26,10 @@
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>Pose uses the camera to analyze your exercise form in real time.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Pose does not record audio, but camera access requires this permission on some configurations.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
