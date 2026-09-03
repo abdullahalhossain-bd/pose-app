@@ -49,8 +49,12 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final body = _index == 0
+        ? _Dashboard(onStartPoseCheck: _openPoseCheck)
+        : _pages[_index];
+
     return Scaffold(
-      body: SafeArea(child: _pages[_index]),
+      body: SafeArea(child: body),
       bottomNavigationBar: NavigationBar(
         selectedIndex: _index,
         onDestinationSelected: (value) => setState(() => _index = value),
@@ -63,8 +67,6 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
-
-  Widget _dashboard() => _Dashboard(onStartPoseCheck: _openPoseCheck);
 }
 
 class _Dashboard extends StatelessWidget {
