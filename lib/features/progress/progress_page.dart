@@ -1,0 +1,102 @@
+import 'dart:math' as math;
+import 'package:flutter/material.dart';
+import '../../core/data/session_model.dart';
+
+const _purple = Color(0xFF6C5CE7);
+const _ink = Color(0xFF17151F);
+const _muted = Color(0xFF777382);
+const _surface = Colors.white;
+
+class ProgressPage extends StatelessWidget {
+  const ProgressPage({super.key, required this.sessions});
+  final List<WorkoutSession> sessions;
+
+  List<WorkoutSession> get _squats => sessions.where((s) => s.exercise == 'squat').toList();
+
+  @override
+  Widget build(BuildContext context) {
+    final data = _squats;
+    final reps = data.fold<int>(0, (sum, s) => sum + s.reps);
+    final best = data.isEmpty ? null : data.map((s) => s.bestScore).reduce(math.max);
+    final avg = data.isEmpty ? null : (data.map((s) => s.averageScore).reduce((a, b) => a + b) / data.length).round();
+    final trend = _trend(data);
+    final weekly = _last7Days(data);
+    final recent = data.take(5).toList();
+
+    return ListView(
+      padding: const EdgeInsets.fromLTRB(20, 20, 20, 28),
+      children: [
+        const Text('Progress', style: TextStyle(fontSize: 30, fontWeight: FontWeight.w900, color: _ink)),
+        const SizedBox(height: 6),
+        const Text('See how your form is changing over time.', style: TextStyle(color: _muted, fontSize: 14)),
+        const SizedBox(height: 22),
+        _OverviewCard(sessions: data.length, reps: reps, best: best, average: avg),
+        const SizedBox(height: 16),
+        if (data.isEmpty) const _EmptyProgressCard() else ...[
+          _TrendCard(values: data.take(10).map((s) => s.averageScore.toDouble()).toList().reversed.toList(), change: trend),
+          const SizedBox(height: 16),
+          _WeeklyCard(days: weekly),
+          const SizedBox(height: 16),
+          _InsightCard(sessions: data, average: avg!),
+          const SizedBox(height: 22),
+          const Text('Recent sessions', style: TextStyle(fontSize: 20, fontWeight: FontWeight.w900, color: _ink)),
+          const SizedBox(height: 12),
+          ...recent.map((s) => _SessionHistoryCard(session: s)),
+        ],
+      ],
+    );
+  }
+
+  int _trend(List<WorkoutSession> data) {
+    if (data.length < 2) return 0;
+    final newest = data.first.averageScore;
+    final previous = data[1].averageScore;
+    return newest - previous;
+  }
+
+  List<_DayStat> _last7Days(List<WorkoutSession> data) {
+    final now = DateTime.now();
+    return List.generate(7, (i) {
+      final day = DateTime(now.year, now.month, now.day).subtract(Duration(days: 6 - i));
+      final daySessions = data.where((s) => s.completedAt.year == day.year && s.completedAt.month == day.month && s.completedAt.day == day.day).toList();
+      final score = daySessions.isEmpty ? 0 : (daySessions.map((s) => s.averageScore).reduce((a, b) => a + b) / daySessions.length).round();
+      return _DayStat(label: const ['M','T','W','T','F','S','S'][day.weekday - 1], score: score, sessions: daySessions.length);
+    });
+  }
+}
+
+class _OverviewCard extends StatelessWidget {
+  const _OverviewCard({required this.sessions, required this.reps, required this.best, required this.average});
+  final int sessions, reps; final int? best, average;
+  @override Widget build(BuildContext context) => Container(padding: const EdgeInsets.all(20), decoration: BoxDecoration(color: _surface, borderRadius: BorderRadius.circular(26), border: Border.all(color: const Color(0xFFEDEAF2))), child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [Row(children: [const Expanded(child: Text('Your journey', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w900, color: _ink))), Container(padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 5), decoration: BoxDecoration(color: const Color(0xFFEFEAFF), borderRadius: BorderRadius.circular(20)), child: Text(sessions > 0 ? 'ACTIVE' : 'STARTING', style: const TextStyle(color: _purple, fontSize: 9, fontWeight: FontWeight.w900, letterSpacing: 1)))]), const SizedBox(height: 20), Row(children: [Expanded(child: _Stat('$sessions', 'Sessions')), Expanded(child: _Stat('$reps', 'Reps')), Expanded(child: _Stat(best == null ? '—' : '$best', 'Best')), Expanded(child: _Stat(average == null ? '—' : '$average', 'Average'))]) ]));
+}
+
+class _Stat extends StatelessWidget { const _Stat(this.value, this.label); final String value, label; @override Widget build(BuildContext context) => Column(crossAxisAlignment: CrossAxisAlignment.start, children: [Text(value, style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w900, color: _ink)), const SizedBox(height: 3), Text(label, style: const TextStyle(color: _muted, fontSize: 11, fontWeight: FontWeight.w600))]); }
+
+class _TrendCard extends StatelessWidget {
+  const _TrendCard({required this.values, required this.change});
+  final List<double> values; final int change;
+  @override Widget build(BuildContext context) => Container(padding: const EdgeInsets.fromLTRB(18, 18, 18, 16), decoration: BoxDecoration(color: _surface, borderRadius: BorderRadius.circular(24), border: Border.all(color: const Color(0xFFEDEAF2))), child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [Row(children: [const Expanded(child: Text('Score trend', style: TextStyle(fontSize: 17, fontWeight: FontWeight.w900, color: _ink))), if (change != 0) Text('${change > 0 ? '+' : ''}$change pts', style: TextStyle(color: change > 0 ? const Color(0xFF23965D) : const Color(0xFFB54A4A), fontWeight: FontWeight.w900, fontSize: 12))]), const SizedBox(height: 6), const Text('Latest sessions', style: TextStyle(color: _muted, fontSize: 12)), const SizedBox(height: 14), SizedBox(height: 120, child: CustomPaint(painter: _TrendPainter(values))), const SizedBox(height: 8), const Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [Text('Older', style: TextStyle(color: _muted, fontSize: 10)), Text('Latest', style: TextStyle(color: _muted, fontSize: 10))]) ]));
+}
+
+class _TrendPainter extends CustomPainter {
+  _TrendPainter(this.values); final List<double> values;
+  @override void paint(Canvas canvas, Size size) { final grid = Paint()..color = const Color(0xFFEDEAF2)..strokeWidth = 1; for (var i=1;i<4;i++){final y=size.height*i/4; canvas.drawLine(Offset(0,y),Offset(size.width,y),grid);} if(values.isEmpty)return; final minV=math.max(0, values.reduce(math.min)-8); final maxV=math.min(100, values.reduce(math.max)+8); final span=math.max(1,maxV-minV); final path=Path(); for(var i=0;i<values.length;i++){final x=values.length==1?size.width/2:size.width*i/(values.length-1); final y=size.height-((values[i]-minV)/span)*size.height; if(i==0)path.moveTo(x,y);else path.lineTo(x,y);} final line=Paint()..color=_purple..style=PaintingStyle.stroke..strokeWidth=3..strokeCap=StrokeCap.round; canvas.drawPath(path,line); final dot=Paint()..color=_purple; for(var i=0;i<values.length;i++){final x=values.length==1?size.width/2:size.width*i/(values.length-1); final y=size.height-((values[i]-minV)/span)*size.height; canvas.drawCircle(Offset(x,y),4,dot);} }
+  @override bool shouldRepaint(covariant _TrendPainter oldDelegate) => oldDelegate.values != values;
+}
+
+class _DayStat { const _DayStat({required this.label, required this.score, required this.sessions}); final String label; final int score, sessions; }
+
+class _WeeklyCard extends StatelessWidget {
+  const _WeeklyCard({required this.days}); final List<_DayStat> days;
+  @override Widget build(BuildContext context) { final maxScore=days.map((d)=>d.score).fold<int>(1, math.max); final active=days.where((d)=>d.sessions>0).length; return Container(padding: const EdgeInsets.all(18), decoration: BoxDecoration(color:_surface,borderRadius:BorderRadius.circular(24),border:Border.all(color:const Color(0xFFEDEAF2))), child: Column(crossAxisAlignment:CrossAxisAlignment.start,children:[Row(children:[const Expanded(child:Text('This week',style:TextStyle(fontSize:17,fontWeight:FontWeight.w900,color:_ink))),Text('$active/7 active days',style:const TextStyle(color:_muted,fontSize:12,fontWeight:FontWeight.w700))]),const SizedBox(height:18),SizedBox(height:130,child:Row(crossAxisAlignment:CrossAxisAlignment.end,children:days.map((d)=>Expanded(child:Padding(padding:const EdgeInsets.symmetric(horizontal:4),child:Column(mainAxisAlignment:MainAxisAlignment.end,children:[Expanded(child:Align(alignment:Alignment.bottomCenter,child:AnimatedContainer(duration:const Duration(milliseconds:300),width:18,height:d.score==0?8:88*d.score/maxScore,decoration:BoxDecoration(color:d.score==0?const Color(0xFFEAE7F0):_purple,borderRadius:BorderRadius.circular(9))))),const SizedBox(height:8),Text(d.label,style:const TextStyle(color:_muted,fontSize:10,fontWeight:FontWeight.w700))]))).toList()))]); }
+}
+
+class _InsightCard extends StatelessWidget {
+  const _InsightCard({required this.sessions, required this.average}); final List<WorkoutSession> sessions; final int average;
+  @override Widget build(BuildContext context) { final recent=sessions.take(math.min(3,sessions.length)).map((s)=>s.averageScore).toList(); final recentAvg=recent.isEmpty?average:(recent.reduce((a,b)=>a+b)/recent.length).round(); final message=recentAvg>=average+2?'Your recent sessions are trending up. Keep the same controlled pace.':recentAvg<=average-2?'Your recent scores dipped a little. Focus on consistent depth and setup.':'Your scores are steady. Aim for small, repeatable improvements next session.'; return Container(padding:const EdgeInsets.all(18),decoration:BoxDecoration(color:const Color(0xFFEFEAFF),borderRadius:BorderRadius.circular(22)),child:Row(crossAxisAlignment:CrossAxisAlignment.start,children:[const Icon(Icons.auto_graph_rounded,color:_purple,size:25),const SizedBox(width:12),Expanded(child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[const Text('Your insight',style:TextStyle(color:_ink,fontWeight:FontWeight.w900,fontSize:15)),const SizedBox(height:5),Text(message,style:const TextStyle(color:_ink,fontWeight:FontWeight.w600,height:1.4,fontSize:13))]))])); }
+}
+
+class _SessionHistoryCard extends StatelessWidget { const _SessionHistoryCard({required this.session}); final WorkoutSession session; @override Widget build(BuildContext context) => Container(margin:const EdgeInsets.only(bottom:10),padding:const EdgeInsets.all(16),decoration:BoxDecoration(color:_surface,borderRadius:BorderRadius.circular(20),border:Border.all(color:const Color(0xFFEDEAF2))),child:Row(children:[Container(width:46,height:46,decoration:BoxDecoration(color:const Color(0xFFEFEAFF),borderRadius:BorderRadius.circular(14)),child:const Icon(Icons.directions_run_rounded,color:_purple)),const SizedBox(width:13),Expanded(child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[const Text('Squat',style:TextStyle(fontWeight:FontWeight.w900,color:_ink)),const SizedBox(height:4),Text('${session.reps} reps • ${session.completedAt.day}/${session.completedAt.month}/${session.completedAt.year}',style:const TextStyle(color:_muted,fontSize:12))])),Column(crossAxisAlignment:CrossAxisAlignment.end,children:[Text('${session.averageScore}',style:const TextStyle(fontSize:19,fontWeight:FontWeight.w900,color:_ink)),const Text('score',style:TextStyle(fontSize:10,color:_muted))]) ])); }
+
+class _EmptyProgressCard extends StatelessWidget { const _EmptyProgressCard(); @override Widget build(BuildContext context) => Container(padding:const EdgeInsets.all(20),decoration:BoxDecoration(color:const Color(0xFFEFEAFF),borderRadius:BorderRadius.circular(24)),child:const Row(crossAxisAlignment:CrossAxisAlignment.start,children:[Icon(Icons.auto_graph_rounded,color:_purple,size:28),SizedBox(width:14),Expanded(child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[Text('Your progress starts here',style:TextStyle(color:_ink,fontWeight:FontWeight.w900,fontSize:15)),SizedBox(height:5),Text('Complete a squat session to unlock score trends, weekly consistency and personalized insights.',style:TextStyle(color:_ink,fontWeight:FontWeight.w600,height:1.4,fontSize:13))]))])); }
