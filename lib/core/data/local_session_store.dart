@@ -5,6 +5,9 @@ import 'session_model.dart';
 class LocalSessionStore extends ChangeNotifier {
   static const _key = 'pose.workout_sessions.v1';
   static const _maxSessions = 200;
+  static final LocalSessionStore instance = LocalSessionStore._();
+
+  LocalSessionStore._();
 
   List<WorkoutSession> _sessions = const [];
   bool _loaded = false;
