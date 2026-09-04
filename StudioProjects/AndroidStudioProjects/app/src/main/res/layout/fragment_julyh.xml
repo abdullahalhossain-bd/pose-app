@@ -1,0 +1,726 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="8dp">
+
+        <LinearLayout
+            android:id="@+id/liner1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="match_parent"
+                android:layout_height="240dp"
+                android:layout_marginBottom="8dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/quota_first_week"
+                app:shapeAppearanceOverlay="@style/RoundedImageView" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/btxf"
+                android:lineSpacingExtra="8dp"
+                android:text="৫ জুন ২০২৪"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/kalpurush"
+                android:text="কোটা সংস্কারের দাবিতে এবার আন্দোলন শুরু হয় গত ৫ জুন। মুক্তিযোদ্ধার পরিবারের পক্ষ থেকে আবেদনের পরিপ্রেক্ষিতে, হাইকোর্ট সরকারি দপ্তর, স্বায়ত্তশাসিত ও আধা-স্বায়ত্তশাসিত প্রতিষ্ঠান এবং বিভিন্ন করপোরেশনের চাকরিতে সরাসরি নিয়োগের ক্ষেত্রে (নবম থেকে ১৩তম গ্রেড) মুক্তিযোদ্ধা কোটা বাতিলের পরিপত্র অবৈধ ঘোষণা করে রায় দেন।  এর প্রতিক্রিয়ায় ছয়টি বিশ্ববিদ্যালয়ে শিক্ষার্থীরা বিক্ষোভ শুরু করে। ঢাকায় শিক্ষার্থীরা ঢাকা বিশ্ববিদ্যালয়ের কেন্দ্রীয় গ্রন্থাগারের সামনে জড়ো হয় এবং শহীদ মিনারে একটি সংক্ষিপ্ত সমাবেশ করে।"
+                android:textColor="#666666"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/btxf"
+                android:lineSpacingExtra="8dp"
+                android:text="২-৬ জুলাই ২০২৪"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/kalpurush"
+                android:text="ঢাকা বিশ্ববিদ্যালয়ের শিক্ষার্থীরা &apos;বৈষম্যবিরোধী ছাত্র আন্দোলন&apos;র ব্যানারে সংগঠিত হয় এবং সরকারি চাকরিতে কোটা পদ্ধতি বাতিল করে ২০১৮ সালের সরকারি বিজ্ঞপ্তি পুনঃবহালের দাবিতে টিএসসি এলাকায় একটি বিক্ষোভ সমাবেশ করে।  পরের কয়েকদিন দেশের অন্যান্য অংশে বিক্ষোভ ছড়িয়ে পড়ে। ঢাকা বিশ্ববিদ্যালয় থেকে জাহাঙ্গীরনগর বিশ্ববিদ্যালয়, জগন্নাথ বিশ্ববিদ্যালয়, বাংলাদেশ কৃষি বিশ্ববিদ্যালয়, বরিশাল বিশ্ববিদ্যালয় ও চট্টগ্রাম বিশ্ববিদ্যালয় পর্যন্ত শিক্ষার্থীরা তাদের ক্যাম্পাস ও এর আশপাশে মিছিল-সমাবেশ করে।  গত ৪ জুলাই সুপ্রিম কোর্টের আপিল বিভাগ ৫ জুন হাইকোর্টের রায় বহাল রাখার সিদ্ধান্ত নেয়। পরদিন ৬ জুলাই শিক্ষার্থীরা &apos;বাংলা ব্লকেড&apos; কর্মসূচির ডাক দেয়।"
+                android:textColor="#666666"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/btxf"
+                android:lineSpacingExtra="8dp"
+                android:text="৭ জুলাই ২০২৪"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/kalpurush"
+                android:text="শিক্ষার্থীদের বিক্ষোভ কর্মসূচির কারণে ঢাকা শহর স্থবির হয়ে যায়। এদিন ছয়টির বেশি ব্যস্ত সড়ক অবরোধ করে শিক্ষার্থীরা। এ বিক্ষোভকে &apos;অযৌক্তিক&apos; উল্লেখ করে বিষয়টি সর্বোচ্চ আদালতে নিষ্পত্তি হওয়া উচিত বলে মন্তব্য করেন শেখ হাসিনা।"
+                android:textColor="#666666"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/btxf"
+                android:lineSpacingExtra="8dp"
+                android:text="৮ জুলাই ২০২৪"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/kalpurush"
+                android:text="অবরোধ ও বিক্ষোভ জোরালো হতে থাকে। এতে করে ঢাকাবাসী ও অন্যান্য জেলার সঙ্গে ঢাকায় যাতায়াতে মারাত্মক অসুবিধা হয়। বিক্ষোভকারীরা একটি নতুন আইন প্রণয়নের মাধ্যমে সরকারি চাকরিতে সব অযৌক্তিক ও বৈষম্যমূলক কোটা সম্পূর্ণভাবে বাদ দেওয়ার এক দফা দাবি জানান।"
+                android:textColor="#666666"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/btxf"
+                android:lineSpacingExtra="8dp"
+                android:text="১০ জুলাই ২০২৪"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/kalpurush"
+                android:text="সরকারি চাকরিতে সরাসরি নিয়োগে (নবম থেকে ১৩তম গ্রেড) কোটার বিষয়ে পক্ষগুলোকে চার সপ্তাহের জন্য স্থিতাবস্থা বজায় রাখতে নির্দেশ দেন আপিল বিভাগ।  এই রায় সত্ত্বেও সরকার একটি ডেডিকেটেড কমিশন এবং পরবর্তী আইন প্রণয়নের মাধ্যমে কোটা পদ্ধতি সংস্কারের প্রতিশ্রুতি না দেওয়া পর্যন্ত আন্দোলনকারীরা বিক্ষোভ চালিয়ে যাওয়ার ঘোষণা দেন।"
+                android:textColor="#666666"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/btxf"
+                android:lineSpacingExtra="8dp"
+                android:text="১১ জুলাই ২০২৪"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/kalpurush"
+                android:text="এদিন হাইকোর্ট জানান, সরকার চাইলে কোটা পদ্ধতির পরিবর্তন ও পরিবর্ধন করতে পারবে। কোটা পূরণ না হলে মেধার ভিত্তিতে নিয়োগ দিতে পারবে। তবে আন্দোলনরত শিক্ষার্থীরা বলেছেন, কোটা পদ্ধতি সংস্কারে সংসদে আইন প্রণয়ন না করা পর্যন্ত তারা আন্দোলন চালিয়ে যাবেন।  পুলিশ বিক্ষোভকারীদের সতর্কবার্তা দেয়, মন্ত্রীরা আন্দোলন থেকে সরে আসার আহ্বান জানালেও তা উপেক্ষা করে আন্দোলনকারীরা &apos;বাংলা ব্লকেড&apos; কর্মসূচি পালন করে। কয়েকটি স্থানে আইনশৃঙ্খলা বাহিনীর সঙ্গে শিক্ষার্থীদের সংঘর্ষ হয়।"
+                android:textColor="#666666"
+                android:textSize="14sp" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginBottom="8dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/quota_12_july"
+                app:shapeAppearanceOverlay="@style/RoundedImageView" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/btxf"
+                android:lineSpacingExtra="8dp"
+                android:text="১২ জুলাই ২০২৪"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/kalpurush"
+                android:text="ঢাকার বাইরে শিক্ষার্থীদের ওপর পুলিশের হামলার প্রতিবাদে এবং কোটা পদ্ধতি সংস্কারের দাবি জানিয়ে রাজধানীর শাহবাগ মোড় অবরোধ করে বিক্ষোভকারীরা। এদিন সাবেক আইনমন্ত্রী আন্দোলনকারীদের হুঁশিয়ারি দিয়ে বলেন, আন্দোলন চলতে থাকলে সরকার ব্যবস্থা নিতে বাধ্য হবে।"
+                android:textColor="#666666"
+                android:textSize="14sp" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginBottom="8dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/quota_15_july_1"
+                app:shapeAppearanceOverlay="@style/RoundedImageView" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/kalpurush"
+                android:lineSpacingExtra="8dp"
+                android:text="১৩ জুলাই ২০২৪"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/kalpurush"
+                android:text="১৩ জুলাই রাজশাহীতে রেলপথ অবরোধ করে শিক্ষার্থীরা বিক্ষোভ করে। ঢাকা বিশ্ববিদ্যালয়ে শিক্ষার্থীরা সংবাদ সম্মেলন করে অভিযোগ করেন, &apos;মামলা দিয়ে শিক্ষার্থীদের আন্দোলনে বাধা দেওয়ার চেষ্টা করা হচ্ছে।&apos;"
+                android:textColor="#666666"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/kalpurush"
+                android:lineSpacingExtra="8dp"
+                android:text="১৪ জুলাই ২০২৪"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/kalpurush"
+                android:text="সব গ্রেডে কোটার যৌক্তিক সংস্কারের দাবিতে গণপদযাত্রা করে রাষ্ট্রপতি বরাবর স্মারকলিপি দেন আন্দোলনকারীরা। সেদিন সন্ধ্যায় একজন সাংবাদিকের প্রশ্নের জবাবে শেখ হাসিনা বিতর্কিত মন্তব্য করেন, মন্তব্যে তিনি আন্দোলনকারীদের &apos;রাজাকার&apos;র সঙ্গে তুলনা করেন। এই মন্তব্যের পর রাতে শিক্ষার্থীদের বিক্ষোভ শুরু হয়। বিভিন্ন ক্যাম্পাসে শিক্ষার্থীরা স্লোগান দেন &apos;তুমি কে, আমি কে, রাজাকার রাজাকার; কে বলেছে, কে বলেছে, স্বৈরাচার স্বৈরাচার&apos;।"
+                android:textColor="#666666"
+                android:textSize="14sp" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginBottom="8dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/quota_15_july_2"
+                app:shapeAppearanceOverlay="@style/RoundedImageView" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/btxf"
+                android:lineSpacingExtra="8dp"
+                android:text="১৫ জুলাই ২০২৪"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/kalpurush"
+                android:text="আওয়ামী লীগের নেতারা শিক্ষার্থীদের স্লোগানে &apos;রাজাকার&apos; শব্দ ব্যবহারের নিন্দা জানান। কোটা সংস্কারের দাবিতে আন্দোলনকারীদের &apos;রাজাকার&apos; স্লোগানের জবাব ছাত্রলীগই দেবে বলে মন্তব্য করেন আওয়ামী লীগের সাধারণ সম্পাদক ওবায়দুল কাদের। দুপুরে কোটা সংস্কার আন্দোলনে যারা &apos;আমি রাজাকার&apos; স্লোগান দিচ্ছেন, তাদের শেষ দেখিয়ে ছাড়বেন বলে মন্তব্য করেন বাংলাদেশ ছাত্রলীগের কেন্দ্রীয় কমিটির সভাপতি সাদ্দাম হোসেন।  সেদিন ঢাকা বিশ্ববিদ্যালয়ে কোটা আন্দোলনে ছাত্রলীগ ও অন্যান্য ক্ষমতাসীন দলের কর্মীরা শিক্ষার্থীদের ওপর নির্বিচারে হামলা চালায়। তারা ঢাকা মেডিকেল কলেজ হাসপাতালের ভেতরে ও বাইরে আহত বিক্ষোভকারীদের ওপরও হামলা চালায়। সেদিন উভয়পক্ষের তিন শতাধিক মানুষ আহত হয়।"
+                android:textColor="#666666"
+                android:textSize="14sp" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginBottom="8dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/quota_16_july"
+                app:shapeAppearanceOverlay="@style/RoundedImageView" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/btxf"
+                android:lineSpacingExtra="8dp"
+                android:text="১৬ জুলাই ২০২৪"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/kalpurush"
+                android:text="ঢাকা, চট্টগ্রাম ও রংপুরে ক্ষমতাসীন দলের নেতাকর্মী ও আইনশৃঙ্খলা বাহিনীর সঙ্গে আন্দোলনরত শিক্ষার্থীদের সংঘর্ষে অন্তত ছয়জন নিহত হয়। সব বিশ্ববিদ্যালয়, কলেজ ও মাধ্যমিক বিদ্যালয় অনির্দিষ্টকালের জন্য বন্ধ ঘোষণা করা হয় এবং শিক্ষার্থীদের হল খালি করতে বলা হয়েছে। সরকার ছয়টি জেলায় বিজিবি (বর্ডার গার্ড বাংলাদেশ) মোতায়েন করে।  সেদিন শিক্ষার্থীরা ঢাবি ও রাবির অধিকাংশ হলের নিয়ন্ত্রণ নিয়ে ছাত্রলীগ নেতাদের কক্ষ ভাঙচুর করে।  রংপুরে বেগম রোকেয়া বিশ্ববিদ্যালয়ে নিরস্ত্র শিক্ষার্থী আবু সাঈদকে পুলিশ গুলি করে হত্যা করে। এ ঘটনার একটি ভিডিও ইন্টারনেটে ছড়িয়ে পড়ে।"
+                android:textColor="#666666"
+                android:textSize="14sp" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginBottom="8dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/quota_16_july_2"
+                app:shapeAppearanceOverlay="@style/RoundedImageView" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/btxf"
+                android:lineSpacingExtra="8dp"
+                android:text="১৭ জুলাই ২০২৪"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/kalpurush"
+                android:text="ঢাকা বিশ্ববিদ্যালয়, জাহাঙ্গীরনগর বিশ্ববিদ্যালয় ও রাজশাহী বিশ্ববিদ্যালয়ে আগের দিন নিহতদের &apos;গায়েবানা জানাজা&apos; চলাকালে পুলিশ শিক্ষার্থীদের ওপর হামলা চালায়। শিক্ষার্থীরা পরদিন থেকে সারাদেশে &apos;কমপ্লিট শাটডাউন&apos; কর্মসূচি ঘোষণা করে; হাসপাতাল ও জরুরি পরিষেবা ছাড়া সবকিছু বন্ধ থাকবে বলে ঘোষণা দেয়।  এদিন আন্দোলনকারীরা স্কুল-কলেজসহ সব শিক্ষাপ্রতিষ্ঠানের শিক্ষার্থীদের প্রতিবাদে যোগদানের আহ্বান জানায় এবং সাধারণ নাগরিকদেরও সমর্থন জানিয়ে পাশে থাকার আহ্বান জানায়।  এদিন শেখ হাসিনা জাতির উদ্দেশে ভাষণে বিক্ষোভকারীদের বিচারব্যবস্থার প্রতি আস্থা রাখার আহ্বান জানান এবং হত্যাকাণ্ডের বিচার বিভাগীয় তদন্তের ঘোষণা দেন। অনুপ্রবেশকারীরা যাতে আন্দোলনকারীদের মধ্যে আশ্রয় নিয়ে নৈরাজ্য সৃষ্টি করতে না পারে, সেজন্য তিনি শিক্ষার্থীদের সতর্ক থাকার আহ্বান জানান।"
+                android:textColor="#666666"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/btxf"
+                android:lineSpacingExtra="8dp"
+                android:text="১৮ জুলাই ২০২৪"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/kalpurush"
+                android:text="ব্র্যাক ইউনিভার্সিটিসহ কয়েকটি বেসরকারি বিশ্ববিদ্যালয় ক্যাম্পাসে পুলিশ ও ছাত্রলীগের লোকজন শিক্ষার্থীদের ওপর হামলা চালায়। ১৯টি জেলায় সংঘর্ষের ফলে সহিংসতায় কমপক্ষে ২৯ জন নিহত হয়। অনির্দিষ্টকালের জন্য মেট্রোরেল চলাচল বন্ধ করা হয়।  বিকেল থেকে সারাদেশে মোবাইল ইন্টারনেট পরিষেবা বন্ধ করে দেওয়া হয়। আন্দোলনকারীরা বিটিভি ভবন, সেতু ভবন ও অন্যান্য সরকারি প্রতিষ্ঠানে ভাঙচুর ও অগ্নিসংযোগ করে। ঢাকা এলিভেটেড এক্সপ্রেসওয়ের বনানী টোল প্লাজায় সন্ধ্যায় আগুনের ঘটনা ঘটে।  আইনশৃঙ্খলা রক্ষাকারী বাহিনী আন্দোলনকারীদের দমনে শক্তি প্রয়োগ করে।  রাত ৯টার দিকে ইন্টারনেট সার্ভিস প্রোভাইডার (আইএসপি) ও ক্যারিয়ারগুলোকে ইন্টারনেট পরিষেবা বন্ধ করার নির্দেশ দেওয়া হয়। দেশে সম্পূর্ণ ইন্টারনেট ব্ল্যাকআউট শুরু হয়। ফলে বাংলাদেশের সঙ্গে বিশ্বের যোগাযোগ বিচ্ছিন্ন হয়ে যায়। সাবেক আইসিটি প্রতিমন্ত্রী জুনাইদ আহমেদ পলকসহ সরকারি কর্মকর্তারা মহাখালীর একটি ডেটা সেন্টারে আগুন লাগার ফলে ইন্টারনেট সংযোগ বিচ্ছিন্ন হয়েছে বলে দাবি করেন।"
+                android:textColor="#666666"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/btxf"
+                android:lineSpacingExtra="8dp"
+                android:text="১৯ জুলাই ২০২৪"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/kalpurush"
+                android:text="এদিন দিনব্যাপী সহিংসতায় কমপক্ষে ৬৬ জনের মৃত্যু হয়, আহত হন কয়েকশ মানুষ। জুমার নামাজের পর সারাদেশে, বিশেষ করে ঢাকার বাড্ডা, রামপুরা, উত্তরা, যাত্রাবাড়ী ও মোহাম্মদপুরে সংঘর্ষ তীব্র হয়। নরসিংদীর কারাগার, মেট্রোরেল স্টেশন, বিআরটিএ অফিসসহ কয়েকটি সরকারি প্রতিষ্ঠানে ভাঙচুর ও অগ্নিসংযোগ করা হয়।  বৈষম্যবিরোধী ছাত্র আন্দোলনের সমন্বয়করা নয় দফা দাবি ঘোষণা করেন। যার মধ্যে ছিল শেখ হাসিনাকে ক্ষমা চাইতে হবে, কয়েকজন মন্ত্রী ও বিশ্ববিদ্যালয়ের ভিসিদের পদত্যাগ করতে হবে, হামলায় জড়িত ছাত্রলীগ ও পুলিশ সদস্যদের শাস্তি দিতে হবে, ক্ষতিগ্রস্তদের ক্ষতিপূরণ ও আন্দোলনকারীদের আইনি সুরক্ষা দিতে হবে।  এদিন মধ্যরাত থেকে সরকার দেশব্যাপী কারফিউ ঘোষণা করে এবং সেনা মোতায়েন করে।  "
+                android:textColor="#666666"
+                android:textSize="14sp" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginBottom="8dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/curfew"
+                app:shapeAppearanceOverlay="@style/RoundedImageView" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/btxf"
+                android:lineSpacingExtra="8dp"
+                android:text="২০ জুলাই ২০২৪"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/kalpurush"
+                android:text="কারফিউয়ের প্রথম দিনে অন্তত ২১ জন নিহত হয়েছেন। পরবর্তী নির্দেশ না দেওয়া পর্যন্ত কারফিউ বাড়ানো হয় এবং দুই দিনের সাধারণ সরকারি ছুটি ঘোষণা করা হয়।  এদিন তিনজন সমন্বয়ক আট দফা দাবি নিয়ে তিনজন মন্ত্রীর সঙ্গে দেখা করেন, যা পূর্বঘোষিত নয় দফা দাবি থেকে মূল পয়েন্টে ভিন্ন।  গভীর রাতে সবুজবাগের একটি বাসা থেকে বৈষম্যবিরোধী ছাত্র আন্দোলনের অন্যতম সমন্বয়ক নাহিদ ইসলামকে সাদা পোশাকে কয়েকজন জোর করে তুলে নিয়ে যায়।  "
+                android:textColor="#666666"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/btxf"
+                android:lineSpacingExtra="8dp"
+                android:text="২১ জুলাই ২০২৪"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/kalpurush"
+                android:text="পূর্বাচলের একটি ওভারব্রিজের নিচে জ্ঞান ফেরে নাহিদ ইসলামের। তিনি অভিযোগ করেন, তাকে চোখ বেঁধে একটি অজ্ঞাত স্থানে নিয়ে যাওয়া হয়েছিল এবং জ্ঞান হারানোর আগ পর্যন্ত নির্যাতন করা হয়েছিল। বাম উরু ও কাঁধে গুরুতর জখম, সারা শরীরে মারধরের চিহ্ন নিয়ে হাসপাতালে ভর্তি হন তিনি।  এদিন সরকারি চাকরিতে নিয়োগের ক্ষেত্রে রায় দেন সর্বোচ্চ আদালত। রায়ে কোটাপ্রথা হিসেবে মেধাভিত্তিক ৯৩ শতাংশ; মুক্তিযোদ্ধা, শহীদ মুক্তিযোদ্ধা ও বীরাঙ্গনার সন্তানদের জন্য পাঁচ শতাংশ; ক্ষুদ্র জাতিগোষ্ঠীর এক শতাংশ এবং প্রতিবন্ধী ও তৃতীয় লিঙ্গের জন্য এক শতাংশ নির্ধারণ করা হয়।  এদিন কারফিউর মধ্যে অন্তত সাতজন নিহত হয়েছেন। জাতিসংঘ, ইইউ, যুক্তরাজ্য সহিংসতার বিষয়ে উদ্বেগ প্রকাশ করায় তিন বাহিনীর প্রধান শেখ হাসিনার সঙ্গে দেখা করেছেন। "
+                android:textColor="#666666"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/btxf"
+                android:lineSpacingExtra="8dp"
+                android:text="২২ জুলাই ২০২৪"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/kalpurush"
+                android:text="টানা তিন দিন পুলিশি অভিযানে সহিংসতার সঙ্গে জড়িত থাকার অভিযোগে এক হাজার ৪২৭ জনকে গ্রেপ্তার করে আইনশৃঙ্খলা রক্ষাকারী বাহিনী। প্রায় ২০ হাজার অজ্ঞাতপরিচয় ব্যক্তিকে অভিযুক্ত করে বিভিন্ন থানায় প্রায় ৫০টি মামলা দায়ের করা হয়। ষড়যন্ত্র ও সহিংসতার সন্দেহে বিএনপি ও জামায়াত জোটের কয়েকশ মানুষকে গ্রেপ্তার করা হয়। "
+                android:textColor="#666666"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/kalpurush"
+                android:lineSpacingExtra="8dp"
+                android:text="২৩ জুলাই ২০২৪"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/kalpurush"
+                android:text="                 সরকারি, আধা-সরকারি ও স্বায়ত্তশাসিত সংস্থায় ৯৩ শতাংশ নিয়োগ মেধার ভিত্তিতে করার ঘোষণা দিয়ে প্রজ্ঞাপন জারি করে সরকার। তবে, কোটা সংস্কার আন্দোলনের সমন্বয়করা তা প্রত্যাখ্যান করে। তারা বিক্ষোভে নিহত ও আহতের বিচার দাবি করে।  এদিন কারফিউর মধ্যেও বিরোধী নেতা ও বিক্ষোভকারীদের লক্ষ্য করে গ্রেপ্তার অভিযান চলমান ছিল। কিছু কিছু এলাকায় এদিন ব্রডব্যান্ড ইন্টারনেট সচল হয়। তবে বন্ধ ছিল সামাজিক যোগাযোগমাধ্যম। "
+                android:textColor="#666666"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/btxf"
+                android:lineSpacingExtra="8dp"
+                android:text="২৪ জুলাই ২০২৪"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/kalpurush"
+                android:text="কোটা আন্দোলনের তিন সমন্বয়ক ঢাকা বিশ্ববিদ্যালয়ের শিক্ষার্থী আসিফ মাহমুদ, আবু বাকের মজুমদার ও রিফাত রশিদকে পাঁচ দিন পর পাওয়া যায়। সামাজিক যোগাযোগমাধ্যমে তারা জানান, অজ্ঞাত কয়েকজন তাদের চোখ বেঁধে তুলে নিয়েছিল এবং বিক্ষোভ শেষ করার ঘোষণা দেওয়ার জন্য নির্যাতন করেছিল।"
+                android:textColor="#666666"
+                android:textSize="14sp" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/btxf"
+                android:lineSpacingExtra="8dp"
+                android:text="২৫ জুলাই ২০২৪"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/kalpurush"
+                android:text="সেনা মোতায়েনের পর শেখ হাসিনা প্রথম জনসমক্ষে আসেন এবং ক্ষতিগ্রস্ত মেট্রোরেল স্টেশন পরিদর্শন করেন। তিনি অগ্নিসংযোগ ও ভাঙচুর প্রতিরোধ করার জন্য জনগণকে আহ্বান জানান। আহত-নিহতদের খোঁজ না নিয়ে মেট্রোরেল পরিদর্শন করায় আন্দোলনকারী ও সাধারণ জনগণ আরও বিক্ষুব্ধ হয়ে ওঠে। এদিন জাতীয় পার্টির নেতা আন্দালিব রহমান পার্থ এবং ব্যবসায়ী ডেভিড হাসনাতসহ কয়েক ডজন নেতাকে গ্রেপ্তার করা হয়। সামাজিক যোগাযোগমাধ্যম তখনো বন্ধ ছিল। জাতিসংঘ, অ্যামনেস্টি ইন্টারন্যাশনাল, যুক্তরাষ্ট্র, কানাডা আন্দোলনকারীদের ওপর অভিযান বন্ধের আহ্বান জানায়।  "
+                android:textColor="#666666"
+                android:textSize="14sp" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginBottom="8dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/block_raid_arrest"
+                app:shapeAppearanceOverlay="@style/RoundedImageView" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/btxf"
+                android:lineSpacingExtra="8dp"
+                android:text="২৬ জুলাই ২০২৪"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/kalpurush"
+                android:text=" পুলিশের গোয়েন্দা শাখা (ডিবি) হাসপাতাল থেকে তিন সমন্বয়কে তুলে নেয়। এদিন জাতীয় ঐক্য ও সরকার পতনের আহ্বান জানায় বিএনপি। শেখ হাসিনা এদিন ঢাকা মেডিকেল কলেজ হাসপাতাল পরিদর্শন করেন। আবু সাঈদ হত্যার বিষয়ে পুলিশের এফআইআরে মৃত্যুর কারণ হিসেবে পুলিশের গুলি নয়, বরং বিক্ষোভকারীদের ইটপাটকেলের কথা উল্লেখ করা হয়। "
+                android:textColor="#666666"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/btxf"
+                android:lineSpacingExtra="8dp"
+                android:text="২৭ জুলাই ২০২৪"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/kalpurush"
+                android:text="আন্দোলনকারী শিক্ষার্থীদের ধরতে এলাকায় এলাকায় &apos;ব্লক রেইড&apos; পরিচালনা শুরু হয়। ডিবি আরও দুই সমন্বয়ককে তুলে নেয় এবং সমন্বয়কদের &apos;নিরাপত্তা হেফাজতে&apos; নেওয়া হয়েছে বলে জানায়। "
+                android:textColor="#666666"
+                android:textSize="14sp" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginBottom="8dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/faiyaz"
+                app:shapeAppearanceOverlay="@style/RoundedImageView" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/kalpurush"
+                android:text="এদিন ১৪টি বিদেশি মিশন সরকারের প্রতি আইনশৃঙ্খলা রক্ষাকারী বাহিনীকে জবাবদিহি নিশ্চিত করার আহ্বান জানায়। ১৭ বছর বয়সী হাসনাতুল ইসলাম ফাইয়াজকে ভাঙচুরের মামলায় দড়ি দিয়ে বেঁধে আদালতে হাজির করে সাত দিনের রিমান্ডে নেওয়া হয়। এদিন শেখ হাসিনা ক্ষতিগ্রস্তদের দেখতে পঙ্গু হাসপাতালে যান। দেশের অর্থনীতিকে পঙ্গু করতে এমন সহিংসতা চালানো হয়েছে বলে মন্তব্য করেন তিনি। "
+                android:textColor="#666666"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/btxf"
+                android:lineSpacingExtra="8dp"
+                android:text="২৮ জুলাই ২০২৪"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/kalpurush"
+                android:text="েশব্যাপী পুলিশের অভিযান চলমান ছিল। শুধু ঢাকাতেই ২০০টিরও বেশি মামলায় দুই লাখ ১৩ হাজারের বেশি মানুষকে অভিযুক্ত করা হয়েছে। মোবাইল ইন্টারনেট সচল হলেও বন্ধ ছিল সামাজিক যোগাযোগমাধ্যম। ঢাকা মেট্রোপলিটন পুলিশের (ডিএমপি) অতিরিক্ত কমিশনার ও গোয়েন্দা শাখার (ডিবি) তৎকালীন প্রধান হারুন-অর-রশিদের সঙ্গে ছয় সমন্বয়কের এক টেবিলে বসে খাওয়ার ছবি ও ভিডিও সামাজিক যোগাযোগমাধ্যমে ছড়িয়ে পড়ে। ডিবি হেফাজতে থাকা অবস্থাতেই একটি ভিডিও ও লিখিত বিবৃতিতে আন্দোলন শেষ করার ঘোষণা দেন ছয় সমন্বয়ক।  তবে বাইরে থাকা অন্য সংগঠকরা বিক্ষোভ চালিয়ে যাওয়ার ঘোষণা দেন। হেফাজতে থাকা ছয়জনকে বিবৃতি দিতে বাধ্য করা হয়েছে বলে দাবি করা হয়। এদিন সরকার আনুষ্ঠানিকভাবে আন্দোলনে ১৪৭ জনের নিহতের বিষয়টি নিশ্চিত করে। "
+                android:textColor="#666666"
+                android:textSize="14sp" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginBottom="8dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/block_raid_1"
+                app:shapeAppearanceOverlay="@style/RoundedImageView" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/btxf"
+                android:lineSpacingExtra="8dp"
+                android:text="২৯ জুলাই ২০২৪"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/kalpurush"
+                android:text="  ছয় সমন্বয়কারীকে আটক ও হয়রানির প্রতিবাদে আবারও রাস্তায় নামে শিক্ষার্থীরা। পুলিশের সাউন্ড গ্রেনেড ও টিয়ারশেলের মুখে ব্যাপক সংঘর্ষ হয়। এদিন সরকার জামায়াত-শিবির নিষিদ্ধ করার ঘোষণা দেয়।  এদিন অবিলম্বে বৈষম্যবিরোধী ছাত্র আন্দোলনের ছয় সমন্বয়ককে ডিবি হেফাজত থেকে মুক্তি ও আন্দোলনকারীদের ওপর গুলি না চালাতেও আদালতের নির্দেশনা চেয়ে হাইকোর্টে রিট করেন সুপ্রিম কোর্টের আইনজীবী মানজুর-আল-মতিন ও আইনুন্নাহার সিদ্দিকা। শুনানিতে ছয় সমন্বয়ককে ডিবি কার্যালয়ে তুলে নিয়ে গিয়ে তাদেরকে খাওয়ানোর ছবি প্রকাশ করাকে জাতির সঙ্গে &apos;মশকরা&apos; বলে মন্তব্য করেন হাইকোর্ট। "
+                android:textColor="#666666"
+                android:textSize="14sp" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginBottom="8dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/co_ordinator"
+                app:shapeAppearanceOverlay="@style/RoundedImageView" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/btxf"
+                android:lineSpacingExtra="8dp"
+                android:text="৩০ জুলাই ২০২৪"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/kalpurush"
+                android:text="এদিন কোটা আন্দোলন ঘিরে নিহত ব্যক্তিদের স্মরণে দেশব্যাপী শোক পালনের আহ্বান জানায় সরকার। এ আহ্বান প্রত্যাখ্যান করে একক বা ঐক্যবদ্ধভাবে লাল কাপড় মুখে ও চোখে বেঁধে ছবি তোলা এবং অনলাইনে প্রচার কর্মসূচি ঘোষণা করে আন্দোলনকারীরা। লাখো মানুষ বাংলাদেশি শিক্ষার্থীদের সঙ্গে সংহতি জানিয়ে ফেসবুকসহ সামাজিক যোগাযগমাধ্যমে তাদের প্রোফাইলে লাল রঙের ছবি আপলোড করে।  একই দিন বেশ কয়েকটি বিশ্ববিদ্যালয়ের শিক্ষকরা সমাবেশ করেন, অভিভাবকরা প্রতিবাদ সমাবেশ করেন এবং বিশিষ্ট নাগরিকরা জনসমক্ষে হতাহতের জন্য সরকারের কাছে জবাবদিহিতা দাবি করেন। অর্থাৎ শিক্ষার্থী ছাড়াও অন্যান্য শ্রেণি-পেশার মানুষ বিক্ষোভে যোগ দিতে শুরু করেন।   "
+                android:textColor="#666666"
+                android:textSize="14sp" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginBottom="8dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/teacher"
+                app:shapeAppearanceOverlay="@style/RoundedImageView" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/btxf"
+                android:lineSpacingExtra="8dp"
+                android:text="১ আগস্ট ২০২৪"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/kalpurush"
+                android:text="সরকার সন্ত্রাসবিরোধী আইনে জামায়াত-শিবিরকে নিষিদ্ধ করে প্রজ্ঞাপন জারি করে। জাতিসংঘ একটি ফ্যাক্ট-ফাইন্ডিং দল পাঠানোর প্রস্তাব দেয়, এ প্রস্তাবকে স্বাগত জানায় তৎকালীন প্রধানমন্ত্রী শেখ হাসিনা। এদিন ডিবির হেফাজত থেকে ছয় সমন্বয়ককে মুক্তি দেওয়া হয়। বিক্ষোভকারীরা নিহতদের জন্য দোয়া-প্রার্থনা ও মিছিল কর্মসূচি করে।  "
+                android:textColor="#666666"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/btxf"
+                android:lineSpacingExtra="8dp"
+                android:text="২ আগস্ট ২০২৪"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/kalpurush"
+                android:text="আওয়ামী লীগের নেতাকর্মী, পুলিশ ও আন্দোলনকারীদের মধ্যে সংঘর্ষে কমপক্ষে আরও দুজন নিহত হন। বিক্ষোভকারীদের হত্যা ও পুলিশি দমন-পীড়নের প্রতিবাদ অব্যাহত ছিল। সহিংসতায় নিহতদের বিচার চেয়ে জাতীয় প্রেসক্লাব থেকে শহীদ মিনার পর্যন্ত লাখো শিক্ষার্থী, শিক্ষক, অভিভাবক, আইনজীবী, সুশীল সমাজের সদস্য ও রাজনৈতিক কর্মীরা &apos;দ্রোহ যাত্রা&apos;তে যোগ দেয়।  সাংস্কৃতিক সংগঠনের সদস্য ও বেশ কিছু সাংস্কৃতিক ব্যক্তিত্ব আন্দোলনে একাত্মতা প্রকাশ করে কবিতা আবৃত্তি ও গান করেন।  বিক্ষোভকারীরা ৪ আগস্ট থেকে দেশব্যাপী আন্দোলন ও অসহযোগ আন্দোলনের ঘোষণা দেয়। ফেসবুক আবারও সাত ঘণ্টার জন্য বন্ধ করে দেওয়া হয়। ছয় সমন্বয়ক জানান, ডিবি অফিসে তাদেরকে আন্দোলন প্রত্যাহারের বিবৃতি দিতে চাপ প্রয়োগ করা হয়েছে। শেখ হাসিনা এদিন বিক্ষোভকারীদের আলোচনায় বসার আহ্বান জানিয়ে বলেন, গণভবনে তার দরজা আলোচনার জন্য খোলা রয়েছে। "
+                android:textColor="#666666"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/btxf"
+                android:lineSpacingExtra="8dp"
+                android:text="৩ আগস্ট ২০২৪"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/kalpurush"
+                android:text="ছাত্রদের দাবির সঙ্গে সংহতি জানাতে ঢাকার কেন্দ্রীয় শহীদ মিনারে লাখো মানুষ সমবেত হয়। দেশের অন্যান্য অংশে বিক্ষোভকারীদের ওপর নির্বিচারে হামলা করে পুলিশ।  এদিন সরকারের পদত্যাগের দাবিতে এক দফা দাবি ঘোষণা করে বৈষম্যবিরোধী ছাত্র আন্দোলন।  "
+                android:textColor="#666666"
+                android:textSize="14sp" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginBottom="8dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/four_august"
+                app:shapeAppearanceOverlay="@style/RoundedImageView" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/kalpurush"
+                android:lineSpacingExtra="8dp"
+                android:text="৪ আগস্ট ২০২৪"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/kalpurush"
+                android:text="     সারাদেশে আওয়ামী লীগের সদস্যদের সঙ্গে বিক্ষোভকারীদের সহিংস সংঘর্ষ হয়। দেশব্যাপী বিক্ষোভকারী, পুলিশ ও আওয়ামী লীগের সমর্থকসহ অন্তত ৯৩ জন নিহত হন। এদিন মন্ত্রী-এমপিদের বাড়িতে হামলা শুরু হয়। তৎকালীন প্রধানমন্ত্রী শেখ হাসিনা জনগণকে &apos;শক্ত হাতে নাশকতাকারীদের প্রতিহত করার&apos; আহ্বান জানান।  সরকারের পদত্যাগের পর অন্তর্বর্তী সরকারের পরিকল্পনার রূপরেখা দেন বিশ্ববিদ্যালয় শিক্ষক নেটওয়ার্ক। বিক্ষোভকারীরা সারাদেশে নাগরিকদের &apos;মার্চ টু ঢাকা&apos; করার আহ্বান জানান। শুরুতে ৬ জুলাই &apos;মার্চ টু ঢাকা&apos; কর্মসূচির আহ্বান জানানো হলেও পরে তা একদিন আগে ৫ আগস্ট করার ঘোষণা দেওয়া হয়।   "
+                android:textColor="#666666"
+                android:textSize="14sp" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginBottom="8dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/five_august"
+                app:shapeAppearanceOverlay="@style/RoundedImageView" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/btxf"
+                android:lineSpacingExtra="8dp"
+                android:text="৫ আগস্ট ২০২৪"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/kalpurush"
+                android:text="   এদিন হাজারো মানুষ কারফিউ ভেঙে ঢাকার একাধিক মোড়ে জড়ো হয়ে রাজধানীতে প্রবেশের চেষ্টা করে। দুপুর পর্যন্ত আইনশৃঙ্খলা রক্ষাকারী বাহিনী ও ক্ষমতাসীন দলের সমর্থকদের সঙ্গে ব্যাপক সংঘর্ষ হয়। প্রধানমন্ত্রী আরও বল প্রয়োগ করে ক্ষমতায় থাকতে চাইলে তাকে জানানো হয় যে, এই ধরনের ব্যবস্থা অকার্যকর হবে।  সকাল ১০টা থেকে দুপুর দেড়টা পর্যন্ত দেশব্যাপী ইন্টারনেট ব্ল্যাকআউট ছিল। পরে সেনাপ্রধান দুপুর ২টায় জাতির উদ্দেশে ভাষণ দেওয়ার ঘোষণা করে। পরিবারের সদস্যদের সঙ্গে আলোচনার পর পদত্যাগ করতে রাজি হন শেখ হাসিনা। তিনি হেলিকপ্টারে দেশ ছেড়ে যান। শেখ হাসিনার পতন উদযাপন করতে লাখো মানুষ রাস্তায় নেমে আসে। গণভবন, সংসদ ভবন ও প্রধানমন্ত্রীর কার্যালয়ে ভাঙচুর চলে। "
+                android:textColor="#666666"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/kalpurush"
+            android:gravity="end"
+            android:text="Source: দ্যা ডেইলি স্টার "
+            android:textColor="#888888"
+            android:textSize="12sp" />
+    </com.google.android.material.card.MaterialCardView>
+</ScrollView>

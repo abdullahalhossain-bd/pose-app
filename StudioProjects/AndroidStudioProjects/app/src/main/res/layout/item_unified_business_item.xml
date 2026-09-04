@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp"
+    android:background="@color/white">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="6dp">
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:background="@drawable/rounded_background">
+
+            <!-- Business Image -->
+            <ImageView
+                android:id="@+id/unified_business_item_image"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginEnd="16dp"
+                android:padding="4dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/furnitureshop" />
+
+            <!-- Business Name -->
+            <TextView
+                android:id="@+id/Unified_business_item_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/unified_business_item_image"
+                android:layout_toEndOf="@id/unified_business_item_image"
+                android:fontFamily="@font/btxf"
+                android:text="Furniture Name"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <!-- Proprietor Name -->
+            <TextView
+                android:id="@+id/unified_business_item_proprietor_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/Unified_business_item_name"
+                android:layout_toEndOf="@id/unified_business_item_image"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/kalpurush"
+                android:text="Proprietor Name"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <!-- Address -->
+            <TextView
+                android:id="@+id/unified_business_item_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/unified_business_item_proprietor_name"
+                android:layout_toEndOf="@id/unified_business_item_image"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/kalpurush"
+                android:text="Address"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <!-- Details -->
+            <TextView
+                android:id="@+id/unified_business_item_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/unified_business_item_image"
+
+                android:layout_marginTop="6dp"
+                android:fontFamily="@font/kalpurush"
+                android:text="Details"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <!-- Call Button -->
+            <Button
+                android:id="@+id/call_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/unified_business_item_details"
+                android:layout_marginTop="14dp"
+                android:backgroundTint="#1eb1b1"
+                android:fontFamily="@font/kalpurush"
+                android:text="কল করুন"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:paddingVertical="10dp"
+                android:paddingHorizontal="16dp"
+                app:cornerRadius="8dp" />
+
+        </RelativeLayout>
+        <LinearLayout
+            android:background="@color/white"
+            android:id="@+id/bottom_row"
+           android:visibility="gone"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:paddingBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- Edit Button -->
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_edit"
+                android:layout_width="0dp"
+                android:layout_height="38dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:text="✎  সম্পাদনা করুন"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/btn_edit_bg"
+                android:fontFamily="@font/kalpurush"
+                android:contentDescription="Edit"/>
+
+            <!-- Delete Button -->
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_delete"
+                android:layout_width="0dp"
+                android:layout_height="38dp"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:text="🗑  মুছে দিন"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/btn_delete_bg"
+                android:fontFamily="@font/kalpurush"
+                android:contentDescription="Delete"/>
+        </LinearLayout>
+</LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</LinearLayout>

@@ -1,0 +1,738 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/bar"
+            android:elevation="4dp"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+
+                android:fontFamily="@font/btxf"
+                android:text="সকল সামরিক অভ্যুত্থান"
+                android:textColor="@android:color/white"
+                android:textSize="22sp"
+                />
+
+            <ImageView
+                android:id="@+id/back"
+                android:layout_width="55dp"
+                android:layout_height="35dp"
+                android:rotation="180"
+                app:tint="#fff"
+                android:layout_gravity="center"
+                android:src="@drawable/baseline_double_arrow_24" />
+
+
+        </RelativeLayout>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp"
+            android:elevation="6dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="240dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/fristcoups"
+                    app:shapeAppearanceOverlay="@style/RoundedImageView" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_margin="8dp"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="4dp"
+                    app:cardUseCompatPadding="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:padding="8dp">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:paddingStart="8dp"
+                            android:paddingEnd="8dp">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:fontFamily="@font/btxf"
+                                android:gravity="center"
+                                android:text="১৯৭৫ সালের গণঅভ্যুত্থান"
+                                android:textColor="#1eb1b1"
+                                android:textSize="18sp"
+                                 />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/details_section1"
+                            android:layout_width="70dp"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:id="@+id/arrow_icon1"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:contentDescription="Details Arrow"
+                                android:src="@drawable/baseline_arrow_downward_24" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:fontFamily="@font/kalpurush"
+                                android:text="বিস্তারিত"
+                                android:textColor="#1eb1b1"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:visibility="gone"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp">
+
+            <LinearLayout
+                android:id="@+id/liner1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="240dp"
+                    android:layout_marginBottom="8dp"
+                    android:contentDescription="শেখ মুজিবুর রহমান"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/mujibbbc"
+                    app:shapeAppearanceOverlay="@style/RoundedImageView" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:fontFamily="@font/kalpurush"
+                    android:text="শেখ মুজিবুর রহমান (১৯৭২ সালে বিবিসি বাংলাকে সাক্ষাৎকার দেবার সময় তোলা ছবি)"
+                    android:textColor="?android:attr/textColorSecondary"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:fontFamily="@font/kalpurush"
+                    android:lineSpacingExtra="8dp"
+                    android:text=" স্বাধীনতাত্তোর বাংলাদেশের সেনাবাহিনীতে সিনিয়র অফিসারদের মধ্যে দ্বন্দ্ব তৈরি হয়েছিল তার হাতে ধরে পরবর্তীতে বেশ কয়েকটি অভ্যুত্থান এবং পাল্টা-অভ্যুত্থান হয়।"
+                    android:textColor="#000000"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:fontFamily="@font/kalpurush"
+                    android:lineSpacingExtra="8dp"
+                    android:text="স্বাধীনতার মাত্র চার বছরের মাথায় এক অভ্যুত্থানে মাধ্যমে বাংলাদেশের প্রতিষ্ঠাতা রাষ্ট্রপতি শেখ মুজিবুর রহমানকে হত্যা করা হয়েছে সেটি অনেককে বেশ চমকে দিয়েছিল।  পরবর্তীতে আরো কয়েকটি অভ্যুত্থান এবং পাল্টা-অভ্যুত্থানের ঘটনা ঘটে। এছাড়া বেশ কিছু অভ্যুত্থানের ব্যর্থ চেষ্টাও হয়েছে।"
+                    android:textColor="#666666"
+                    android:textSize="14sp" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginBottom="8dp"
+                    android:contentDescription="ধানমন্ডির ৩২ নম্বর বাড়ি"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/mujibdhanmondi"
+                    app:shapeAppearanceOverlay="@style/RoundedImageView" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:fontFamily="@font/kalpurush"
+                    android:text="ধানমন্ডির ৩২ নম্বরের এই বাড়িটিতে হত্যা করা হয় শেখ মুজিবুর রহমানকে। "
+                    android:textColor="?android:attr/textColorSecondary"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:fontFamily="@font/kalpurush"
+                    android:lineSpacingExtra="8dp"
+                    android:text=" ১৯৭৫ সালের ১৫ইঅগাস্ট"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:fontFamily="@font/kalpurush"
+                    android:text="উনিশ&apos;শ পঁচাত্তর সালের ১৫ই অগাস্ট বিয়োগান্ত ঘটনাটি ঘটিয়েছিল সেনাবাহিনীর একদল অফিসার। এই হত্যাকাণ্ড বাংলাদেশের রাজনীতির গতিপথ সম্পূর্ণ বদলে দিয়েছিল।  শেখ মুজিবুর রহমানকে ক্ষমতা থেকে সরিয়ে দেবার জন্য ঢাকা সেনানিবাসে কিছু জুনিয়র সেনা কর্মকর্তা নানা ফন্দি-ফিকির করছিল। কিন্তু কেউ আঁচ করতে পারেনি যে এতো বড় একটা ঘটনা ঘটে যাবে।  উনিশ&apos;শ পঁচাত্তর সালের সে সময়ে ঢাকা ক্যান্টনমেন্টে স্টেশন অফিসার হিসেবে কর্মরত ছিলেন কর্নেল হামিদ। তার লেখা &apos;তিনটি সেনা অভ্যুত্থান&apos; বইতে সে সময়ের বিস্তারিত বিবরণ উঠে এসেছে।  কর্নেল হামিদ লিখেছেন,  মুক্তিযোদ্ধা জুনিয়র অফিসারদের মধ্যে বেশ কিছু তরুণ বিক্ষুব্ধ অফিসার প্রকাশ্যে আওয়ামী লীগ সরকারের সমালোচনায় মুখর ছিল।&apos;  অনেকই গোপনে কিছু একটা করার পথ খুঁজছিল, তবে এসব অভ্যুত্থান ঘটনার মতো বড় বিপদ হিসেবে ধর্তব্যের মধ্যে আনা হয়নি।  সপরিবারে শেখ মুজিবুর রহমানকে হত্যার সাথে জড়িত ছিল সেনাবাহিনীর কিছু কর্মকর্তা।  সে সময় ঢাকা সেনানিবাসে লেফট্যানেন্ট কর্নেল হিসেবে কর্মরত ছিলেন আমিন আহমেদ চৌধুরী, যিনি পরে মেজর জেনারেল হয়েছিলেন। মি: চৌধুরী ২০১৩ সালে মারা যান।  দু&apos;হাজার দশ সালে বিবিসি বাংলাকে দেয়া এক সাক্ষাতকারে তিনি জানিয়েছেন, ১৯৭৫ সালের ১৫ই অগাস্ট ভোর পাঁচটার দিকে হত্যাকাণ্ডের সাথে জড়িত একজন সেনা কর্মকর্তা মেজর রশিদের নেতৃত্বে একদল সেনা তার বাড়ি ঘিরে ফেলে।"
+                    android:textColor="#666666"
+                    android:textSize="14sp" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginBottom="8dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/mujibfamily"
+                    app:shapeAppearanceOverlay="@style/RoundedImageView" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:fontFamily="@font/kalpurush"
+                    android:text="পরিবারসহ শেখ মুজিবুর রহমান: শেখ হাসিনা (সর্ব ডানে) আর শেখ রেহানা (বাঁ দিক থেকে দ্বিতীয়) ছাড়া আর সবাইকে হত্যা করে সৈন্যরা।"
+                    android:textColor="?android:attr/textColorSecondary"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:fontFamily="@font/kalpurush"
+                    android:lineSpacingExtra="8dp"
+                    android:text="কেন্দ্রীয় কারাগারে হত্যাকাণ্ড"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:fontFamily="@font/kalpurush"
+                    android:text="তেসরা নভেম্বর খালেদ মোশারফ তিনটি দাবি তুলে ধরেন। এসব দাবি ছিল - ট্যাংক ও কামান বঙ্গভবন থেকে ক্যান্টনমেন্টে ফেরত পাঠানো, জিয়াউর রহমানের সেনাপ্রধান না থাকা এবং বঙ্গভবনে ফারুক-রশিদের কর্তৃত্বের অবসান ঘটিয়ে তাদের ক্যান্টনমেন্টে ফেরত পাঠানো।  এসব দাবি নিয়ে বঙ্গভবনের সাথে সারাদিনই তাদের আলাপ-আলোচনা চলে। দরকষাকষির একপর্যায়ে শেখ মুজিব হত্যাকাণ্ডের সাথে জড়িত সেনা কর্মকর্তাদের দেশের বাইরে পাঠিয়ে দেবার প্রস্তাব দেন রাষ্ট্রপতি খন্দকার মোশতাক আহমদ।  তেসরা নভেম্বর সন্ধ্যার পরে ফারুক-রশিদসহ ১৭জন বাংলাদেশে বিমানের একটি ফ্লাইটে করে ব্যাংককের উদ্দেশ্যে দেশ ত্যাগ করেন।  এদিকে খালেদ মোশারফের অভ্যুত্থান যখন সংগঠিত হচ্ছিল, তখন রাতেই ঢাকা কেন্দ্রীয় কারাগারে আট থাকা অবস্থায় আওয়ামী লীগের চার সিনিয়র নেতা - সৈয়দ নজরুল ইসলাম, তাজউদ্দীন আহমদ, মনসুর আলী এবং এএইচএম কামরুজ্জামানকে গুলি করে হত্যা করা হয়।"
+                    android:textColor="#666666"
+                    android:textSize="14sp" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginBottom="8dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/national_leader"
+                    app:shapeAppearanceOverlay="@style/RoundedImageView" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:fontFamily="@font/kalpurush"
+                    android:text="কারাগারে নিহত চার নেতা। ঘড়ির কাঁটার ক্রমানুসারে সৈয়দ নজরুল ইসলাম, তাজউদ্দীন আহমেদ, এম মনসুর আলী, এ এইচ এম কামারুজ্জামান "
+                    android:textColor="?android:attr/textColorSecondary"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:fontFamily="@font/kalpurush"
+                    android:lineSpacingExtra="8dp"
+                    android:text=" ১৯৭৫ সালের ৭ই নভেম্বর"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:fontFamily="@font/kalpurush"
+                    android:text="খালেদ মোশারফের নেতৃত্বে এই অভ্যুত্থান ছিল ক্ষণস্থায়ী। এটি টিকে ছিল মাত্র চারদিন।  তখনকার সেনা কর্মকর্তাদের লেখা বিভিন্ন বই থেকে এ ধারণা পাওয়া যায়, ৩রা নভেম্বর অভ্যুত্থানের পর খালেদ মোশারফ রাষ্ট্রক্ষমতা দখল করতে চাননি।  খালেদ মোশারফের প্রধান লক্ষ্য ছিল, জিয়াউর রহমানকে সরিয়ে সেনাপ্রধান হওয়া।  লে. কর্নেল হামিদ লিখেছেন, বঙ্গভবনে খালেদ মোশারফ যখন প্রেসিডেন্ট মোশতাকের সাথে দরকষাকষিতে ব্যস্ত, তখন তার অজান্তেই ক্যান্টনমেন্টের ভেতরে বিভিন্ন ইউনিটের সৈনিকবৃন্দ এবং জাসদের বিপ্লবী সৈনিক সংস্থা আঘাত আনার গোপন প্রস্তুতি শুরু করে।  ছয়ই নভেম্বর সন্ধ্যার সময় ঢাকা সেনানিবাসে কিছু লিফলেট বিতরণ করা হয়।  ঢাকা সেনানিবাসে তখন মেজর হিসেবে কর্মরত ছিলেন সৈয়দ মুহাম্মদ ইব্রাহিম, যিনি পরবর্তীতে মেজর জেনারেল পদে উন্নীত হয়েছিলেন।  সন্ধ্যা সাতটা নাগাদ একটি লিফলেট তার হাতে পৗঁছায়। সে লিফলেটে সেনাবাহিনীর অফিসারদের হত্যার ইংগিত ছিল পরিষ্কার।"
+                    android:textColor="#666666"
+                    android:textSize="14sp" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginBottom="0dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ziaurrahman"
+                    app:shapeAppearanceOverlay="@style/RoundedImageView" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:fontFamily="@font/kalpurush"
+                    android:text="জিয়াউর রহমান "
+                    android:textColor="?android:attr/textColorSecondary"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:fontFamily="@font/kalpurush"
+                    android:text="দু&apos;হাজার সতেরো সালে বিবিসি বাংলার কাছে এক সাক্ষাৎকারে মি: ইব্রাহিম সে ঘটনার বর্ণনা তুলে ধরেছিলেন এভাবে,  সে লিফলেটে লেখা ছিল , সৈনিক-সৈনিক ভাই-ভাই, অফিসারদের রক্ত চাই। এ থেকে আমি বুঝলাম রাতে কিছু একটা হবেই হবে। তখন আমি সিদ্ধান্ত নিলাম প্রথমত নিজেকে বেঁচে থাকতে হবে, দ্বিতীয়ত: সেনাবাহিনীকে বাঁচাতে হবে।  রাত ১২টা বাজতেই গুলির শব্দে প্রকম্পিত হয়ে উঠে ঢাকা সেনানিবাস। ব্যারাক ছেড়ে সৈন্যরা দলে-দলে ক্যান্টনমেন্টের ভেতরে রাস্তায় নেমে আসে।  সাতই নভেম্বর পাল্টা অভ্যুত্থানের মূল পরিকল্পনা করেছিলেন সেনাবাহিনী থেকে অব্যাহতি পাওয়া কর্নেল মো: আবু তাহের। সাথে ছিল বামপন্থী জাতীয় সমাজতান্ত্রিক দল বা জাসদ।  সে সময় কর্নেল তাহেরের ঘনিষ্ঠ সহযোগী ছিলেন তার ছোট ভাই আনোয়ার হোসেন, যিনি পরবর্তীতে ঢাকা বিশ্ববিদ্যালয়ের অধ্যাপক ছিলেন এবং জাহাঙ্গীরনগর বিশ্ববিদ্যালয়ের উপাচার্য হয়েছিলেন।  উনিশ&apos;শ পঁচাত্তর সালের সে সময়টিতে আনোয়ার হোসেন ঢাকায় জাসদের গণবাহিনীর প্রধান ছিলেন।  মি.হোসেন: হোসেনের বর্ণনায় গণঅভ্যুত্থানের মাধ্যমে রাষ্ট্রক্ষমতা দখলের চিন্তা ছিল তাদের।  বিবিসি বাংলাকে দেয়া এক সাক্ষাতকারে মি: হোসেন জানিয়েছেন, ১৯৭৫ সালের ৩রা নভেম্বর থেকে ৬ই নভেম্বর রাত পর্যন্ত অসংখ্য সভা হয়েছে। মূলত; সেনাবাহিনীর সৈনিকদের সাথে জাতীয় সমাজতান্ত্রিক দলের সেসব সভা অনুষ্ঠিত হয়।"
+                    android:textColor="#666666"
+                    android:textSize="14sp" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginBottom="0dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/anowar"
+                    app:shapeAppearanceOverlay="@style/RoundedImageView" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:fontFamily="@font/kalpurush"
+                    android:text="অধ্যাপক আনোয়ার হোসেন ছিলেন গণবাহিনীর ঢাকা মহানগর প্রধান। "
+                    android:textColor="?android:attr/textColorSecondary"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:fontFamily="@font/kalpurush"
+                    android:text="এর মাধ্যমে সৈন্যরা একটি ১২ দফা দাবী প্রস্তুত করে। তাদের লক্ষ্য ছিল খালেদ মোশারফকে পদচ্যুত করা।  সাতই নভেম্বর প্রথম প্রহরে মেজর জেনারেল জিয়াউর রহমানকে মুক্ত করা হলেও বেলা ১১টার দিকে মেজর জেনারেল খালেদ মোশারফকে তার দুই সহযোগী কর্নেল নাজমুল হুদা এবং লে. কর্নেল এটিএম হায়দারসহ হত্যা করা হয়।  কিন্তু জিয়াউর রহমান মুক্ত হবার পর পরিস্থিতি ভিন্ন দিকে মোড় নেয়।  দৃশ্যপটের সামনে চলে আসেন জিয়াউর রহমান এবং আড়ালে যেতে থাকেন কর্নেল তাহের।"
+                    android:textColor="#666666"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp"
+            android:elevation="6dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="240dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ershad"
+                    app:shapeAppearanceOverlay="@style/RoundedImageView" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_margin="8dp"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="4dp"
+                    app:cardUseCompatPadding="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:padding="8dp">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:paddingStart="8dp"
+                            android:paddingEnd="8dp">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:fontFamily="@font/btxf"
+                                android:gravity="center"
+                                android:text="এরশাদের ক্ষমতা গ্রহণ"
+                                android:textColor="#1eb1b1"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/details_section2"
+                            android:layout_width="70dp"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:id="@+id/arrow_icon2"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:contentDescription="Details Arrow"
+                                android:src="@drawable/baseline_arrow_downward_24" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:fontFamily="@font/kalpurush"
+                                android:text="বিস্তারিত"
+                                android:textColor="#1e88e5"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:visibility="gone"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp">
+
+            <LinearLayout
+                android:id="@+id/liner2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="240dp"
+                    android:layout_marginBottom="8dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/husseinmohammadersad"
+                    app:shapeAppearanceOverlay="@style/RoundedImageView" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:fontFamily="@font/btxf"
+                    android:text="জেনারেল হুসেইন মুহাম্মদ এরশাদ জেনারেল এরশাদ"
+                    android:textColor="?android:attr/textColorSecondary"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:fontFamily="@font/kalpurush"
+                    android:lineSpacingExtra="8dp"
+                    android:text="উনিশ&apos;শ একাশি সালের ৩০ মে রাষ্ট্রপতি জিয়াউর রহমান হত্যাকাণ্ডের পর উপরাষ্ট্রপতি আব্দুর সাত্তার রাষ্ট্রপতি হন। তখনো বিএনপি সরকারই ক্ষমতায় ছিল।  সেনাবাহিনী এবং সেনাপ্রধানের উপর রাষ্ট্রপতি আব্দুস সাত্তারের কোন প্রভাব ছিলনা।  রাজনৈতিক পর্যবেক্ষকদের মতে, তখন থেকে বিভিন্ন বক্তব্যের মাধ্যমে জেনারেল এরশাদের ক্ষমতা দখল এবং রাজনীতিতে আসার বাসনা প্রকাশ পেতে থাকে।  কিন্তু এরশাদ এই কাজটি একেবারে তড়িঘড়ি করে সম্পন্ন করেন নি। তিনি সময় নিয়ে ধাপে-ধাপে এগিয়েছেন।"
+                    android:textColor="#666666"
+                    android:textSize="14sp" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginBottom="0dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ershad"
+                    app:shapeAppearanceOverlay="@style/RoundedImageView" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:fontFamily="@font/kalpurush"
+                    android:text="ঢাকায় বিদেশি সাংবাদিক পরিবেষ্টিত জেনারেল এরশাদ। "
+                    android:textColor="?android:attr/textColorSecondary"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:fontFamily="@font/kalpurush"
+                    android:lineSpacingExtra="8dp"
+                    android:text="জেনারেল এরশাদের জন্য ভালো সুযোগ"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:fontFamily="@font/kalpurush"
+                    android:text="রাষ্ট্রপতি আব্দুস সাত্তার সরকারের বিভিন্ন মন্ত্রীর বিরুদ্ধে এরই মধ্যে নানা দুর্নীতির অভিযোগ প্রকাশ পেতে থাকে বিভিন্ন সংবাদপত্রে।  প্রেসিডেন্ট সাত্তার সরকারের এই দুর্নীতির খবর জেনারেল এরশাদের জন্য আরো ভালো সুযোগ তৈরি করে দেয়।  নিউইয়র্ক টাইমসের খবরে বলা হয়, ১৯৮২ সালের ফেব্রুয়ারি মাসে সেনাপ্রধান জেনারেল এইচএম এরশাদ দেখা করেন রাষ্ট্রপতি আব্দুস সাত্তারের সাথে।  সে বৈঠকে মন্ত্রীসভার আকার ছোট করা এবং &apos;দুর্নীতিবাজ&apos; মন্ত্রীদের বাদ দেবার দাবি করেন সেনাপ্রধান।  তখনই সবাই বুঝেতে পারেন যে জেনারেল এরশাদ যে কোন সময় ক্ষমতা দখল করতে পারেন।  উনিশ&apos;শ বিরাশি সালের ২৪শে মার্চ রাষ্ট্রপতি আব্দুস সাত্তারের সরকারকে উৎখাত করে ক্ষমতা দখল করেন তৎকালীন সেনা প্রধান ল্যাফটেনেন্ট জেনারেল হুসেইন মুহম্মদ এরশাদ।  এ সময় তিনি সামরিক আইন জারি করেন। তিনি নিজেকে দেশের সশস্ত্র বাহিনীর সর্বাধিনায়ক ঘোষণা করেন।  সাতাশে মার্চ বিচারপতি আহসানউদ্দিনকে রাষ্ট্রপতি হিসেবে অধিষ্ঠিত করেন।"
+                    android:textColor="#666666"
+                    android:textSize="14sp" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginBottom="8dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/generalershad"
+                    app:shapeAppearanceOverlay="@style/RoundedImageView" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:fontFamily="@font/kalpurush"
+                    android:text="জেনারেল এরশাদের শাসনের সময় ১৯৮৮ সালে ইসলামকে রাষ্ট্রধর্ম করে সংবিধানের অষ্টম সংশোধনী আনা হয়।"
+                    android:textColor="?android:attr/textColorSecondary"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:fontFamily="@font/kalpurush"
+                    android:lineSpacingExtra="8dp"
+                    android:text="প্রধান সামরিক আইন প্রশাসক"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:fontFamily="@font/kalpurush"
+                    android:text="কিন্তু প্রধান সামরিক আইন প্রশাসক হিসেবে সব ক্ষমতা ছিল জেনারেল এরশাদের হাতে।  কারণ সামরিক আইন অনুযায়ী প্রধান সামরিক আইন প্রশাসকের অনুমোদন ছাড়া রাষ্ট্রপতি কোন ক্ষমতা প্রয়োগ করতে পারতেন না।  মেজর জেনারেল মইনুল হোসেন চৌধুরীর মতে, জেনারেল এরশাদের ক্ষমতা গ্রহণ অপ্রত্যাশিত ছিলনা।  জেনারেল এরশাদের ক্ষমতা দখলের প্রক্রিয়া বস্তুতপক্ষে শুরু হয় জেনারেল জিয়া হত্যার পর এবং এর ধারাবাহিকতা চূড়ান্ত রূপ পায় ২৪শে মার্চ,লিখেছেন জেনারেল চৌধুরী।  তৎকালীন বিভিন্ন সংবাদ মাধ্যমের খবর অনুযায়ী এটা প্রতীয়মান হয় যে জেনারেল এরশাদের ক্ষমতা দখলের পেছনে আমেরিকার নীরব সমর্থন ছিল।  তখন আমেরিকার প্রেসিডেন্ট ছিলেন রোনাল্ড রেগান।  জেনারেল এরশাদ ক্ষমতা দখলের এক সপ্তাহ পরে নিউইয়র্ক টাইমস এক প্রতিবেদনে জানায়, বাংলাদেশে সামরিক অভ্যুত্থানের নিয়ে রেগান প্রশাসন কোন সমস্যা দেখছে না।  এছাড়া রাষ্ট্রপতি আহসানউদ্দিনের শপথ গ্রহণ অনুষ্ঠানে উপস্থিত ছিলেন ঢাকায় নিযুক্ত মার্কিন রাষ্ট্রদূত।  নিউইয়র্ক টাইমস লিখেছে, শপথ গ্রহণ অনুষ্ঠানে উপস্থিত থাকার বিষয়টি যুক্তরাষ্ট্রের সমর্থন হিসেবে মনে করা হচ্ছে।  ক্ষমতা দখল করে জেনারেল এরশাদ নয় বছর টিকে ছিলেন। এই সময়ের মধ্যে তিনি জাতীয় পার্টি গঠন করেন।  এই রাজনৈতিক দল পরবর্তীতে বাংলাদেশের নির্বাচনগুলোতে ভোটের হিসেব-নিকেশ বেশ গুরুত্বপূর্ণ হয়ে উঠে।"
+                    android:textColor="#666666"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:elevation="6dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/moeen" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_margin="8dp"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="4dp"
+                    app:cardUseCompatPadding="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:padding="8dp">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:paddingStart="8dp"
+                            android:paddingEnd="8dp">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:fontFamily="@font/btxf"
+                                android:gravity="center"
+                                android:text="ওয়ান-ইলেভেন"
+                                android:textColor="#1eb1b1"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/details_section3"
+                            android:layout_width="70dp"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:id="@+id/arrow_icon3"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:contentDescription="Details Arrow"
+                                android:src="@drawable/baseline_arrow_downward_24" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:fontFamily="@font/kalpurush"
+                                android:text="বিস্তারিত"
+                                android:textColor="#1e88e5"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:visibility="gone"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp">
+
+            <LinearLayout
+                android:id="@+id/liner3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="240dp"
+                    android:layout_marginBottom="8dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/eyajuddin"
+                    app:shapeAppearanceOverlay="@style/RoundedImageView" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:fontFamily="@font/kalpurush"
+                    android:text="২০০৬ সালের ২৯শে অক্টোবর প্রেসিডেন্টের পাশাপাশি তত্ত্বাবধায়ক সরকারের প্রধান উপদেষ্টার দায়িত্ব পালনের জন্য শপথ নেন প্রফেসর ইয়াজউদ্দিন আহমেদ।"
+                    android:textColor="?android:attr/textColorSecondary"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:fontFamily="@font/kalpurush"
+                    android:lineSpacingExtra="8dp"
+                    android:text="২০০৭ সালের সেনা হস্তক্ষেপ"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:fontFamily="@font/kalpurush"
+                    android:text="জেনারেল এরশাদের পতনের পরে ১৯৯১ সালে বাংলাদেশে একটি অবাধ সাধারণ নির্বাচনের পর গণতান্ত্রিক ব্যবস্থা পুনরায় চালু হয়।  এরপর বাংলাদেশে আরো তিনটি সাধারণ নির্বাচন অনুষ্ঠিত হয়েছে।  অবশ্য ১৯৯৬ সালের ১৫ ফেব্রুয়ারি প্রধান বিরোধী দলগুলোর বর্জনের মুখে বিতর্কিত একটি নির্বাচন অনুষ্ঠিত হয়েছিল।"
+                    android:textColor="#666666"
+                    android:textSize="14sp" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginBottom="8dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/generalershad"
+                    app:shapeAppearanceOverlay="@style/RoundedImageView" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:fontFamily="@font/kalpurush"
+                    android:text="মইন ইউ আহমেদের লেখা এই বইটি প্রকাশিত হয় ২০০৯ সালে।"
+                    android:textColor="?android:attr/textColorSecondary"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:fontFamily="@font/kalpurush"
+                    android:lineSpacingExtra="8dp"
+                    android:text="ওয়ান-ইলেভেন"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:fontFamily="@font/kalpurush"
+                    android:text="সংবিধানে নির্দলীয় তত্ত্বাবধায়ক সরকার ব্যবস্থা চালু করার পর অনেকে ভেবেছিলেন যে বাংলাদেশের রাজনীতিতে সেনাবাহিনীর হস্তক্ষেপ হয়তো আর থাকবে না। কিন্তু বেশি সময় গড়ায়নি।  দু&apos;হাজার চার সালে বিএনপি সরকার ক্ষমতায় থাকার সময় সংবিধান সংশোধন করে সুপ্রিম কোর্টের বিচারপতিদের অবসরের বয়স সীমা বাড়িয়ে দেয়া হয়।  আওয়ামী লীগ অভিযোগ তুলেছিল যে নিজেদের পছন্দের ব্যক্তি বিচারপতি কেএম হাসানকে তত্ত্বাবধায়ক সরকার প্রধান হিসেবে পাবার জন্য এই সংশোধনী করা হয়েছিল।  এনিয়ে শুরু হয় রাজনৈতিক সংকট ও সংঘাত। প্রধান বিরোধী দলগুলোর বর্জনের মুখে একতরফা একটি নির্বাচনের দিকে এগিয়ে যেতে থাকে তৎকালীন বিএনপি সরকার। ঢাকাসহ দেশের বিভিন্ন জায়গায় সহিংসতা ছড়িয়ে যায়।  এক পর্যায়ে ২০০৭ সালের ১১ই জানুয়ারি রাজনীতিতে হস্তক্ষেপ করে সেনাবাহিনী। স্থগিত করা হয় বিএনপির সরকারের আয়োজন করা সে নির্বাচন।  তবে সেনাবাহিনীর এই হস্তক্ষেপ বাংলাদেশের রাজনীতিতে ছিল বেশ অভিনব।  সেনাবাহিনী সরাসরি ক্ষমতা দখল না করেও তাদের পছন্দসই বেসামরিক ব্যক্তিদের সমন্বয়ে একটি তত্ত্বাবধায়ক সরকার গঠন করে।"
+                    android:textColor="#666666"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/kalpurush"
+                android:lineSpacingExtra="8dp"
+                android:text="এসব অভ্যুত্থান এবং পাল্টা অভ্যুত্থানের কারণে দীর্ঘ সময়ের জন্য বাংলাদেশ নিমজ্জিত ছিল সামরিক শাসনের মধ্যে।\10\10প্রতিটি ঘটনার প্রভাব রাজনীতি ও সেনাবাহিনীর উপর ছিল বেশ সুদূরপ্রসারী।"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/kalpurush"
+            android:gravity="end"
+            android:text="Source: বিবিসি বাংলা"
+            android:textColor="#888888"
+            android:textSize="12sp" />
+    </LinearLayout>
+</ScrollView>

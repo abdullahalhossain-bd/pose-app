@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="4dp"
+    app:strokeWidth="1dp"
+    app:cardBackgroundColor="#FFFFFF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:id="@+id/noticeTypeText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="গুরুত্বপূর্ণ"
+                android:textSize="12sp"
+                android:textColor="#fff"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:background="@drawable/notice_type_background"
+                android:fontFamily="@font/kalpurush"/>
+
+            <TextView
+                android:id="@+id/noticeDateText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="২৫ জানুয়ারি, ২০২৫"
+                android:textSize="12sp"
+                android:textColor="#666"
+                android:gravity="end"
+                android:fontFamily="@font/kalpurush"/>
+
+        </LinearLayout>
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/noticeTitleText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="নোটিশের শিরোনাম"
+            android:textSize="16sp"
+            android:textColor="#000"
+            android:textStyle="bold"
+            android:fontFamily="@font/kalpurush"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- Description -->
+        <TextView
+            android:id="@+id/noticeDescriptionText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="নোটিশের বিস্তারিত বিবরণ..."
+            android:textSize="14sp"
+            android:textColor="#333"
+            android:maxLines="3"
+            android:ellipsize="end"
+            android:fontFamily="@font/kalpurush"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- Footer -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/noticeDepartmentText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="উপজেলা প্রশাসন"
+                android:textSize="12sp"
+                android:textColor="#666"
+                android:fontFamily="@font/kalpurush"/>
+
+            <!-- Image Indicator -->
+            <ImageView
+                android:id="@+id/noticeImageIndicator"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@android:drawable/ic_menu_gallery"
+                android:contentDescription="Has image"
+                android:layout_marginEnd="8dp"
+                android:visibility="gone"
+                android:tint="#1976D2"/>
+
+            <TextView
+                android:id="@+id/noticeAttachmentText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="সংযুক্তি: ১"
+                android:textSize="12sp"
+                android:textColor="#1976D2"
+                android:drawableStart="@drawable/ic_attachment"
+                android:drawablePadding="4dp"
+                android:fontFamily="@font/kalpurush"
+                android:layout_marginEnd="8dp"/>
+
+            <!-- Edit Button -->
+            <ImageButton
+                android:id="@+id/noticeEditButton"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@android:drawable/ic_menu_edit"
+                android:contentDescription="Edit notice"
+                android:background="?attr/selectableItemBackground"
+                android:scaleType="centerInside"
+                android:visibility="gone"
+                android:layout_marginEnd="8dp"
+                app:tint="#1976D2"/>
+
+            <!-- Delete Button -->
+            <ImageButton
+                android:id="@+id/noticeDeleteButton"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@android:drawable/ic_menu_delete"
+                android:contentDescription="Delete notice"
+                android:background="?attr/selectableItemBackground"
+                android:scaleType="centerInside"
+                android:visibility="gone"
+                app:tint="#D32F2F"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

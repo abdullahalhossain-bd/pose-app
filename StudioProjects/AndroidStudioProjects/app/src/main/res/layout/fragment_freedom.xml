@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="8dp">
+
+        <LinearLayout
+            android:id="@+id/liner1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="match_parent"
+                android:layout_height="240dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/freedom1"
+                app:shapeAppearanceOverlay="@style/RoundedImageView" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/btxf"
+                android:text="বাংলাদেশের স্বাধীনতা যুদ্ধে মুক্তিবাহিনীর ভূমিকা ছিল অনন্য।"
+                android:textColor="?android:attr/textColorSecondary"
+                android:textSize="13sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/kalpurush"
+                android:lineSpacingExtra="8dp"
+                android:text="বাংলাদেশের স্বাধীনতা যুদ্ধে রণাঙ্গনে লড়াইয়ের পাশপাশি রাজনৈতিক এবং কূটনীতিক অঙ্গনের নানা তৎপরতাও গুরুত্বপূর্ণ ভূমিকা রেখেছিল।"
+                android:textColor="#000000"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/kalpurush"
+                android:text="নয় মাস ধরে চলা যুদ্ধের সময় রাজনৈতিক এবং কূটনৈতিক বিষয়গুলো মাঠের লড়াইকে প্রভাবিত করেছিল বলে ইতিহাসবিদরা মনে করেন।  যুদ্ধ চলাকালীন এমন কিছু ঘটনা ঘটেছে যা বাংলাদেশের বিজয়কে তরান্বিত করেছিল। এছাড়া রণাঙ্গনে অজস্র লড়াই হয়েছে পাকিস্তানী বাহিনীর সাথে।  মুক্তিযুদ্ধের অসংখ্য ঘটনার মধ্য থেকে আটটি ঘটনা বাছাই করা হয়েছে এ লেখায়। রাজনীতি, কূটনীতি ও রণাঙ্গনের এসব ঘটনা যেমন আলোচিত ছিল তেমনি প্রভাবও তৈরি করেছিল।"
+                android:textColor="#666666"
+                android:textSize="14sp" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/freedom2"
+                app:shapeAppearanceOverlay="@style/RoundedImageView" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/kalpurush"
+                android:text="রাজনৈতিক পরিস্থিতির ডামাডোলে যে উত্তেজনা সত্তরের নির্বাচনকে ঘিরে তৈরি হয়েছিল, ২৫শে মার্চ পাকিস্তানি বাহিনীর বর্বরোচিত গণহত্যা ও ২৬শে মার্চ স্বাধীনতা ঘোষণার মধ্য দিয়ে তা বাংলার মানুষের স্বাধীনতা আন্দোলনে রূপ নেয়।"
+                android:textColor="?android:attr/textColorSecondary"
+                android:textSize="13sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/kalpurush"
+                android:text="এসময় বিভিন্ন ঘটনাপ্রবাহের মধ্য দিয়ে ১৬ই ডিসেম্বর বিজয় লাভ করে বাংলাদেশ। মুক্তিযুদ্ধের ৯ মাসে ঘটে যাওয়া তেমনই গুরুত্বপূর্ণ আটটি বিষয় তুলে ধরা হলো:"
+                android:textColor="#666666"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/kalpurush"
+                android:lineSpacingExtra="8dp"
+                android:text="স্বাধীনতার ঘোষণা"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/kalpurush"
+                android:text="সত্তরের নির্বাচনে জয়ের পরও ক্ষমতা হস্তান্তর নিয়ে প্রেসিডেন্ট ইয়াহিয়া টালবাহানা করায় রাজনৈতিক পরিস্থিতি ক্রমশই জটিল হয়ে উঠছিল।  নির্বাচনে নিরঙ্কুশ সংখ্যাগরিষ্ঠতা অর্জনের পরও জাতীয় পরিষদ অধিবেশন অনির্দিষ্টকালের জন্য স্থগিত ঘোষণার প্রতিবাদে শেখ মুজিবের নেতৃত্বে পূর্ব পাকিস্তানে শুরু হয় অসহযোগ আন্দোলন।  সাতই মার্চ সে সময়ের রেসকোর্স ময়দানের সমাবেশে শেখ মুজিবের ভাষণের পর সমীকরণ আরও জটিল হয়ে যায়।  পরিস্থিতি নিয়ন্ত্রণে কঠোর পদক্ষেপের সিদ্ধান্ত নেয় পশ্চিম পাকিস্তান। অসহযোগ আন্দোলন দমন ও পাকিস্তান সরকারের নিয়ন্ত্রণ প্রতিষ্ঠার লক্ষ্যে ২৫শে মার্চ ‘অপারেশন সার্চলাইট’ পরিচালনা করে পাকিস্তানি সেনারা।  আর এই অপারেশন সফল করতে চালানো হয় নির্বিচার গণহত্যা। বলা হয়, সেই অভিযানে প্রায় ৫০ হাজার মানুষকে হত্যা করা হয়।"
+                android:textColor="#666666"
+                android:textSize="14sp" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginBottom="8dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/mujibbbc"
+                app:shapeAppearanceOverlay="@style/RoundedImageView" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/kalpurush"
+                android:text="সেই রাতেই ধানমন্ডির ৩২ নম্বর বাড়ি থেকে পাকিস্তানি বাহিনী শেখ মুজিবুর রহমানকে গ্রেফতার করে। তাকে নিয়ে যায় পশ্চিম পাকিস্তানের কারাগারে।  স্বাধীন বাংলা বেতার কেন্দ্র তাদের সম্প্রচার শুরু করে ২৬শে মার্চ। তৎকালীন রাষ্ট্র নিয়ন্ত্রিত বেতারের চট্টগ্রামের কয়েকজন কর্মী শহর থেকে অনেকটা দূরে নিরাপদ জায়গা হিসাবে কালুরঘাটে বেতারেরই ছোট্ট একটি কেন্দ্রে তাদের প্রথম অনুষ্ঠান করেছিলেন।স্বাধীন বাংলা বেতার কেন্দ্রের অন্যতম সংগঠক বেলাল মোহম্মদ (২০১৩ সালে প্রয়াত) বিবিসি বাংলাকে বলেছিলেন, ওই অনুষ্ঠানেই স্বাধীনতার সেই ঘোষণা প্রথম সম্প্রচার করা হয়। শেখ মুজিবুর রহমানের নামে স্বাধীনতার ঘোষণা পাঠ করেছিলেন রাজনীতিকদের মধ্যে চট্টগ্রামের আওয়ামী লীগের সাধারণ সম্পাদক এম এ হান্নান।  কালুরঘাট কেন্দ্র থেকে ২৭শে মার্চ সন্ধ্যাতেও দ্বিতীয়বারের মত অনুষ্ঠান সম্প্রচারে সক্ষম হয় স্বাধীন বাংলা বেতার কেন্দ্র। সেদিনের অনুষ্ঠানে স্বাধীনতার ঘোষণা পাঠ করেন জিয়াউর রহমান। সেসময় তিনি সেনাবাহিনীতে মেজর পদমর্যাদায় কর্মরত ছিলেন।  আর এই অপারেশন সফল করতে চালানো হয় নির্বিচার গণহত্যা। বলা হয়, সেই অভিযানে প্রায় ৫০ হাজার মানুষকে হত্যা করা হয়।"
+                android:textColor="#666666"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/kalpurush"
+                android:lineSpacingExtra="8dp"
+                android:text="মুজিব নগর সরকার গঠন"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/kalpurush"
+                android:text="পঁচিশে মার্চ পাকিস্তানী বাহিনীর আক্রমণের সময় সিনিয়র আওয়ামী লীগ নেতাদের অনেকে আত্মগোপনে চলে যান, যাদের বেশিরভাগই আশ্রয় নেয় ভারতে।  এর ৯দিন পর তেসরা এপ্রিল প্রধানমন্ত্রী ইন্দিরা গান্ধীর সাথে বৈঠক করেন তাজউদ্দীন আহমদ।  মুক্তিযুদ্ধ নিয়ে লেখক ও গবেষক সৈয়দ আবুল মকসুদের ২০১৮ সালের ২৬ মার্চ বাংলাদেশের ইংরেজি দৈনিক দ্য ডেইলি স্টারে একটি লেখা প্রকাশিত হয়।  মুক্তিযুদ্ধের সময় প্রবাসী সরকারের নানা দিক উঠে আসে সেখানে উঠে আসে।"
+                android:textColor="#666666"
+                android:textSize="14sp" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/freedom3"
+                app:shapeAppearanceOverlay="@style/RoundedImageView" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/kalpurush"
+                android:text="শপথ গ্রহণের পর ভারপ্রাপ্ত রাষ্ট্রপতি সৈয়দ নজরুল ইসলামকে গার্ড অব অনার দেয়ার হচ্ছে"
+                android:textColor="?android:attr/textColorSecondary"
+                android:textSize="13sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/kalpurush"
+                android:text="ইন্দিরা গান্ধীর সাথে তাজউদ্দীন আহমদের বৈঠকে একটি অস্থায়ী সরকার গঠন ও শপথ গ্রহণের বিষয়ে আলোচনা হয় বলে লেখাটিতে উল্লেখ করেন তিনি।  ভারত সরকারের আশ্রয় এবং সহযোগিতায় বাংলাদেশের প্রথম অস্থায়ী সরকার গঠন হয় ১৯৭১ সালের ১০ই এপ্রিল।  মূলত মুক্তিযুদ্ধে সারা বিশ্ব থেকে মুক্তিযোদ্ধাদের জন্য সমর্থন আদায়ের লক্ষ্যে এই সরকার গঠন করা হয়।  তবে আনুষ্ঠানিক শপথ গ্রহণ হয় ১৭ই এপ্রিল।মেহেরপুরের বৈদ্যনাথতলায় অস্থায়ী সরকারের শপথ গ্রহণের অনুষ্ঠান আয়োজন করা হয়েছিল। এটিই পরে মুজিবনগর নামে পরিচিতি পায়।  শেখ মুজিবুর রহমানকে রাষ্ট্রপতি, সৈয়দ নজরুল ইসলামকে উপ-রাষ্ট্রপতি এবং তাজউদ্দীন আহমদকে প্রধানমন্ত্রী করে এই সরকার গঠন করা হয়।  এসময় কলকাতায় পাকিস্তানের উপ-দূতাবাসে উপ-হাইকমিশনার পদে ছিলেন বাঙালি অফিসার হোসেন আলী।  প্রবাসী সরকার গঠনের পরপরই হোসেন আলীর নেতৃত্বে উপ-দূতাবাসে কর্মরত প্রায় ৫০ জন পাকিস্তানের বিরুদ্ধে বিদ্রোহ করে।  তিনি পাকিস্তানের উপ-দূতাবাসকে স্বাধীন বাংলাদেশের কূটনৈতিক মিশনে রূপান্তরিত করেন।  কলকাতার সেই কূটনৈতিক অফিসটি ছিল বিদেশে স্বাধীন বাংলাদেশের প্রথম অফিস।  একে কূটনীতির ক্ষেত্রে সবচেয়ে বড় ঘটনা হিসেবে মনে করেন মুক্তিযুদ্ধ গবেষক মুনতাসির মামুন।  “হোসেন আলী যখন পুরো উপকমিশন নিয়ে আনুগত্য ঘোষণা করলো, সেটা কূটনীতিক পাড়া-মহলে-বিশ্বে একটা বড় রকমের নাড়া দিয়েছিল এবং বাংলাদেশের ব্যাপারটি তখন কূটনীতিক এবং অন্যান্য যারা বহির্বিশ্বে কাজ করছেন তাদের কাছে পৌঁছে গিয়েছিল”, বলেন তিনি।"
+                android:textColor="#666666"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/kalpurush"
+                android:lineSpacingExtra="8dp"
+                android:text="মুক্তিবাহিনী ও সেক্টর গঠন"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/freedom4"
+                app:shapeAppearanceOverlay="@style/RoundedImageView" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/kalpurush"
+                android:text="মুক্তিযুদ্ধের ১১ জন সেক্টর কমান্ডার"
+                android:textColor="?android:attr/textColorSecondary"
+                android:textSize="13sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/kalpurush"
+                android:text="পঁচিশে মার্চ রাতেই সামরিক বাহিনী, ইপিআর, পুলিশ ও আনসার বাহিনীর বাঙালি সদস্যরা পাকিস্তান সরকারের বিরুদ্ধে বিদ্রোহ করে।  সমস্ত অস্ত্র নিয়ে তারা মুক্তিযুদ্ধে অংশ নেয় এবং মুজিব নগর সরকারের প্রতি আনুগত্য প্রকাশ করে।  এদিকে তরুণ দেশপ্রেমিকেরা স্থানীয়ভাবে প্রতিরোধ গড়ে তোলেন।  মুক্তিযুদ্ধের সময়ে খুলনা সাবসেক্টর কমান্ডার ছিলেন বাংলাদেশ সেনাবাহিনীর অবসরপ্রাপ্ত মেজর এএসএম শামসুল আরেফিন।  তিনি বিবিসি বাংলাকে বলেন, “মুক্তিযুদ্ধের সময় যে বাহিনীটা মুক্তিযুদ্ধে অংশগ্রহণ করে সেটাকেই মুক্তিবাহিনী বলে। এটার কয়েকটা ভাগ ছিল। যেমন - একটা ভাগে ছিল সেনাবাহিনী, ইপিআর, পুলিশ, আনসার আর আরেকটা অংশে ছিল ছাত্র-জনতা। সবাইকে মিলিয়ে বলা হতো মুক্তিবাহিনী”।  মুক্তি বাহিনীর কয়েকটি অংশের একটি ছিল ‘মুজিব বাহিনী’। আওয়ামী লীগের চার যুবনেতার নেতৃত্বে গড়ে ওঠা বিএলএফ বা বাংলাদেশ লিবারেশন ফোর্সই পরে এই নামে পরিচিতি পায়।  তবে শুরুতেই মুক্তিবাহিনীর কোন কাঠামো ছিল না।"
+                android:textColor="#666666"
+                android:textSize="14sp" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/freedom5"
+                app:shapeAppearanceOverlay="@style/RoundedImageView" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/kalpurush"
+                android:text="গেরিলা যোদ্ধারা প্রশিক্ষণ নেয়ার মুহূর্ত"
+                android:textColor="?android:attr/textColorSecondary"
+                android:textSize="13sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/kalpurush"
+                android:text="১৯৭১ সালের একাত্তর সালের চৌঠা এপ্রিল সামরিক বাহিনীর বাঙালি কর্মকর্তারা সিলেটের তেলিয়াপাড়া চা বাগানে এক বৈঠকে মিলিত হন। সেখানে তারা মুক্তিযুদ্ধের রণকৌশল প্রণয়ন করে। পরে এটি তেলিয়াপাড়া স্ট্র্যাটেজি নামে পরিচিত হয়।  বৈঠকে সিদ্ধান্ত হয় এম এ জি ওসমানী যুদ্ধে নেতৃত্ব দেবেন এবং বাংলাদেশকে চারটি সামরিক অঞ্চলে ভাগ করে সশস্ত্র যুদ্ধ চালিয়ে যাওয়া হবে।  ওই বৈঠকে মুক্তিযুদ্ধে অংশগ্রহণকারী বাহিনী সম্পর্কিত সাংগঠনিক ধারণা এবং কমান্ড কাঠামোর রূপরেখা প্রণীত হয়।  অস্থায়ী সরকার গঠনের পর আরও চারটি সামরিক অঞ্চল ঘোষণা করে সেগুলোর সেক্টর কমান্ডারদের নাম ঘোষণা করেন তাজউদ্দিন আহমদ।  কিন্তু পুরো বিষয়টি কাঠামো পায় ১৯৭১ সালের জুলাই মাসে।  “১২ থেকে ১৭ জুলাই কলকাতায় মুজিবনগর সরকারের নেতৃত্বে আমাদের মুক্তিযুদ্ধ সংক্রান্ত একটি দীর্ঘ সম্মেলন হয়, সেখানেই তিনটি নিয়মিত বাহিনী তৈরি এবং বাংলাদেশকে ১১টি সেক্টরে ভাগ করা হয়”, বলেন ইতিহাসবিদ সৈয়দ আনোয়ার হোসেন।  মূলত কলকাতার ৮ নং থিয়েটার রোডের প্রবাসী বাংলাদেশ সরকারের সদর দপ্তরে সেক্টর কমান্ডার এবং উর্ধ্বতন সামরিক কর্মকর্তাদের নিয়ে এই সম্মেলন হয়।  সেখানে বাংলাদেশ বাহিনীর নেতৃত্ব, সংগঠন, প্রশিক্ষণ, অভিযান, প্রশাসন ইত্যাদি বিষয়ে সিদ্ধান্ত গৃহীত হয়।  সেখানেই সুষ্ঠুভাবে মুক্তিযুদ্ধ পরিচালনার লক্ষ্যে সেক্টর ভাগ এবং প্রতি সেক্টরের জন্য একজন করে সেক্টর কমান্ডার নিযুক্ত করা হয়।  পাশাপাশি প্রতিটি সেক্টরকে অঞ্চলভেদে ভাগ করা হয় কয়েকটি সাব-সেক্টরে।"
+                android:textColor="#666666"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/kalpurush"
+                android:lineSpacingExtra="8dp"
+                android:text="অপারেশন জ্যাকপট"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/freedom6"
+                app:shapeAppearanceOverlay="@style/RoundedImageView" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/kalpurush"
+                android:text="অপারেশন জ্যাকপট অভিযানে বিস্ফোরিত হওয়া একটি জাহাজ"
+                android:textColor="?android:attr/textColorSecondary"
+                android:textSize="13sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/kalpurush"
+                android:text="মুক্তিযুদ্ধে জয় ত্বরান্বিত করার অন্যতম বড় আরেকটি পদক্ষেপ ছিল &apos;অপারেশন জ্যাকপট&apos;।  বাংলাদেশের মুক্তিযুদ্ধের সময় নৌ-কমান্ডো বাহিনীর পরিচালিত প্রথম অভিযান ছিল এটি।  উনিশ&apos;শ একাত্তর সালের ১৬ই অগাস্ট প্রথম প্রহরে দেশের চট্টগ্রাম ও মোংলা সমুদ্রবন্দর এবং চাঁদপুর ও নারায়ণগঞ্জ নদী বন্দরে একযোগে একই নামে পরিচালিত অপারেশনগুলো চালানো হয়।  তবে এর পরিকল্পনা ও প্রশিক্ষণ শুরু হয় মে মাসে থেকে।  &apos;লক্ষ প্রাণের বিনিময়ে&apos; বইয়ে মেজর রফিকুল ইসলাম লিখেছেন, পাকিস্তানি বাহিনীর নৌযান ধ্বংস এবং নৌ-যাতায়াত ব্যবস্থায় বিঘ্ন সৃষ্টির মাধ্যমে পাকিস্তানি সৈন্য চলাচল, সমর-সরঞ্জাম ও রসদ পরিবহন ব্যহত করা ছিল ওই অপারেশনের প্রধান লক্ষ্য।  এটি অত্যন্ত সফল সফল অভিযান ছিল। কারণ এই অপারেশনে পাকিস্তান ও আরও কয়েকটি দেশ থেকে আসা অস্ত্র, খাদ্য ও তেলবাহী ২৬টি জাহাজ ডুবিয়ে দেয়া হয়েছিল।  আবার অভিযানে অংশগ্রহণকারী কোন গেরিলা শত্রুপক্ষের হাতে ধরাও পড়েননি।  এছাড়া বিদেশী জাহাজ ধ্বংস হওয়ার কারণে আন্তর্জাতিক গণমাধ্যমে এই খবর গুরুত্ব সহকারে প্রকাশিত হয়। ফলে তৎকালীন পূর্ব পাকিস্তানে কোন যুদ্ধ হচ্ছে না বলে পাকিস্তানি বাহিনীর প্রচারণা প্রশ্নের মুখে পড়ে।"
+                android:textColor="#666666"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/kalpurush"
+                android:lineSpacingExtra="8dp"
+                android:text="আখাউড়া দখলের যুদ্ধ"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/kalpurush"
+                android:text="মুক্তিযুদ্ধ চলাকালীন যুদ্ধের একটি গুরুত্বপূর্ণ পয়েন্ট ছিল ব্রাহ্মণবাড়িয়ার আখাউড়া।  সামরিক দিক থেকে এর অবস্থান মুক্তিবাহিনী, ভারতীয় মিত্রবাহিনী এবং পাকিস্তানি বাহিনী সবার কাছেই গুরুত্বপূর্ণ ছিল।  মুক্তিবাহিনীর জন্য জরুরি ছিল কারণ একবার আখাউড়া নিজেদের দখলে নিতে পারলে তারা সিলেট অঞ্চলের দিকে ভালোভাবে অগ্রসর হতে পারত। নয়তো ওইদিকে অগ্রসর হতে গেলে আখাউড়ায় হানাদারদের শক্তিশালী বাধার মুখে পড়তে হতো মুক্তিবাহিনীকে।  অন্যদিকে রেলপথে ঢাকা থেকে চট্টগ্রাম কিংবা সিলেট যেতে হলে পাকিস্তানি বাহিনীকে এই রেলপথ অতিক্রম করেই যেতে হতো। হানাদারদের সেনা পরিবহন, মালামাল ও রসদ সরবরাহে বাধা সৃষ্টি করতে এটি দখল করা জরুরি ছিল।  এছাড়া আখাউড়া ত্রিপুরার আগরতলা থেকে মাত্র ৩ মাইল দূরত্বে অবস্থিত। ফলে এই পয়েন্ট থেকে পাকিস্তানি বাহিনী ভারতীয় ভূখণ্ডে হামলা চালালে ক্ষতিগ্রস্ত হতে পারত আগরতলা।  উনিশ&apos;শ একাত্তর সালের ৩০ নভেম্বর থেকে ৫ ডিসেম্বর পর্যন্ত আখাউড়া দখলের যুদ্ধ চলে।এই যুদ্ধেই প্রথমবারের মতো ভারতীয় বাহিনী সম্পূর্ণভাবে মুক্তি বাহিনীর সাথে অংশগ্রহণ করেছিলেন বলে জানান বীর উত্তম মেজর এএসএম শামসুল আরেফিন।  প্রথমে মুক্তিবাহিনী অতর্কিত হামলা করলেও পাল্টাপাল্টি আক্রমণে মুক্তিবাহিনী কোণঠাসা হয়ে পড়ে। তবে তিন ডিসেম্বর রাতে ভারত পাকিস্তানের বিরুদ্ধে যুদ্ধ ঘোষণা করলে ৪ ডিসেম্বর ভারতীয় সেনারা ট্যাংক নিয়ে আক্রমণ করে।  পরে পাকিস্তানি বাহিনীর জেট মুক্তিযোদ্ধাদের অবস্থানের ওপর বিমান হামলা চালায়। হামলার জবাবে ভারতীয় বিমান পাকিস্তানি হানাদারদের বিমানকে ধাওয়া করে। তখন পাকিস্তানি স্যাবর জেটগুলো পালিয়ে যায়।  ৫ ডিসেম্বর যৌথবাহিনী আখাউড়ার পশ্চিম ও দক্ষিণ দিক দিয়ে হানাদার বাহিনীকে পুরোপুরি ঘিরে ফেলে তাদের আত্মসমর্পণের নির্দেশ দেওয়া হয়। হানাদারদের সামনে আত্মসমর্পণ করা ছাড়া উপায় ছিল না। ফলে ৬ ডিসেম্বর যৌথবাহিনীর কাছে ৪ ব্রিগেড সেনাসহ আত্মসমর্পণ করতে বাধ্য হয় তারা।  এই পয়েন্ট দখলে নেয়ার মাধ্যমে মুক্তিযুদ্ধে জয়ের দিকে অনেকটাই এগিয়ে যায় মুক্তিবাহিনী।"
+                android:textColor="#666666"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/kalpurush"
+                android:lineSpacingExtra="8dp"
+                android:text="ভারত-সোভিয়েত মৈত্রী চুক্তি"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/freedom7"
+                app:shapeAppearanceOverlay="@style/RoundedImageView" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/kalpurush"
+                android:text="১৯৭১ সালে সোভিয়েত নেতা ব্রেজনেভ-এর সাথে সুসম্পর্ক ছিল ভারতের প্রধানমন্ত্রী ইন্দিরা গান্ধীর"
+                android:textColor="?android:attr/textColorSecondary"
+                android:textSize="13sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/kalpurush"
+                android:text="১৯৭১ সালে বাংলাদেশের অকৃত্রিম বন্ধুর ভূমিকায় ছিল ভারত।  ভারতের মাটিতে বাংলাদেশের অস্থায়ী সরকারের পরিচলনা থেকে শুরু করে, মুক্তিবাহিনীর সদস্যদের ভারতের মাটিতে প্রশিক্ষণ, অস্ত্র সরবরাহ, শরনার্থীদের আশ্রয় দেয়াসহ প্রায় প্রতিটি ক্ষেত্রে ভূমিকা রেখেছে দেশটি।  একইসঙ্গে বহির্বিশ্বের সমর্থন পেতে কাজ করে গেছে ভারত।  এসময় পশ্চিমা বিশ্ব ও চীন পাকিস্তানের পক্ষে থাকায় সোভিয়েত ইউনিয়নের সমর্থন ভারতের জন্য জরুরি হয়ে পড়ে।  ভারত ও তৎকালীন সোভিয়েত ইউনিয়নের মধ্যে ৯ই অগাস্ট শান্তি, বন্ধুত্ব এবং সহযোগিতার ঐতিহাসিক মৈত্রী চুক্তি স্বাক্ষরিত হয়।  চুক্তিটির ৯ নম্বর ধারায় বলা হয়, চুক্তি স্বাক্ষরকারী দেশ দুটো কখনো হুমকির মুখে পড়লে সেটি দূর করার জন্য যথাযথ ব্যবস্থা নেয়া হবে।  এই চুক্তির কারণে পুরো বিশ্ব ভারতকে যে কোণঠাসা করে রাখতে চেয়েছিল সে জায়গা ঘুরে যায় বলে মনে করেন মুক্তিযুদ্ধ গবেষক মুনতাসির মামুন।  ভারত-সোভিয়েত মৈত্রী চুক্তি নিয়ে ইতিহাসবিদ সৈয়দ আনোয়ার হোসেন বিবিসি বাংলাকে বলেন, “এটি পশ্চিম দুনিয়াকে বার্তা দিয়েছিল যে বাংলাদেশ একা না, বাংলাদেশের পাশে বড় শক্তি রয়েছে”।  বলা যায়, সোভিয়েত ইউনিয়নের সমর্থনের কারণেই ভারত সর্বাত্মক যুদ্ধে জড়াতে সাহস করে।"
+                android:textColor="#666666"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/kalpurush"
+                android:lineSpacingExtra="8dp"
+                android:text="জাতিসংঘের প্রস্তাব"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/freedom8"
+                app:shapeAppearanceOverlay="@style/RoundedImageView" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/kalpurush"
+                android:text="১৯৭১ সালের শেষ দিকে পূর্ব পাকিস্তানের যুদ্ধ নিয়ে জাতিসংঘে আলোচনায় অংশ নেন জুলফিকার আলী ভুট্টো"
+                android:textColor="?android:attr/textColorSecondary"
+                android:textSize="13sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/kalpurush"
+                android:text="বাংলাদেশের মুক্তিযুদ্ধের সময় ভারতে আশ্রয় নেয়া শরনার্থীদের জন্য জাতিসংঘ মানবিক সেবা দিলেও পাকিস্তানের আক্রমণ নিয়ে সক্রিয় কোন ভূমিকা রাখতে পারেনি বলে মনে করেন মুক্তিযুদ্ধ গবেষক মুনতাসির মামুন।  তবে যুদ্ধের শেষদিকে পাকিস্তানের পরাজয় যখন অনেকটাই অবধারিত, তখন নিরাপত্তা পরিষদে বেশ উত্তেজনা দেখা যায়।  জাতিসংঘ নিরাপত্তা পরিষদ ১৯৭১ সালের ৬ই ডিসেম্বর ভারত-পাকিস্তান ইস্যুটি নিয়ে আলোচনার জন্য জাতিসংঘ সাধারণ পরিষদে পাঠিয়ে দেয়।  এর আগে পূর্ব-পাকিস্তানে যুদ্ধ বিরতি সংক্রান্ত প্রস্তাব নিরাপত্তা পরিষদে বারবার নাকচ করে দিয়েছিল সোভিয়েত ইউনিয়ন।  আটই ডিসেম্বর জাতিসংঘ সাধারণ পরিষদে যুদ্ধবিরতির প্রস্তাবের উপর ভোটাভুটি হয়।  নিউইয়র্ক টাইমস পত্রিকা জানিয়েছে, এই প্রস্তাবের পক্ষে ১০৪টি ভোট পড়েছিল এবং বিপক্ষে ছিল ১১টি ভোট।  তবে ভারত এরই মধ্যে জানিয়ে দিয়েছে যে যুদ্ধ বিরতির কোন প্রস্তাব তারা মানবে না।  পনেরো ডিসেম্বর পাকিস্তানের প্রেসিডেন্টের বিশেষ দূত ও জাতিসংঘ নিরাপত্তা পরিষদে পাকিস্তানি প্রতিনিধি দলের নেতা জুলফিকার আলী ভুট্টো পোল্যান্ডের দেওয়া আত্মসমর্পণের প্রস্তাবে ব্যাপক প্রতিক্রিয়া দেখান।  এর আগে ১৪ই ডিসেম্বর ফ্রান্স এবং ইতালি নিরাপত্তা পরিষদে একটি যুদ্ধ বিরতির প্রস্তাব তোলে। কিন্তু ওই প্রস্তাবে শুধু পশ্চিম পাকিস্তানে যুদ্ধবিরতির কথা বলা হয়েছিল।  একই সাথে পোল্যান্ডের একটি খসড়া প্রস্তাবও আসে। ১৫ই ডিসেম্বর পোল্যান্ডের এই খসড়া প্রস্তাবটি আলোচনায় আসে নিরাপত্তা পরিষদে।  এতে পাকিস্তানি বাহিনীকে ৭২ ঘণ্টার মধ্যে আত্মসমর্পণের প্রস্তাব দেয়। একইসঙ্গে, বাংলাদেশ সরকারের হাতে ক্ষমতা হস্তান্তর করার কথা বলে।"
+                android:textColor="#666666"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/kalpurush"
+                android:lineSpacingExtra="8dp"
+                android:text="ভারতের যুদ্ধ জড়ানো"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/freedom9"
+                app:shapeAppearanceOverlay="@style/RoundedImageView" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/kalpurush"
+                android:text="১৯৭১ সালে ভারতের প্রধানমন্ত্রী ইন্দিরা গান্ধী।"
+                android:textColor="?android:attr/textColorSecondary"
+                android:textSize="13sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/kalpurush"
+                android:text="মুক্তিযুদ্ধে বাংলাদেশের জয় আর পাকিস্তানের পরাজয়ের সবশেষ এবং সবচেয়ে গুরুত্বপূর্ণ অংশ ছিল ভারতের ওপর পাকিস্তানের আক্রমণ এবং ভারতের সরাসরি যুদ্ধে জড়িয়ে পড়া।  উনিশ&apos;শ একাত্তর সালের ৩রা ডিসেম্বর ভারত পাকিস্তান আক্রমণের পর যুদ্ধে সরাসরি জড়িয়ে যায় ভারত।  ফলে প্রথম থেকে সতর্কতার সঙ্গে সমর্থন ও সহায়তা দিয়ে আসলেও প্রত্যক্ষভাবে বাংলাদেশের মুক্তিবাহিনীর সঙ্গে হানাদার বাহিনীর বিরুদ্ধে যুদ্ধে নামে মিত্রবাহিনী।  ১৯৭১ সালের ৬ই ডিসেম্বর ভারতের পার্লামেন্টে দেয়া এক বিবৃতির মাধ্যমে ইন্দিরা গান্ধী বাংলাদেশকে স্বীকৃতি দেন।  এতে যুদ্ধের প্রকৃতি বদলে যায়।  ভারতীয়রা যুদ্ধে জড়িয়ে যাবার কয়েকদিনের মধ্যেই যশোর, খুলনা, নোয়াখালী অতিদ্রুত ভারতীয় এবং মুক্তিবাহিনীর নিয়ন্ত্রণে চলে যায়। পাকিস্তানী বাহিনীর পরাজয় তখন শুধুই সময়ের ব্যাপার হয়ে দাঁড়ায়।  “ভারত-বাংলাদেশ যৌথ ফ্রন্ট গঠন হয় পূর্বাংশে, পশ্চিমে ভারত প্রস্তুতি নিয়ে এগিয়ে যার এবং পাকিস্তানের পরাজয় হয়, বলেন অধ্যাপক মামুন।  ১৪ই ডিসেম্বর মধ্যে মিত্রবাহিনী ঢাকার কাছে পৌঁছে যায়।"
+                android:textColor="#666666"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/kalpurush"
+            android:gravity="end"
+            android:text="Source: বিবিসি বাংলা"
+            android:textColor="#888888"
+            android:textSize="12sp" />
+    </com.google.android.material.card.MaterialCardView>
+</ScrollView>

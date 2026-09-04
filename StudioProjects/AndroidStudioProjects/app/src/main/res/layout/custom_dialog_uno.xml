@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/dialog_background">
+
+    <ImageButton
+        android:id="@+id/btnClose"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="8dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_close" />
+
+    <ImageView
+        android:id="@+id/ivBunting"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/bunting_background" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ivBunting"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/siligurimedium"
+            android:gravity="center"
+            android:text="প্রিয় নাগরিকবৃন্দ,"
+            android:textColor="#006400"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/siligurimedium"
+            android:gravity="center"
+            android:text="স্বপ্ন পূরণের পথে আপনারাই আমাদের প্রেরণা।"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/siligurimedium"
+            android:gravity="center"
+            android:text="উন্নয়ন ও সেবার প্রত্যয়ে আমরা প্রতিশ্রুতিবদ্ধ,"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/siligurimedium"
+            android:gravity="center"
+            android:text="একসাথে গড়বো সমৃদ্ধ বাংলাদেশ।"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+
+        <View
+            android:layout_width="80dp"
+            android:layout_height="2dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="10dp"
+            android:background="#006400" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/siligurimedium"
+            android:gravity="center"
+            android:text="মোঃ সাদ্দাম হুসাইন"
+            android:textColor="#006400"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/siligurimedium"
+            android:gravity="center"
+            android:text="উপজেলা নির্বাহী কর্মকর্তা"
+            android:textColor="#006400"
+            android:textSize="16sp" />
+    </LinearLayout>
+</RelativeLayout>

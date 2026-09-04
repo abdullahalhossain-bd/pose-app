@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:padding="16dp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btn_close">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/title1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/siligurimedium"
+                android:text="মানসিক রোগ বিশেষজ্ঞ/অভিজ্ঞঃ"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/content1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/siligurimedium"
+                android:text="এই বিভাগের ডাক্তারগণ মানসিক সমস্যার রোগীদের সুস্থ করে তোলার চেষ্টা করেন। মানসিক, অবসাদ, বা আধিক চিন্তাই ডিপ্রেশন এ চলে যাওয়া রোগীদের সুস্থ করে তুলার জন্য চিকিৎসা করে থাকেন। আপনি যদি উক্ত রোগে আক্রান্ত হয়ে থাকেন তাহলে মানসিক রোগ বিশেষজ্ঞ/অভিজ্ঞ ডাক্তারের নিকট যেতে পারেন।"
+                android:textColor="#333333"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/title2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/siligurimedium"
+                android:text="গাইনীকোলজিস্ট (স্ত্রী ও প্রসূতি বিশেষজ্ঞ/অভিজ্ঞ)"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/content2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/siligurimedium"
+                android:text="প্রেগন্যান্সি, শিশু জন্মানো, অনিয়মিত মাসিক, সাদাস্রাব, অতিরজঃ বা মেনোরেজিয়া, ভেজাইনাল ক্যান্ডিডেডাস সহ গাইনি ও অবস জাতীয় সমস্যার জন্য আপনি গাইনীকোলজিস্ট (স্ত্রী ও প্রসূতি বিশেষজ্ঞ/অভিজ্ঞ) ডাক্তারের চিকিৎসা নিতে পারেন"
+                android:textColor="#333333"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/title3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/siligurimedium"
+                android:text="মেডিসিন বিশেষজ্ঞ/অভিজ্ঞঃ "
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/content3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/siligurimedium"
+                android:text="মেডিসিন বিশেষজ্ঞ ডাক্তারগণ সকল প্রকার প্রাথমিক রোগের চিকিৎসা করে থাকেন। তাই রোগ গুরুত্বর না হলে আপনি মেডিসিন বিশেষজ্ঞ/অভিজ্ঞ ডাক্তারের চিকিৎসা নিতে পারেন।"
+                android:textColor="#333333"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/title4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/siligurimedium"
+                android:text="কার্ডিওলজিস্ট (হৃদরোগ বিশেষজ্ঞ/অভিজ্ঞ) "
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/content4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/siligurimedium"
+                android:text="এই বিভাগের ডাক্তারগণ প্রধানত হার্ট বা হৃদরোগ বিশেষজ্ঞ হয়ে থাকেন। হার্টের কোন সমস্যা সমাধানের জন্য এদের কাছে যান। এছাড়াও শিরা, উপশিরা বা ধমনীতে রক্ত সঞ্চালনের সমস্যার জন্য ও আপনি কার্ডিওলজিস্ট (হৃদরোগ বিশেষজ্ঞ/অভিজ্ঞ) ডাক্তারের কাছে যেতে পারেন। "
+                android:textColor="#333333"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/title5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/siligurimedium"
+                android:text="নিউরোলজিস্ট (স্নায়ু রোগ বিশেষজ্ঞ/অভিজ্ঞ) "
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/content5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/siligurimedium"
+                android:text="এই বিভাগ টি যথেষ্ট গুরুত্বপূর্ন একটা বিভাগ, এই বিভাগের ডাক্তারগণ মূলত নার্ভের সমস্যার সমাধান করেন। ব্রেন, স্পাইন্যাল কর্ড, এবং নিউরোনের সমস্যার সমাধান প্রদান করেন। আপনি যদি উক্ত রোগে আক্রান্ত হয়ে থাকেন তাহলে নিউরোলজিস্ট (স্নায়ু রোগ বিশেষজ্ঞ/অভিজ্ঞ) ডাক্তারের নিকট যেতে পারেন।  "
+                android:textColor="#333333"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/title6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/siligurimedium"
+                android:text="অপথালমোলজিস্ট (চক্ষু বিশেষজ্ঞ/অভিজ্ঞ)  "
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/content6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/siligurimedium"
+                android:text="এই বিভাগের ডাক্তারগণ মূলত চোখের সমস্যা সমাধানের জন্য। বিভিন্ন রকমের সমস্যা যেমন- শুস্ক চোখ, চোখে টিউমার, চোখে বিভিন্ন এলার্জি ইত্যাদি রোগের চিকিৎসা করে থাকেন। আপনি যদি উক্ত রোগে আক্রান্ত হয়ে থাকেন। তাহলে অপথালমোলজিস্ট (চক্ষু বিশেষজ্ঞ/অভিজ্ঞ) ডাক্তারের নিকট যেতে পারেন।   "
+                android:textColor="#333333"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/title7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/siligurimedium"
+                android:text="অর্থোপেডিস্ট (পেশী এবং হাড় বিশেষজ্ঞ/অর্থোপেডিক সার্জন/অভিজ্ঞ)   "
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/content7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/siligurimedium"
+                android:text="এই বিভাগের ডাক্তারগণ মূলত হাড় ভাঙ্গা, হাড়ের বিভিন্ন সমস্যা, হাড় বেঁকে যাওয়া, টেন্ডন, লিগামেন্ট এই সব সমস্যার চিকিৎসা করে থাকেন। আপনি যদি উক্ত সমস্যায় আক্রান্ত হয়ে থাকেন তাহলে অর্থোপেডিস্ট (পেশী এবং হাড় বিশেষজ্ঞ/অর্থোপেডিক সার্জন/অভিজ্ঞ) ডাক্তার দেখাতে পারেন।  "
+                android:textColor="#333333"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/title8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/siligurimedium"
+                android:text="ডেন্টিস্ট (দন্ত চিকিৎসক/অভিজ্ঞ)  "
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/content8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/siligurimedium"
+                android:text="এই বিভাগের ডাক্তারগণ মূলত দাঁত ক্ষয়ে যাওয়া, দাগ পড়া, মাড়ি দিয়ে রক্ত পড়া, দূর্ঘটনায় দাঁত ক্ষতিগ্রস্থ হওয়া, ঠান্ডা খাবার বা পানি গ্রহণে দাঁত শিরশির করা, মুখে দূর্গন্ধ হওয়া, অকালে দাঁত পড়ে যাওয়া, কৃত্রিম বা বাঁধানো দাঁত, আক্কেল দাঁত উঠা, অবাঞ্চিত দাতের ব্যাথা এবং দাতেঁর অপারেশন করে থাকে। আপনি যদি উক্ত রোগে আক্রান্ত হয়ে থাকেন তাহলে ডেন্টিস্ট (দন্ত চিকিৎসক/অভিজ্ঞ) ডাক্তারের নিকট যেতে পারেন।  "
+                android:textColor="#333333"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btn_close"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:backgroundTint="#009688"
+        android:fontFamily="@font/siligurimedium"
+        android:padding="12dp"
+        android:text="হ্যাঁ বুঝতে পারছি!!"
+        android:textColor="#ffffff"
+        app:cornerRadius="8dp" />
+</RelativeLayout>

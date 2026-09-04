@@ -1,0 +1,1792 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="#F5F5F5"
+    android:layout_height="match_parent">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="16dp">
+
+            <!-- Notice Section -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="#FF6B35">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="নোটিস :"
+                        android:textColor="#fff"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/btxf"/>
+
+                    <TextView
+                        android:id="@+id/marqueeText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ellipsize="marquee"
+                        android:marqueeRepeatLimit="marquee_forever"
+                        android:paddingStart="12dp"
+                        android:textColor="#fff"
+                        android:scrollHorizontally="true"
+                        android:singleLine="true"
+                        android:text="আপনার শহরের সকল সেবা ও তথ্য এক প্ল্যাটফর্মে এনে দিয়েছে। এই অ্যাপটি বেতাগীবাসীর দৈনন্দিন জীবনকে সহজতর এবং উন্নত করার জন্য ডিজাইন করা হয়েছে।"
+                        android:textSize="15sp"
+                        android:fontFamily="@font/kalpurush" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Weather & Quick Actions Row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="8dp"
+                android:layout_marginTop="5dp"
+                >
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    >
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_marginStart="20dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            android:id="@+id/temperature"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="25.00 °C"
+                            android:textColor="#000"
+                            android:textSize="26sp"
+                            android:fontFamily="@font/elcias"
+                            />
+                        <TextView
+                            android:id="@+id/feelsLike"
+                            android:fontFamily="@font/bnlatxf"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Feels Like: --°C"
+                            android:textSize="14sp"
+                            />
+                        <TextView
+                            android:id="@+id/weatherDescription"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Description: --"
+                            android:textSize="13sp"
+                            android:fontFamily="@font/bnlatxf"
+                            android:layout_marginTop="8dp" />
+
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_marginLeft="10dp"
+                        tools:ignore="MissingConstraints">
+                        <TextView
+                            android:id="@+id/dayTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="দিন: সোমবার"
+                            android:fontFamily="@font/bnlatxf"
+                            android:textSize="16sp"
+
+                            />
+
+                        <ImageView
+                            android:id="@+id/weatherIcon"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:src="@drawable/cloudy"
+                            />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="top|center"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toStartOf="@+id/linearLayout"
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            android:id="@+id/dayPhaseTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/bnlatxf"
+                            android:text="Now Sunrise"
+                            android:textSize="16sp"
+
+                            />
+
+                        <TextView
+                            android:id="@+id/sunriseTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:fontFamily="@font/bnlatxf"
+                            android:text="সূর্যোদয়ের সময়: \n16:00"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:id="@+id/sunsetTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:fontFamily="@font/bnlatxf"
+                            android:text="সূর্যাস্তের সময়: \n 16;00"
+                            android:textSize="13sp" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linearLayout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="bottom|center"
+                        android:orientation="horizontal"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        tools:ignore="MissingConstraints">
+
+                        <ImageView
+                            android:id="@+id/refreshButton"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="bottom"
+                            android:layout_marginLeft="10dp"
+                            android:src="@drawable/baseline_autorenew_24"
+                            android:text="Refresh" />
+                    </LinearLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+            </LinearLayout>
+
+
+            <!-- Image Slider -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="6dp">
+
+                <com.denzcoskun.imageslider.ImageSlider
+                    android:id="@+id/image_slider"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:iss_auto_cycle="true"
+                    app:iss_period="2000"
+                    app:iss_delay="2000"
+                    app:iss_text_align="CENTER"/>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Emergency Services Section -->
+            <LinearLayout
+                android:id="@+id/hotline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="8dp"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="12dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="জরুরি হটলাইন"
+                        android:textSize="18sp"
+
+                        android:textColor="#000"
+                        android:fontFamily="@font/btxf"/>
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/baseline_double_arrow_24"
+                        />
+                </LinearLayout>
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/hotline_999_card"
+                            android:layout_width="100dp"
+                            android:layout_height="80dp"
+                            android:layout_marginEnd="8dp"
+                            app:cardCornerRadius="8dp"
+                            app:cardElevation="4dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:padding="8dp">
+
+                                <ImageView
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    android:src="@drawable/em"
+                                    android:scaleType="centerInside"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="৯৯৯"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold"
+                                    android:textColor="#000"
+                                    android:fontFamily="@font/bnlatxf"
+                                    android:layout_marginTop="4dp"/>
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/hotline_109_card"
+                            android:layout_width="100dp"
+                            android:layout_height="80dp"
+                            android:layout_marginEnd="8dp"
+                            app:cardCornerRadius="8dp"
+                            app:cardElevation="4dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:padding="8dp">
+
+                                <ImageView
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    android:src="@drawable/it"
+                                    android:scaleType="centerInside"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="১০৯"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold"
+                                    android:textColor="#000"
+                                    android:fontFamily="@font/bnlatxf"
+                                    android:layout_marginTop="4dp"/>
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/hotline_16263_card"
+                            android:layout_width="100dp"
+                            android:layout_height="80dp"
+                            android:layout_marginEnd="8dp"
+                            app:cardCornerRadius="8dp"
+                            app:cardElevation="4dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:padding="8dp">
+
+                                <ImageView
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    android:src="@drawable/fr"
+                                    android:scaleType="centerInside"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="১৬২৬৩"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold"
+                                    android:textColor="#000"
+                                    android:fontFamily="@font/bnlatxf"
+                                    android:layout_marginTop="4dp"/>
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+                    </LinearLayout>
+                </HorizontalScrollView>
+            </LinearLayout>
+
+            <!-- City Information Section -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="8dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="12dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="বেতাগী ই সেবা"
+                        android:textSize="18sp"
+
+                        android:textColor="#000"
+                        android:fontFamily="@font/btxf"/>
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/baseline_double_arrow_24"
+                        app:tint="#FF6B35"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/srin"
+                        android:layout_width="0dp"
+                        android:layout_height="100dp"
+                        android:layout_weight="1"
+                        android:layout_margin="4dp"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="4dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:padding="12dp">
+
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:src="@mipmap/ic_launcher"
+                                android:scaleType="fitCenter"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="অ্যাপ সম্পর্কে"
+                                android:textSize="12sp"
+                                android:textColor="#000"
+                                android:fontFamily="@font/bnlatxf"
+                                android:layout_marginTop="8dp"
+                                android:gravity="center"/>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/wetherin"
+                        android:layout_width="0dp"
+                        android:layout_height="100dp"
+                        android:layout_weight="1"
+                        android:layout_margin="4dp"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="4dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:padding="12dp">
+
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:src="@drawable/redistribute"
+                                android:scaleType="fitCenter"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="শহর সম্পর্কে"
+                                android:textSize="12sp"
+                                android:textColor="#000"
+                                android:fontFamily="@font/bnlatxf"
+                                android:layout_marginTop="8dp"
+                                android:gravity="center"/>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/fbpagein"
+                        android:layout_width="0dp"
+                        android:layout_height="100dp"
+                        android:layout_weight="1"
+                        android:layout_margin="4dp"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="4dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:padding="12dp">
+
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:src="@drawable/flag"
+                                android:scaleType="fitCenter"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="ফেসবুক পেইজ"
+                                android:textSize="12sp"
+                                android:textColor="#000"
+                                android:fontFamily="@font/bnlatxf"
+                                android:layout_marginTop="8dp"
+                                android:gravity="center"/>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/fbgrin"
+                        android:layout_width="0dp"
+                        android:layout_height="100dp"
+                        android:layout_weight="1"
+                        android:layout_margin="4dp"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="4dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:padding="12dp">
+
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:src="@drawable/fbgroup"
+                                android:scaleType="fitCenter"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="ফেসবুক গ্রুপ"
+                                android:textSize="12sp"
+                                android:textColor="#000"
+                                android:fontFamily="@font/bnlatxf"
+                                android:layout_marginTop="8dp"
+                                android:gravity="center"/>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+            </LinearLayout>
+            <!-- ================= NEW SECTIONS BELOW ================= -->
+
+            <!-- Section Divider -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+                android:background="#EDEDED"
+                android:layout_marginTop="8dp"/>
+
+            <!-- ============ Citizen Stat Strip ============ -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="উপজেলা এক নজরে"
+                    android:textSize="18sp"
+                    android:textColor="#000"
+                    android:fontFamily="@font/btxf"
+                    android:layout_marginBottom="8dp"/>
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="110dp"
+                            android:layout_height="90dp"
+                            android:layout_marginEnd="8dp"
+                            app:cardCornerRadius="12dp"
+                            app:cardElevation="2dp"
+                            app:strokeWidth="0dp"
+                            app:cardBackgroundColor="#FFF1EB">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:padding="8dp">
+
+                                <TextView
+                                    android:id="@+id/statCitizensCount"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="১২,৪৫০"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold"
+                                    android:textColor="#FF6B35"
+                                    android:fontFamily="@font/elcias"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="নিবন্ধিত নাগরিক"
+                                    android:textSize="11sp"
+                                    android:textColor="#000"
+                                    android:fontFamily="@font/bnlatxf"
+                                    android:gravity="center"
+                                    android:layout_marginTop="4dp"/>
+                            </LinearLayout>
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="110dp"
+                            android:layout_height="90dp"
+                            android:layout_marginEnd="8dp"
+                            app:cardCornerRadius="12dp"
+                            app:cardElevation="2dp"
+                            app:strokeWidth="0dp"
+                            app:cardBackgroundColor="#EAF4EC">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:padding="8dp">
+
+                                <TextView
+                                    android:id="@+id/statResolvedCount"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="২১৪"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold"
+                                    android:textColor="#2E7D32"
+                                    android:fontFamily="@font/elcias"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="সমাধানকৃত অভিযোগ"
+                                    android:textSize="11sp"
+                                    android:textColor="#000"
+                                    android:fontFamily="@font/bnlatxf"
+                                    android:gravity="center"
+                                    android:layout_marginTop="4dp"/>
+                            </LinearLayout>
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="110dp"
+                            android:layout_height="90dp"
+                            android:layout_marginEnd="8dp"
+                            app:cardCornerRadius="12dp"
+                            app:cardElevation="2dp"
+                            app:strokeWidth="0dp"
+                            app:cardBackgroundColor="#FDECEC">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:padding="8dp">
+
+                                <TextView
+                                    android:id="@+id/statActiveComplaints"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="৩৮"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold"
+                                    android:textColor="#C62828"
+                                    android:fontFamily="@font/elcias"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="চলমান অভিযোগ"
+                                    android:textSize="11sp"
+                                    android:textColor="#000"
+                                    android:fontFamily="@font/bnlatxf"
+                                    android:gravity="center"
+                                    android:layout_marginTop="4dp"/>
+                            </LinearLayout>
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="110dp"
+                            android:layout_height="90dp"
+                            app:cardCornerRadius="12dp"
+                            app:cardElevation="2dp"
+                            app:strokeWidth="0dp"
+                            app:cardBackgroundColor="#EAF0FB">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:padding="8dp">
+
+                                <TextView
+                                    android:id="@+id/statOngoingProjects"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="১৭"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold"
+                                    android:textColor="#1565C0"
+                                    android:fontFamily="@font/elcias"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="চলমান প্রকল্প"
+                                    android:textSize="11sp"
+                                    android:textColor="#000"
+                                    android:fontFamily="@font/bnlatxf"
+                                    android:gravity="center"
+                                    android:layout_marginTop="4dp"/>
+                            </LinearLayout>
+                        </com.google.android.material.card.MaterialCardView>
+
+                    </LinearLayout>
+                </HorizontalScrollView>
+            </LinearLayout>
+
+            <!-- ============ Budget & Development Dashboard ============ -->
+            <LinearLayout
+                android:id="@+id/budgetDashboardSection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="8dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="8dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="উন্নয়ন ও বাজেট"
+                        android:textSize="18sp"
+                        android:textColor="#000"
+                        android:fontFamily="@font/btxf"/>
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/baseline_double_arrow_24"
+                        app:tint="#FF6B35"/>
+                </LinearLayout>
+
+                <!-- A. Budget Summary Hero Card -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="6dp"
+                    app:cardBackgroundColor="#FFFFFF">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="মোট বার্ষিক বাজেট"
+                            android:textSize="13sp"
+                            android:textColor="#666"
+                            android:fontFamily="@font/bnlatxf"/>
+
+                        <TextView
+                            android:id="@+id/totalBudgetAmount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="৳ ৫,২০,০০,০০০"
+                            android:textSize="28sp"
+                            android:textStyle="bold"
+                            android:textColor="#000"
+                            android:fontFamily="@font/elcias"
+                            android:layout_marginTop="2dp"/>
+
+                        <com.google.android.material.progressindicator.LinearProgressIndicator
+                            android:id="@+id/budgetProgressBar"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:progress="64"
+                            app:trackCornerRadius="6dp"
+                            app:trackThickness="10dp"
+                            app:indicatorColor="#FF6B35"
+                            app:trackColor="#F0F0F0"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="10dp"
+                            android:weightSum="2">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="ব্যয়িত"
+                                    android:textSize="12sp"
+                                    android:textColor="#666"
+                                    android:fontFamily="@font/bnlatxf"/>
+
+                                <TextView
+                                    android:id="@+id/budgetSpentAmount"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="৳ ৩,৩২,৮০,০০০"
+                                    android:textSize="15sp"
+                                    android:textStyle="bold"
+                                    android:textColor="#FF6B35"
+                                    android:fontFamily="@font/bnlatxf"/>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:gravity="end">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="অবশিষ্ট"
+                                    android:textSize="12sp"
+                                    android:textColor="#666"
+                                    android:fontFamily="@font/bnlatxf"/>
+
+                                <TextView
+                                    android:id="@+id/budgetRemainingAmount"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="৳ ১,৮৭,২০,০০০"
+                                    android:textSize="15sp"
+                                    android:textStyle="bold"
+                                    android:textColor="#2E7D32"
+                                    android:fontFamily="@font/bnlatxf"/>
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/budgetLastUpdated"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="সর্বশেষ হালনাগাদ: ০১ জুলাই, ২০২৬"
+                            android:textSize="11sp"
+                            android:textColor="#999"
+                            android:fontFamily="@font/bnlatxf"
+                            android:layout_marginTop="10dp"/>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- B. Sector-wise Allocation Card (segmented bar as a lightweight XML-only "donut" substitute) -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="4dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="খাতভিত্তিক বরাদ্দ"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            android:textColor="#000"
+                            android:fontFamily="@font/btxf"
+                            android:layout_marginBottom="10dp"/>
+
+                        <!-- Segmented proportion bar: replace this comment with a real PieChart/DonutChart
+                             (e.g. MPAndroidChart) if a charting library is added later -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="16dp"
+                            android:orientation="horizontal"
+                            android:weightSum="100">
+
+                            <View
+                                android:layout_width="0dp"
+                                android:layout_weight="35"
+                                android:layout_height="match_parent"
+                                android:background="#FF6B35"/>
+
+                            <View
+                                android:layout_width="0dp"
+                                android:layout_weight="25"
+                                android:layout_height="match_parent"
+                                android:background="#1565C0"/>
+
+                            <View
+                                android:layout_width="0dp"
+                                android:layout_weight="20"
+                                android:layout_height="match_parent"
+                                android:background="#2E7D32"/>
+
+                            <View
+                                android:layout_width="0dp"
+                                android:layout_weight="12"
+                                android:layout_height="match_parent"
+                                android:background="#F9A825"/>
+
+                            <View
+                                android:layout_width="0dp"
+                                android:layout_weight="8"
+                                android:layout_height="match_parent"
+                                android:background="#9E9E9E"/>
+                        </LinearLayout>
+
+                        <!-- Legend grid, 2 columns -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="12dp"
+                            android:weightSum="2">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="🟧 রাস্তা ও অবকাঠামো — ৩৫%"
+                                    android:textSize="12sp"
+                                    android:textColor="#000"
+                                    android:fontFamily="@font/bnlatxf"
+                                    android:layout_marginBottom="6dp"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="🟦 শিক্ষা — ২৫%"
+                                    android:textSize="12sp"
+                                    android:textColor="#000"
+                                    android:fontFamily="@font/bnlatxf"
+                                    android:layout_marginBottom="6dp"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="🟩 স্বাস্থ্য — ২০%"
+                                    android:textSize="12sp"
+                                    android:textColor="#000"
+                                    android:fontFamily="@font/bnlatxf"/>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="🟨 কৃষি — ১২%"
+                                    android:textSize="12sp"
+                                    android:textColor="#000"
+                                    android:fontFamily="@font/bnlatxf"
+                                    android:layout_marginBottom="6dp"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="⬜ অন্যান্য — ৮%"
+                                    android:textSize="12sp"
+                                    android:textColor="#000"
+                                    android:fontFamily="@font/bnlatxf"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- C. Yearly Comparison Card (bar chart via weighted Views — swap for a real BarChart later) -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="4dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="বার্ষিক বাজেট তুলনা"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            android:textColor="#000"
+                            android:fontFamily="@font/btxf"
+                            android:layout_marginBottom="12dp"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="120dp"
+                            android:orientation="horizontal"
+                            android:gravity="bottom"
+                            android:weightSum="5">
+
+                            <LinearLayout android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="center">
+                                <View android:layout_width="24dp" android:layout_height="55dp" android:background="#FFD8C7"/>
+                                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="২০২২" android:textSize="10sp" android:fontFamily="@font/bnlatxf" android:layout_marginTop="4dp"/>
+                            </LinearLayout>
+
+                            <LinearLayout android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="center">
+                                <View android:layout_width="24dp" android:layout_height="70dp" android:background="#FFBFA3"/>
+                                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="২০২৩" android:textSize="10sp" android:fontFamily="@font/bnlatxf" android:layout_marginTop="4dp"/>
+                            </LinearLayout>
+
+                            <LinearLayout android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="center">
+                                <View android:layout_width="24dp" android:layout_height="85dp" android:background="#FF9E75"/>
+                                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="২০২৪" android:textSize="10sp" android:fontFamily="@font/bnlatxf" android:layout_marginTop="4dp"/>
+                            </LinearLayout>
+
+                            <LinearLayout android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="center">
+                                <View android:layout_width="24dp" android:layout_height="100dp" android:background="#FF864A"/>
+                                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="২০২৫" android:textSize="10sp" android:fontFamily="@font/bnlatxf" android:layout_marginTop="4dp"/>
+                            </LinearLayout>
+
+                            <LinearLayout android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="center">
+                                <View android:layout_width="24dp" android:layout_height="115dp" android:background="#FF6B35"/>
+                                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="২০২৬" android:textSize="10sp" android:fontFamily="@font/bnlatxf" android:layout_marginTop="4dp"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- D. Ongoing Projects — Collapsible List -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/projectsCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="4dp"
+                    app:strokeWidth="1dp"
+                    app:strokeColor="#EEEEEE">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <LinearLayout
+                            android:id="@+id/projectsHeaderToggle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:background="?attr/selectableItemBackground"
+                            android:clickable="true"
+                            android:focusable="true">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                android:text="চলমান প্রকল্প"
+                                android:textSize="15sp"
+                                android:textStyle="bold"
+                                android:textColor="#000"
+                                android:fontFamily="@font/btxf"/>
+
+                            <ImageView
+                                android:id="@+id/projectsExpandIcon"
+                                android:layout_width="22dp"
+                                android:layout_height="22dp"
+                                android:src="@drawable/baseline_autorenew_24"
+                                app:tint="#666"/>
+                        </LinearLayout>
+
+                        <!-- Row 1 (always visible) -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginTop="12dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="গ্রামীণ রাস্তা সংস্কার — ওয়ার্ড ৪"
+                                android:textSize="13sp"
+                                android:textColor="#000"
+                                android:fontFamily="@font/bnlatxf"/>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical"
+                                android:layout_marginTop="4dp">
+
+                                <com.google.android.material.progressindicator.LinearProgressIndicator
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:layout_height="wrap_content"
+                                    android:progress="70"
+                                    app:trackCornerRadius="4dp"
+                                    app:trackThickness="6dp"
+                                    app:indicatorColor="#1565C0"
+                                    app:trackColor="#F0F0F0"/>
+
+                                <com.google.android.material.chip.Chip
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="8dp"
+                                    android:text="চলমান"
+                                    android:textSize="10sp"
+                                    app:chipBackgroundColor="#EAF0FB"
+                                    app:chipMinHeight="24dp"/>
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <!-- Collapsible container: rows 2-3, hidden by default, toggled in code -->
+                        <LinearLayout
+                            android:id="@+id/projectsMoreContainer"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:visibility="gone"
+                            android:layout_marginTop="12dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="কমিউনিটি ক্লিনিক নির্মাণ — ওয়ার্ড ৭"
+                                android:textSize="13sp"
+                                android:textColor="#000"
+                                android:fontFamily="@font/bnlatxf"/>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical"
+                                android:layout_marginTop="4dp"
+                                android:layout_marginBottom="12dp">
+
+                                <com.google.android.material.progressindicator.LinearProgressIndicator
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:layout_height="wrap_content"
+                                    android:progress="40"
+                                    app:trackCornerRadius="4dp"
+                                    app:trackThickness="6dp"
+                                    app:indicatorColor="#F9A825"
+                                    app:trackColor="#F0F0F0"/>
+
+                                <com.google.android.material.chip.Chip
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="8dp"
+                                    android:text="বিলম্বিত"
+                                    android:textSize="10sp"
+                                    app:chipBackgroundColor="#FFF3E0"
+                                    app:chipMinHeight="24dp"/>
+                            </LinearLayout>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="পুকুর পুনঃখনন প্রকল্প — ওয়ার্ড ২"
+                                android:textSize="13sp"
+                                android:textColor="#000"
+                                android:fontFamily="@font/bnlatxf"/>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical"
+                                android:layout_marginTop="4dp">
+
+                                <com.google.android.material.progressindicator.LinearProgressIndicator
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:layout_height="wrap_content"
+                                    android:progress="100"
+                                    app:trackCornerRadius="4dp"
+                                    app:trackThickness="6dp"
+                                    app:indicatorColor="#2E7D32"
+                                    app:trackColor="#F0F0F0"/>
+
+                                <com.google.android.material.chip.Chip
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="8dp"
+                                    android:text="সম্পন্ন"
+                                    android:textSize="10sp"
+                                    app:chipBackgroundColor="#EAF4EC"
+                                    app:chipMinHeight="24dp"/>
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/projectsSeeMoreText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="আরও দেখুন"
+                            android:textSize="12sp"
+                            android:textColor="#FF6B35"
+                            android:fontFamily="@font/bnlatxf"
+                            android:layout_marginTop="8dp"
+                            android:background="?attr/selectableItemBackground"
+                            android:clickable="true"
+                            android:focusable="true"/>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+            <!-- ============ Quick-Access Grid ============ -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="দ্রুত সেবা"
+                    android:textSize="18sp"
+                    android:textColor="#000"
+                    android:fontFamily="@font/btxf"
+                    android:layout_marginBottom="8dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/quickBirthDeathCard"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="90dp"
+                        android:layout_margin="4dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="2dp"
+                        app:cardBackgroundColor="#FFF7F4">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:padding="8dp">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/em"
+                                android:scaleType="fitCenter"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="জন্ম/মৃত্যু\nনিবন্ধন"
+                                android:textSize="11sp"
+                                android:textColor="#000"
+                                android:fontFamily="@font/bnlatxf"
+                                android:gravity="center"
+                                android:layout_marginTop="6dp"/>
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/quickTaxCard"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="90dp"
+                        android:layout_margin="4dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="2dp"
+                        app:cardBackgroundColor="#FFF7F4">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:padding="8dp">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/redistribute"
+                                android:scaleType="fitCenter"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="ট্যাক্স/হোল্ডিং\nতথ্য"
+                                android:textSize="11sp"
+                                android:textColor="#000"
+                                android:fontFamily="@font/bnlatxf"
+                                android:gravity="center"
+                                android:layout_marginTop="6dp"/>
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/quickComplaintCard"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="90dp"
+                        android:layout_margin="4dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="2dp"
+                        app:cardBackgroundColor="#FFF7F4">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:padding="8dp">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/it"
+                                android:scaleType="fitCenter"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="অভিযোগ\nজানান"
+                                android:textSize="11sp"
+                                android:textColor="#000"
+                                android:fontFamily="@font/bnlatxf"
+                                android:gravity="center"
+                                android:layout_marginTop="6dp"/>
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/quickFeeListCard"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="90dp"
+                        android:layout_margin="4dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="2dp"
+                        app:cardBackgroundColor="#FFF7F4">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:padding="8dp">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/fr"
+                                android:scaleType="fitCenter"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="সেবা তালিকা\nও ফি"
+                                android:textSize="11sp"
+                                android:textColor="#000"
+                                android:fontFamily="@font/bnlatxf"
+                                android:gravity="center"
+                                android:layout_marginTop="6dp"/>
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/quickFormsCard"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="90dp"
+                        android:layout_margin="4dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="2dp"
+                        app:cardBackgroundColor="#FFF7F4">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:padding="8dp">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/flag"
+                                android:scaleType="fitCenter"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="ফরম\nডাউনলোড"
+                                android:textSize="11sp"
+                                android:textColor="#000"
+                                android:fontFamily="@font/bnlatxf"
+                                android:gravity="center"
+                                android:layout_marginTop="6dp"/>
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/quickOfficeHoursCard"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="90dp"
+                        android:layout_margin="4dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="2dp"
+                        app:cardBackgroundColor="#FFF7F4">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:padding="8dp">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/fbgroup"
+                                android:scaleType="fitCenter"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="অফিস\nসময়সূচি"
+                                android:textSize="11sp"
+                                android:textColor="#000"
+                                android:fontFamily="@font/bnlatxf"
+                                android:gravity="center"
+                                android:layout_marginTop="6dp"/>
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- ============ Daily Engagement Hub ============ -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="আজকের আপডেট"
+                    android:textSize="18sp"
+                    android:textColor="#000"
+                    android:fontFamily="@font/btxf"
+                    android:layout_marginBottom="8dp"/>
+
+                <!-- Tip of the Day -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="2dp"
+                    app:cardBackgroundColor="#FFF7F4">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:padding="12dp">
+
+                        <ImageView
+                            android:layout_width="26dp"
+                            android:layout_height="26dp"
+                            android:src="@drawable/redistribute"
+                            app:tint="#FF6B35"/>
+
+                        <TextView
+                            android:id="@+id/tipOfTheDayText"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:text="আজকের পরামর্শ: বর্ষার আগে ঘরের চারপাশে পানি নিষ্কাশনের ব্যবস্থা করুন।"
+                            android:textSize="13sp"
+                            android:textColor="#000"
+                            android:fontFamily="@font/bnlatxf"
+                            android:paddingStart="10dp"/>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Quick Poll -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="2dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="নাগরিক জরিপ: আপনার এলাকার রাস্তার অবস্থা কেমন?"
+                            android:textSize="13sp"
+                            android:textStyle="bold"
+                            android:textColor="#000"
+                            android:fontFamily="@font/bnlatxf"
+                            android:layout_marginBottom="8dp"/>
+
+                        <com.google.android.material.chip.ChipGroup
+                            android:id="@+id/pollChipGroup"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:singleSelection="true">
+
+                            <com.google.android.material.chip.Chip
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="ভালো"
+                                app:chipMinHeight="32dp"/>
+
+                            <com.google.android.material.chip.Chip
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="মোটামুটি"
+                                app:chipMinHeight="32dp"/>
+
+                            <com.google.android.material.chip.Chip
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="খারাপ"
+                                app:chipMinHeight="32dp"/>
+                        </com.google.android.material.chip.ChipGroup>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Notice Archive (collapsible) -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="2dp"
+                    app:strokeWidth="1dp"
+                    app:strokeColor="#EEEEEE">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="পূর্ববর্তী নোটিশ"
+                            android:textSize="13sp"
+                            android:textStyle="bold"
+                            android:textColor="#000"
+                            android:fontFamily="@font/btxf"
+                            android:layout_marginBottom="8dp"/>
+
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                            android:text="• ১০ জুলাই — বিদ্যুৎ সংযোগ বন্ধ থাকবে" android:textSize="12sp"
+                            android:fontFamily="@font/bnlatxf" android:layout_marginBottom="4dp"/>
+
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                            android:text="• ০৫ জুলাই — টিকাদান ক্যাম্প" android:textSize="12sp"
+                            android:fontFamily="@font/bnlatxf" android:layout_marginBottom="4dp"/>
+
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                            android:text="• ০১ জুলাই — অফিস ছুটি ঘোষণা" android:textSize="12sp"
+                            android:fontFamily="@font/bnlatxf"/>
+
+                        <TextView
+                            android:id="@+id/noticeArchiveSeeAll"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="সব দেখুন"
+                            android:textSize="12sp"
+                            android:textColor="#FF6B35"
+                            android:fontFamily="@font/bnlatxf"
+                            android:layout_marginTop="8dp"
+                            android:background="?attr/selectableItemBackground"
+                            android:clickable="true"
+                            android:focusable="true"/>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Upcoming Events (horizontal date chips) -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="আসন্ন ইভেন্ট"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:textColor="#000"
+                    android:fontFamily="@font/btxf"
+                    android:layout_marginBottom="8dp"/>
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="130dp"
+                            android:layout_height="70dp"
+                            android:layout_marginEnd="8dp"
+                            app:cardCornerRadius="10dp"
+                            app:cardElevation="2dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:padding="6dp">
+
+                                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                    android:text="২২ জুলাই" android:textSize="12sp" android:textStyle="bold"
+                                    android:textColor="#FF6B35" android:fontFamily="@font/bnlatxf"/>
+
+                                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                    android:text="ইউনিয়ন সভা" android:textSize="11sp"
+                                    android:fontFamily="@font/bnlatxf" android:gravity="center"/>
+                            </LinearLayout>
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="130dp"
+                            android:layout_height="70dp"
+                            app:cardCornerRadius="10dp"
+                            app:cardElevation="2dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:padding="6dp">
+
+                                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                    android:text="২৯ জুলাই" android:textSize="12sp" android:textStyle="bold"
+                                    android:textColor="#FF6B35" android:fontFamily="@font/bnlatxf"/>
+
+                                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                    android:text="স্বাস্থ্য ক্যাম্প" android:textSize="11sp"
+                                    android:fontFamily="@font/bnlatxf" android:gravity="center"/>
+                            </LinearLayout>
+                        </com.google.android.material.card.MaterialCardView>
+                    </LinearLayout>
+                </HorizontalScrollView>
+            </LinearLayout>
+
+            <!-- ============ Complaint / Suggestion CTA ============ -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/complaintCtaCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="#FF6B35">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="16dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?attr/selectableItemBackground">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="কোনো সমস্যা আছে?"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            android:textColor="#fff"
+                            android:fontFamily="@font/btxf"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="এখনই অভিযোগ জানান — এক ট্যাপে"
+                            android:textSize="12sp"
+                            android:textColor="#FFEDE5"
+                            android:fontFamily="@font/bnlatxf"
+                            android:layout_marginTop="2dp"/>
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/baseline_double_arrow_24"
+                        app:tint="#fff"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

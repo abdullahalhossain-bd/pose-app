@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <LinearLayout
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bar"
+        android:gravity="center|start"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="55dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:rotation="180"
+            android:src="@drawable/baseline_double_arrow_24"
+            android:tint="@color/white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:fontFamily="@font/btxf"
+            android:text="পোস্ট অফিসের তালিকা"
+            android:textColor="@color/white"
+            android:textSize="24sp" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/kalpurush"
+            android:gravity="center"
+            android:paddingBottom="16dp"
+            android:text="বেতাগী উপজেলায় অবস্থিত সকল পোস্ট অফিসের নাম ও পোস্টাল কোড"
+            android:textColor="#d32f2f"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:divider="@android:color/darker_gray"
+            android:orientation="vertical"
+            android:padding="1dp"
+            android:showDividers="middle"
+            android:stretchColumns="1">
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/table_border"
+                    android:fontFamily="@font/kalpurush"
+                    android:gravity="center"
+                    android:text="ক্র.নং"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/table_border"
+                    android:fontFamily="@font/kalpurush"
+                    android:gravity="center"
+                    android:text="পোস্ট অফিস"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/table_border"
+                    android:fontFamily="@font/kalpurush"
+                    android:gravity="center"
+                    android:text="পোস্টাল কোড"
+                    android:textStyle="bold" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/table_border"
+                    android:fontFamily="@font/kalpurush"
+                    android:gravity="center"
+                    android:text="০১"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/table_border"
+                    android:fontFamily="@font/kalpurush"
+                    android:gravity="center"
+                    android:text="ঝোপখালী" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/table_border"
+                    android:fontFamily="@font/kalpurush"
+                    android:gravity="center"
+                    android:text="8740" />
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+</LinearLayout>

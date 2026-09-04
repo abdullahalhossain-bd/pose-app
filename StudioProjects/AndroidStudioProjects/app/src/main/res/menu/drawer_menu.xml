@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Group: Home -->
+
+    <group >
+
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/baseline_home_24"
+            android:title="Home" />
+        <item
+            android:id="@+id/nav_promote"
+            android:icon="@drawable/baseline_local_offer_24"
+            android:title="Promote" />
+        <item
+            android:id="@+id/nav_service"
+            android:icon="@drawable/baseline_app_shortcut_24"
+            android:title="Service" />
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/baseline_account_circle_24"
+            android:title="Profile" />
+
+    </group>
+
+    <!-- Group: About -->
+    <group >
+        <item android:title="সম্পর্কে"
+            android:enabled="false"
+            >
+        <menu >
+        <item
+            android:id="@+id/nav_about_app"
+            android:icon="@drawable/baseline_app_shortcut_24"
+            android:title="About App" />
+        <item
+            android:id="@+id/nav_about_ads"
+            android:icon="@drawable/baseline_campaign_24"
+            android:title="About Ads" />
+
+        </menu>
+        </item>
+    </group>
+
+    <!-- Group: Support -->
+
+    <group >
+        <item android:title="যোগাযোগ করুন"
+            android:enabled="false"
+            >
+        <menu >
+        <item
+            android:id="@+id/nav_support_call"
+            android:icon="@drawable/baseline_call_24"
+            android:title="support কল করুন" />
+        <item
+            android:id="@+id/nav_support_developer"
+            android:icon="@drawable/baseline_engineering_24"
+            android:title="Support Developer" />
+        </menu>
+        </item>
+    </group>
+
+    <!-- Group: Other -->
+
+    <group >
+        <item android:title="অন্যান্য"
+            android:enabled="false"
+            >
+        <menu >
+        <item
+            android:id="@+id/nav_privacy_policy"
+            android:icon="@drawable/baseline_local_police_24"
+            android:title="গোপনীয়তা নীতি" />
+
+        <item
+            android:id="@+id/share"
+            android:icon="@drawable/baseline_mobile_screen_share_24"
+            android:title="শেয়ার করুন" />
+        <item
+            android:id="@+id/nav_exit"
+            android:icon="@drawable/baseline_exit_to_app_24"
+            android:title="Exit" />
+        </menu>
+        </item>
+    </group>
+
+</menu>

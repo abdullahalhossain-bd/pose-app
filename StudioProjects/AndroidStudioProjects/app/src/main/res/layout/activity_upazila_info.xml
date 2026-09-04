@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bar"
+        android:gravity="center|start"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="55dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:rotation="180"
+            android:src="@drawable/baseline_double_arrow_24"
+             android:tint="@color/white"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:fontFamily="@font/kalpurush"
+            android:text="বেতাগী উপজেলা সম্পর্কে তথ্য"
+            android:textColor="@color/white"
+            android:textSize="24sp" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/title_naming_history"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/kalpurush"
+                android:text="নামকরণের ইতিহাস"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/text_naming_history_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/kalpurush"
+                android:lineSpacingExtra="4dp"
+                android:text="বেতাগী শব্দের নামকরণের ক্ষেত্রে বিভিন্ন মত রয়েছে। এর মধ্যে অধিকাংশের মতে বেদাগী থেকে বেতাগী নামের সূত্রপাত হয়েছে বলে মনে করা হয়। অষ্টাদশ প্রথম দিকে ইংরেজ শাসকরা শত শত নিরীহ লোক ধরে এনে দক্ষিণ জনপদে লবণ চাষ করাতে কৃষকদের উপর নানারকম জোর জবরদস্তি ও নির্যাতন চালাতো। এমনকি তাদেরকে তামাক সেবনেও অভ্যস্ত করতো বলে জানা যায়। এসময় তৎকালীন শাসনামলে বুজুর্গ উমেদপুরের প্রতাপশালী জমিদার ও কৃষক নেতা আইন উদ্দীন সিকদার এ অত্যাচারের বিরুদ্ধে প্রতিবাদ করেন ও গড়ে তোলেন ও কৃষকদের সংগঠিত করে লবণ চাষের বিরুদ্ধে সংগ্রাম করেন। এতে দাঙ্গা-হাঙ্গামায় অনেক ইংরেজও মারা যায়। ইংরেজরা আইন উদ্দিন সিকদারের বিরুদ্ধে হুলিয়া জারি করে ও তাকে কুখ্যাত ডাকাত হিসেবে আখ্যায়িত করে। ১৭৮৯ সালে তার জমিদারী কেড়ে নেয়া হয় এবং তাকে গ্রেফতার করে নির্বাসনে পাঠানো হয়। সে সময়ের ধর্মীয় নেতা নেয়ামত শাহের নিকট এলাকার জনসাধারন আইন উদ্দিন সিকদারের মুক্তির জন্য সাহায্য চাইলে তিনি তৎকালীন ঢাকাস্থ মোগল সুবেদার ইসলাম খার নিকট আইন উদ্দিন সিকদারের পক্ষে সুপারিশ করে একটি পত্র প্রেরণ করেন। এ চিঠিতে তাকে দাগী নয়, বেদাগী (অপরাধী নয়) বলে আখ্যায়িত করে। ফরাসী শব্দ বেদাগী থেকেই কালক্রমে বেতাগী শব্দের রুপান্তরিত হয়ে বেতাগীর উদ্ভব হয় বলে ধারণা করা হয়।এছাড়া বেতাগী অঞ্চলে আগে অনেক বেত পাওয়া যেত এবং বেতের আগা একটি জনপ্রিয় সবজি হিসাবে সকলের কাছে বেশ কদর ছিল। সেই বেতাগা এর সূত্র ধরে বেতাগীর উৎপত্তি হতে পারে। বেতাগীর নামকরণে আবার কেউ কেউ মনে করেন, ইংরেজদের কাউকে কোন কাজে বাধ্য না করাতে পারলে চরম বেত্রাঘাত করত। এখানের মানুষ প্রতিবাদী হওয়ার কারণে আরও বেশি বেত্রাঘাতের স্বীকার হত। এই বেত্রাঘাত শব্দানুসারে বেতাগী নামের সৃষ্টি হয়েছে।প্রশাসন বেতাগী থানা গঠিত হয় ১৯২০ সালে এবং থানাকে উপজেলায় রূপান্তর করা হয় ১৯৮৩ সালে। ১৯৮৩ সালে বেতাগী উপজেলা উদ্বোধন করেন তৎকালীন পূর্তমন্ত্রী মেজর জেনারেল এম এ মুমীন"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginVertical="12dp"
+                android:background="#cccccc" />
+
+            <TextView
+                android:id="@+id/title_map"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/kalpurush"
+                android:text="উপজেলার মানচিত্র"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="4dp">
+
+                <fragment
+                    android:id="@+id/map"
+                    android:name="com.google.android.gms.maps.SupportMapFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </androidx.cardview.widget.CardView>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginVertical="12dp"
+                android:background="#cccccc" />
+
+            <TextView
+                android:id="@+id/title_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/kalpurush"
+                android:text="অবস্থান ও আয়তন"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/text_location_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/kalpurush"
+                android:text="বেতাগী উপজেলাটি বিষখালী নদীর তীরে অবস্থিত। এর আয়তন ১৬৭.৭৫ বর্গ কি.মি.। অবস্থান: ২২°১৩´ থেকে ২২°২৯´ উত্তর অক্ষাংশ এবং ৯০°০৪´ থেকে ৯০°১৫´ পূর্ব দ্রাঘিমাংশ। এর উত্তরে ঝালকাঠি জেলার রাজাপুর উপজেলা, কাঠালিয়া উপজেলা ও বরিশাল জেলার বাকেরগঞ্জ উপজেলা, দক্ষিণে বরগুনা সদর উপজেলা, পূর্বে পটুয়াখালী জেলার মির্জাগঞ্জ উপজেলা, পশ্চিমে ঝালকাঠি জেলার কাঠালিয়া উপজেলা ও বরগুনা জেলার বামনা উপজেলা। এই উপজেলার প্রধান নদীগুলো হচ্ছেঃ বিষখালী নদী ও গজালিয়া নদী। এছাড়াও এখানকার উল্লেখযোগ্য জলাশয়ের মধ্যে রয়েছে কাটাখালি খাল ও করুণা খাল।"
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginVertical="12dp"
+                android:background="#cccccc" />
+
+            <TextView
+                android:id="@+id/title_personalities"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/kalpurush"
+                android:text="উল্লেখযোগ্য ব্যক্তিত্ব"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/text_personalities_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/kalpurush"
+                android:text="শাহজাদা আবদুল মালেক খান - রাজনীতিবিদ।"
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:autoLink="web"
+                android:fontFamily="@font/kalpurush"
+                android:text="আরো বিস্তারিত তথ্য জানতে ভিজিট করুন: https://betagi.barguna.gov.bd/"
+                android:textColor="@android:color/holo_blue_dark"
+                android:textSize="16sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginVertical="12dp"
+                android:background="#cccccc" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

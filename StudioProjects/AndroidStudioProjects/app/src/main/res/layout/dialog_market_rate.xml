@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/dialog_background"
+    android:padding="16dp">
+
+    <!-- Title -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="আজকের বাজার দর"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#000"
+        android:gravity="center"
+        android:fontFamily="@font/kalpurush"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Market Rate Table inside ScrollView -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginBottom="16dp"
+        android:scrollbars="vertical">
+
+        <TableLayout
+            android:id="@+id/marketRateTable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="*"
+            android:shrinkColumns="*"
+            android:background="#E0E0E0"
+            android:padding="2dp">
+
+            <!-- Header Row -->
+            <TableRow
+                android:background="@color/bar">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="পণ্যের নাম"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#fff"
+                    android:padding="12dp"
+                    android:gravity="center"
+                    android:fontFamily="@font/kalpurush" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="দর (টাকা/কেজি)"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#fff"
+                    android:padding="12dp"
+                    android:gravity="center"
+                    android:fontFamily="@font/kalpurush" />
+            </TableRow>
+
+            <!-- Data Rows with subtle dividers -->
+            <TableRow android:background="#FFF">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="চাল"
+                    android:textSize="14sp"
+                    android:textColor="#333"
+                    android:padding="12dp"
+                    android:gravity="center"
+                    android:fontFamily="@font/kalpurush" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="৫০"
+                    android:textSize="14sp"
+                    android:textColor="#333"
+                    android:padding="12dp"
+                    android:gravity="center"
+                    android:fontFamily="@font/kalpurush" />
+            </TableRow>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#DDD" />
+
+            <TableRow android:background="#FFF">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="ডাল"
+                    android:textSize="14sp"
+                    android:textColor="#333"
+                    android:padding="12dp"
+                    android:gravity="center"
+                    android:fontFamily="@font/kalpurush" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="৬০"
+                    android:textSize="14sp"
+                    android:textColor="#333"
+                    android:padding="12dp"
+                    android:gravity="center"
+                    android:fontFamily="@font/kalpurush" />
+            </TableRow>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#DDD" />
+
+            <TableRow android:background="#FFF">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="আটা"
+                    android:textSize="14sp"
+                    android:textColor="#333"
+                    android:padding="12dp"
+                    android:gravity="center"
+                    android:fontFamily="@font/kalpurush" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="৪৫"
+                    android:textSize="14sp"
+                    android:textColor="#333"
+                    android:padding="12dp"
+                    android:gravity="center"
+                    android:fontFamily="@font/kalpurush" />
+            </TableRow>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#DDD" />
+
+            <TableRow android:background="#FFF">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="চিনি"
+                    android:textSize="14sp"
+                    android:textColor="#333"
+                    android:padding="12dp"
+                    android:gravity="center"
+                    android:fontFamily="@font/kalpurush" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="৭০"
+                    android:textSize="14sp"
+                    android:textColor="#333"
+                    android:padding="12dp"
+                    android:gravity="center"
+                    android:fontFamily="@font/kalpurush" />
+            </TableRow>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#DDD" />
+
+            <TableRow android:background="#FFF">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="তেল (সয়াবিন)"
+                    android:textSize="14sp"
+                    android:textColor="#333"
+                    android:padding="12dp"
+                    android:gravity="center"
+                    android:fontFamily="@font/kalpurush" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="১৬০"
+                    android:textSize="14sp"
+                    android:textColor="#333"
+                    android:padding="12dp"
+                    android:gravity="center"
+                    android:fontFamily="@font/kalpurush" />
+            </TableRow>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#DDD" />
+
+            <TableRow android:background="#FFF">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="পেঁয়াজ"
+                    android:textSize="14sp"
+                    android:textColor="#333"
+                    android:padding="12dp"
+                    android:gravity="center"
+                    android:fontFamily="@font/kalpurush" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="৮০"
+                    android:textSize="14sp"
+                    android:textColor="#333"
+                    android:padding="12dp"
+                    android:gravity="center"
+                    android:fontFamily="@font/kalpurush" />
+            </TableRow>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#DDD" />
+
+            <TableRow android:background="#FFF">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="রসুন"
+                    android:textSize="14sp"
+                    android:textColor="#333"
+                    android:padding="12dp"
+                    android:gravity="center"
+                    android:fontFamily="@font/kalpurush" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="১২০"
+                    android:textSize="14sp"
+                    android:textColor="#333"
+                    android:padding="12dp"
+                    android:gravity="center"
+                    android:fontFamily="@font/kalpurush" />
+            </TableRow>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#DDD" />
+
+            <TableRow android:background="#FFF">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="আলু"
+                    android:textSize="14sp"
+                    android:textColor="#333"
+                    android:padding="12dp"
+                    android:gravity="center"
+                    android:fontFamily="@font/kalpurush" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="৩৫"
+                    android:textSize="14sp"
+                    android:textColor="#333"
+                    android:padding="12dp"
+                    android:gravity="center"
+                    android:fontFamily="@font/kalpurush" />
+            </TableRow>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#DDD" />
+
+            <TableRow android:background="#FFF">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="টমেটো"
+                    android:textSize="14sp"
+                    android:textColor="#333"
+                    android:padding="12dp"
+                    android:gravity="center"
+                    android:fontFamily="@font/kalpurush" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="৬০"
+                    android:textSize="14sp"
+                    android:textColor="#333"
+                    android:padding="12dp"
+                    android:gravity="center"
+                    android:fontFamily="@font/kalpurush" />
+            </TableRow>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#DDD" />
+
+            <TableRow android:background="#FFF">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="মাছ (রুই)"
+                    android:textSize="14sp"
+                    android:textColor="#333"
+                    android:padding="12dp"
+                    android:gravity="center"
+                    android:fontFamily="@font/kalpurush" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="৩৫০"
+                    android:textSize="14sp"
+                    android:textColor="#333"
+                    android:padding="12dp"
+                    android:gravity="center"
+                    android:fontFamily="@font/kalpurush" />
+            </TableRow>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#DDD" />
+
+            <TableRow android:background="#FFF">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="মুরগি"
+                    android:textSize="14sp"
+                    android:textColor="#333"
+                    android:padding="12dp"
+                    android:gravity="center"
+                    android:fontFamily="@font/kalpurush" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="২২০"
+                    android:textSize="14sp"
+                    android:textColor="#333"
+                    android:padding="12dp"
+                    android:gravity="center"
+                    android:fontFamily="@font/kalpurush" />
+            </TableRow>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#DDD" />
+
+            <TableRow android:background="#FFF">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="ডিম (হালি)"
+                    android:textSize="14sp"
+                    android:textColor="#333"
+                    android:padding="12dp"
+                    android:gravity="center"
+                    android:fontFamily="@font/kalpurush" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="১৪০"
+                    android:textSize="14sp"
+                    android:textColor="#333"
+                    android:padding="12dp"
+                    android:gravity="center"
+                    android:fontFamily="@font/kalpurush" />
+            </TableRow>
+
+        </TableLayout>
+    </ScrollView>
+
+    <!-- Last Updated -->
+    <TextView
+        android:id="@+id/lastUpdatedText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="সর্বশেষ আপডেট: ২৫ জানুয়ারি, ২০২৫"
+        android:textSize="12sp"
+        android:textColor="#666"
+        android:gravity="end"
+        android:fontFamily="@font/kalpurush"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Admin Control Panel -->
+    <LinearLayout
+        android:id="@+id/adminControlPanel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:background="#FAFAFA"
+        android:padding="12dp"
+        android:layout_marginBottom="16dp"
+        android:elevation="2dp"
+        android:layout_marginTop="8dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="অ্যাডমিন কন্ট্রোল প্যানেল"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:gravity="center"
+            android:fontFamily="@font/kalpurush"
+            android:layout_marginBottom="12dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/addItemButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="আইটেম যোগ করুন"
+                android:textSize="12sp"
+                android:textColor="#fff"
+                android:background="@drawable/button_background"
+                android:layout_marginEnd="8dp" android:fontFamily="@font/bnlatxf" />
+
+            <Button
+                android:id="@+id/editItemButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="আইটেম সম্পাদনা"
+                android:textSize="12sp"
+                android:textColor="#fff"
+                android:background="@drawable/button_background"
+                android:layout_marginEnd="8dp" android:fontFamily="@font/bnlatxf" />
+
+            <Button
+                android:id="@+id/deleteItemButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="আইটেম মুছে ফেলুন"
+                android:textSize="12sp"
+                android:textColor="#fff"
+                android:background="@drawable/button_background" android:fontFamily="@font/bnlatxf" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Warning Message -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#FFF3E0"
+        android:padding="12dp"
+        android:layout_marginBottom="16dp"
+        android:gravity="center_vertical"
+        android:layout_marginTop="8dp">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/war"
+            android:layout_marginEnd="8dp"
+            app:tint="#FF6B35" />
+
+        <TextView
+            android:id="@+id/warningMessageText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="সরকারি নির্দেশ অনুযায়ী প্রতিটি পণ্যের সঠিক দর প্রদান করুন। মিথ্যা তথ্য প্রদানে আইনত ব্যবস্থা গ্রহণ করা হবে।"
+            android:textSize="12sp"
+            android:textColor="#FF6B35"
+            android:fontFamily="@font/kalpurush" />
+    </LinearLayout>
+
+    <Button android:textColor="@color/white" android:id="@+id/btn_close" android:padding="12dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="হ্যাঁ বুঝতে পারছি!!" android:layout_alignParentBottom="true" android:fontFamily="@font/kalpurush" android:backgroundTint="@color/bar" app:cornerRadius="8dp"/>
+</LinearLayout>
