@@ -6,48 +6,42 @@ Pose is a mobile-first fitness product focused on helping people improve exercis
 
 **MVP foundation — not production ready yet.**
 
-The repository started as the default Flutter counter application. This branch replaces that starter screen with the first product shell: dashboard, pose-check entry point, workout area, progress area and profile area.
+The app now has a polished product shell, local workout history, progress tracking, and an exercise-expansion architecture for squat, push-up, and lunge.
 
-## Product direction
-
-The core loop should eventually be:
+## Product loop
 
 1. User chooses an exercise.
 2. User grants camera permission.
-3. Pose estimation tracks body landmarks on-device.
-4. The app evaluates exercise-specific form rules.
-5. User receives immediate, understandable feedback.
-6. A session score and history are saved for progress tracking.
-
-## MVP priorities
-
-### P0 — must work
-- Camera permission and camera preview.
-- On-device pose landmark detection.
-- Exercise-specific form rules, starting with squat.
-- Real-time feedback with confidence thresholds and safe fallbacks.
-- Session start/stop and summary.
-- Local session history.
-
-### P1 — retention
-- More exercises.
-- Progress charts and personal bests.
-- Simple onboarding and goals.
-- Better feedback explanations.
-
-### P2 — business
-- Freemium limits.
-- Premium exercise programs.
-- Analytics that respect user privacy.
-- Crash/performance monitoring.
+3. On-device pose estimation tracks body landmarks.
+4. An exercise-specific analyzer evaluates movement phases and form heuristics.
+5. User receives immediate feedback.
+6. Rep scores and session results are saved locally.
 
 ## Engineering principles
 
-- Prefer on-device inference for privacy and latency where practical.
-- Never present uncertain pose estimates as fact; expose an appropriate "move into frame" or "low confidence" state.
-- Keep pose detection, exercise rules, session state and UI separate so new exercises do not require rewriting the app.
-- Do not add an AI/LLM API merely for marketing value. The core product must work deterministically without a paid LLM call.
-- Test exercise rules with recorded landmark fixtures before trusting real-time behavior.
+- Prefer on-device inference for privacy and latency.
+- Never present uncertain pose estimates as fact; use low-confidence guidance.
+- Keep detection, exercise rules, session state and UI separate.
+- The core product must work without a paid LLM/API call.
+- Validate exercise rules with landmark fixtures before trusting real-time behavior.
+- Do not claim production readiness until CI and physical-device camera validation pass.
+
+## Phase 5 — Exercise Expansion
+
+- Squat: existing validated MVP flow.
+- Push-up: analyzer, rep phases, depth/alignment scoring and live feedback.
+- Lunge: analyzer, rep phases, depth/torso scoring and live feedback.
+- Exercise catalog and registry for scalable additions.
+- Generic live exercise camera flow.
+- Exercise-aware local session summaries and progress breakdown.
+- Automated analyzer tests and Flutter CI.
+
+### Remaining validation gate
+
+- `flutter analyze` must pass.
+- `flutter test` must pass.
+- Physical Android device must confirm camera permission, preview, pose detection, rep counting, confidence fallback and session persistence.
+- Push-up/lunge thresholds remain beta heuristics until real-device fixture testing is completed.
 
 ## Run locally
 
@@ -57,15 +51,3 @@ flutter analyze
 flutter test
 flutter run
 ```
-
-## Roadmap
-
-**Phase 1:** Product shell and architecture  ← current
-
-**Phase 2:** Camera + pose estimation
-
-**Phase 3:** Squat analysis + session scoring
-
-**Phase 4:** History + progress
-
-**Phase 5:** Beta testing, performance, privacy and store readiness
