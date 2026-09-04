@@ -3,31 +3,650 @@ import 'package:flutter/material.dart';
 import 'package:flutter_pose_detection/flutter_pose_detection.dart';
 import '../../core/pose/squat_form_score.dart';
 import '../../core/pose/squat_landmark_metrics.dart';
+import '../../core/pose/landmark_quality.dart';
 import 'session_complete_page.dart';
 
-class LiveSquatCheckPage extends StatefulWidget { const LiveSquatCheckPage({super.key}); @override State<LiveSquatCheckPage> createState()=>_LiveSquatCheckPageState(); }
-class _LiveSquatCheckPageState extends State<LiveSquatCheckPage> with WidgetsBindingObserver {
-  CameraController? camera; NpuPoseDetector? detector; Future<void>? cameraReady;
-  bool running=false,busy=false,front=true; int reps=0,frames=0; String status='READY',phase='Standing',feedback='Stand sideways and keep your whole body in frame'; double? knee; int score=0; String scoreLabel='Ready'; String? error; dynamic latestPose;
-  final List<int> _repScores=[];
-  bool _reachedBottom=false,_ascendingSeen=false; int _bottomFrames=0,_ascendingFrames=0;
-  @override void initState(){super.initState();WidgetsBinding.instance.addObserver(this);initCamera();}
-  Future<void> initCamera() async {try{await camera?.dispose();final list=await availableCameras();if(list.isEmpty)throw CameraException('NoCamera','No camera found.');final selected=list.firstWhere((c)=>c.lensDirection==(front?CameraLensDirection.front:CameraLensDirection.back),orElse:()=>list.first);final c=CameraController(selected,ResolutionPreset.medium,enableAudio:false,imageFormatGroup:ImageFormatGroup.yuv420);final ready=c.initialize();if(mounted)setState((){camera=c;cameraReady=ready;error=null;latestPose=null;});await ready;}on CameraException catch(e){if(mounted)setState(()=>error=e.description??'Camera could not start.');}}
-  Future<void> initDetector() async {if(detector!=null)return;final d=NpuPoseDetector(config:PoseDetectorConfig.realtime());await d.initialize();detector=d;}
-  void _resetRepState(){reps=0;phase='Standing';_reachedBottom=false;_ascendingSeen=false;_bottomFrames=0;_ascendingFrames=0;score=0;scoreLabel='Ready';_repScores.clear();}
-  void _updateRepState(double angle,int currentScore){if(angle>165){if(phase=='Ascending'&&_reachedBottom&&_ascendingSeen){reps++;_repScores.add(currentScore.clamp(0,100));_reachedBottom=false;_ascendingSeen=false;_bottomFrames=0;_ascendingFrames=0;}phase='Standing';return;}if(phase=='Standing'){if(angle<=150)phase='Descending';return;}if(phase=='Descending'){if(angle<=105){_bottomFrames++;if(_bottomFrames>=2){_reachedBottom=true;phase='Bottom';}}return;}if(phase=='Bottom'){if(angle>=115){_ascendingFrames++;if(_ascendingFrames>=2){_ascendingSeen=true;phase='Ascending';}}else{_ascendingFrames=0;}return;}if(phase=='Ascending'&&angle<115){phase='Bottom';_ascendingSeen=false;_ascendingFrames=0;}}
-  Future<void> start() async {final c=camera;if(c==null||!c.value.isInitialized||running)return;try{setState((){error=null;status='GETTING READY';_resetRepState();frames=0;knee=null;latestPose=null;});await initDetector();setState((){running=true;status='MOVE';feedback='Lower down with control.';});await c.startImageStream(onFrame);}catch(e){if(mounted)setState((){running=false;error='Pose detection could not start: $e';});}}
-  Future<void> onFrame(CameraImage image) async {if(!running||busy||detector==null)return;busy=true;frames++;try{final planes=image.planes.map((p)=>{'bytes':p.bytes,'bytesPerRow':p.bytesPerRow,'bytesPerPixel':p.bytesPerPixel}).toList();final result=await detector!.processFrame(planes:planes,width:image.width,height:image.height,format:'yuv420',rotation:camera?.description.sensorOrientation??90);if(!result.hasPoses){if(mounted&&frames%8==0)setState((){status='FIND YOUR BODY';feedback='Step back until your head, hips, knees and feet are visible.';latestPose=null;});return;}final pose=result.firstPose!;if(pose.getVisibleLandmarks(threshold:.55).length<8){if(mounted&&frames%8==0)setState((){status='LOW CONFIDENCE';feedback='Improve lighting and keep your whole body in frame.';latestPose=pose;});return;}final angle=pose.calculateAngle(LandmarkType.leftHip,LandmarkType.leftKnee,LandmarkType.leftAnkle);if(angle==null)return;final metrics=SquatLandmarkMetrics.fromPose(pose);final form=SquatFormScore.fromMetrics(leftKneeAngle:angle,rightKneeAngle:metrics.rightKneeAngle,kneeAlignment:metrics.kneeAlignment,torsoLean:metrics.torsoLean);final wasAscending=phase=='Ascending';_updateRepState(angle,form.score);if(wasAscending&&phase=='Standing'&&reps>_repScores.length-1){score=form.score;scoreLabel=form.label;}if(phase=='Bottom'||phase=='Ascending'){score=form.score;scoreLabel=form.label;}var message=phase=='Bottom'?form.feedback:phase=='Ascending'?'Drive up with control.':phase=='Descending'?'Lower down with control.':'Stand tall, then begin your next rep.';if(mounted&&frames%2==0)setState((){knee=angle;feedback=message;status=phase=='Bottom'?'GREAT':'MOVE';latestPose=pose;});}catch(e){if(mounted&&frames%30==0)setState(()=>error='Frame skipped: $e');}finally{busy=false;}}
-  Future<void> stop() async {if(!running)return;if(camera?.value.isStreamingImages==true)await camera!.stopImageStream();final values=List<int>.from(_repScores);final average=values.isEmpty?score:(values.reduce((a,b)=>a+b)/values.length).round();final best=values.isEmpty?score:values.reduce((a,b)=>a>b?a:b);if(!mounted)return;setState((){running=false;status='SESSION COMPLETE';feedback=values.isEmpty?'No complete reps detected. Try again with your full body visible.':'Nice work — you completed ${values.length} ${values.length==1?'rep':'reps'}.';});await Future<void>.delayed(const Duration(milliseconds:120));if(!mounted)return;await Navigator.of(context).push(MaterialPageRoute(builder:(_)=>SessionCompletePage(reps:values.length,score:average,bestScore:best)));}
-  Future<void> switchCamera() async {if(running)return;setState(()=>front=!front);await initCamera();}
-  @override void didChangeAppLifecycleState(AppLifecycleState state){if(state!=AppLifecycleState.resumed&&running)stop();}
-  @override void dispose(){WidgetsBinding.instance.removeObserver(this);camera?.dispose();detector?.dispose();super.dispose();}
-  Color _statusColor(){if(status=='GREAT')return const Color(0xFF7CF2B0);if(status=='LOW CONFIDENCE'||status=='FIND YOUR BODY')return const Color(0xFFFFC76A);return Colors.white;}
-  @override Widget build(BuildContext context){final c=camera;return Scaffold(backgroundColor:Colors.black,body:Stack(fit:StackFit.expand,children:[if(c!=null&&cameraReady!=null)FutureBuilder<void>(future:cameraReady,builder:(_,s)=>s.connectionState==ConnectionState.done&&!s.hasError?CameraPreview(c):const Center(child:CircularProgressIndicator()))else const Center(child:CircularProgressIndicator()),if(latestPose!=null)Positioned.fill(child:IgnorePointer(child:CustomPaint(painter:_SkeletonPainter(pose:latestPose!,mirror:front)))),const Positioned.fill(child:IgnorePointer(child:DecoratedBox(decoration:BoxDecoration(gradient:LinearGradient(begin:Alignment.topCenter,end:Alignment.bottomCenter,colors:[Color(0xAA000000),Color(0x11000000),Color(0xCC000000)],stops:[0,.45,1]))))),Positioned.fill(child:IgnorePointer(child:CustomPaint(painter:_FramePainter()))),SafeArea(child:Padding(padding:const EdgeInsets.fromLTRB(16,10,16,0),child:Row(children:[_RoundButton(icon:Icons.arrow_back_rounded,onTap:()=>Navigator.of(context).pop()),const SizedBox(width:12),const Expanded(child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[Text('Squat Check',style:TextStyle(color:Colors.white,fontSize:19,fontWeight:FontWeight.w800)),Text('Live form coaching',style:TextStyle(color:Colors.white60,fontSize:12))])),_RoundButton(icon:Icons.flip_camera_android_rounded,onTap:running?null:switchCamera)]))),Positioned(top:104,left:24,right:24,child:Center(child:Container(padding:const EdgeInsets.symmetric(horizontal:14,vertical:8),decoration:BoxDecoration(color:Colors.black.withValues(alpha:.55),borderRadius:BorderRadius.circular(30),border:Border.all(color:Colors.white24)),child:Row(mainAxisSize:MainAxisSize.min,children:[Container(width:8,height:8,decoration:BoxDecoration(color:_statusColor(),shape:BoxShape.circle)),const SizedBox(width:8),Text(status,style:TextStyle(color:_statusColor(),fontSize:11,fontWeight:FontWeight.w900,letterSpacing:1.1))]))),Positioned(left:20,right:20,bottom:18,child:_CoachPanel(running:running,reps:reps,phase:phase,knee:knee,score:score,scoreLabel:scoreLabel,feedback:feedback,error:error,onAction:c==null?null:(running?stop:start))),]));}
+class LiveSquatCheckPage extends StatefulWidget {
+  const LiveSquatCheckPage({super.key});
+  @override
+  State<LiveSquatCheckPage> createState() => _LiveSquatCheckPageState();
 }
 
-class _CoachPanel extends StatelessWidget{const _CoachPanel({required this.running,required this.reps,required this.phase,required this.knee,required this.score,required this.scoreLabel,required this.feedback,required this.error,required this.onAction});final bool running;final int reps,score;final String phase,scoreLabel,feedback;final double? knee;final String? error;final VoidCallback? onAction;@override Widget build(BuildContext context)=>Container(padding:const EdgeInsets.fromLTRB(18,15,18,16),decoration:BoxDecoration(color:const Color(0xE8171720),borderRadius:BorderRadius.circular(26),border:Border.all(color:Colors.white12),boxShadow:const[BoxShadow(blurRadius:30,offset:Offset(0,10),color:Colors.black54)]),child:Column(children:[Row(children:[Expanded(child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[const Text('FORM SCORE',style:TextStyle(color:Colors.white54,fontSize:10,fontWeight:FontWeight.w800,letterSpacing:1.2)),Row(crossAxisAlignment:CrossAxisAlignment.end,children:[Text('$score',style:const TextStyle(color:Colors.white,fontSize:38,height:1,fontWeight:FontWeight.w900)),const Padding(padding:EdgeInsets.only(bottom:3,left:4),child:Text('/100',style:TextStyle(color:Colors.white38,fontSize:12,fontWeight:FontWeight.w700))]),Text(scoreLabel,style:TextStyle(color:score>=75?const Color(0xFF7CF2B0):Colors.white54,fontSize:10,fontWeight:FontWeight.w800))])),_Metric(value:'$reps',label:'REPS'),const SizedBox(width:20),_Metric(value:phase,label:'PHASE'),const SizedBox(width:20),_Metric(value:knee==null?'—':'${knee!.round()}°',label:'KNEE')]),const SizedBox(height:12),Container(width:double.infinity,padding:const EdgeInsets.symmetric(horizontal:14,vertical:12),decoration:BoxDecoration(color:Colors.white.withValues(alpha:.06),borderRadius:BorderRadius.circular(15)),child:Row(children:[const Icon(Icons.auto_awesome_rounded,color:Color(0xFFB9ADFF),size:18),const SizedBox(width:9),Expanded(child:Text(feedback,style:const TextStyle(color:Colors.white,fontSize:13,height:1.3,fontWeight:FontWeight.w600)))])),if(error!=null)Padding(padding:const EdgeInsets.only(top:8),child:Text(error!,textAlign:TextAlign.center,style:const TextStyle(color:Colors.orangeAccent,fontSize:11))),const SizedBox(height:12),SizedBox(width:double.infinity,height:52,child:FilledButton.icon(onPressed:onAction,icon:Icon(running?Icons.stop_rounded:Icons.play_arrow_rounded),label:Text(running?'Finish session':'Start squat check'),style:FilledButton.styleFrom(backgroundColor:const Color(0xFF6C5CE7),foregroundColor:Colors.white,shape:RoundedRectangleBorder(borderRadius:BorderRadius.circular(16)),textStyle:const TextStyle(fontWeight:FontWeight.w800,fontSize:15))))]));}
-class _Metric extends StatelessWidget{const _Metric({required this.value,required this.label});final String value,label;@override Widget build(BuildContext context)=>Column(crossAxisAlignment:CrossAxisAlignment.end,children:[Text(value,style:const TextStyle(color:Colors.white,fontSize:15,fontWeight:FontWeight.w800)),const SizedBox(height:3),Text(label,style:const TextStyle(color:Colors.white38,fontSize:9,fontWeight:FontWeight.w800,letterSpacing:1))]);}
-class _RoundButton extends StatelessWidget{const _RoundButton({required this.icon,required this.onTap});final IconData icon;final VoidCallback? onTap;@override Widget build(BuildContext context)=>Material(color:Colors.black.withValues(alpha:.55),shape:const CircleBorder(),child:InkWell(onTap:onTap,customBorder:const CircleBorder(),child:Padding(padding:const EdgeInsets.all(11),child:Icon(icon,color:onTap==null?Colors.white24:Colors.white,size:21))));}
-class _SkeletonPainter extends CustomPainter{final dynamic pose;final bool mirror;_SkeletonPainter({required this.pose,required this.mirror});dynamic _p(LandmarkType type){try{return pose.getLandmark(type);}catch(_){return null;}}Offset? _point(dynamic p,Size s){if(p==null)return null;try{double x=(p.x as num).toDouble(),y=(p.y as num).toDouble();if(x.abs()>1.5)x/=1000;if(y.abs()>1.5)y/=1000;if(x<0||x>1||y<0||y>1)return null;if(mirror)x=1-x;return Offset(x*s.width,y*s.height);}catch(_){return null;}}@override void paint(Canvas canvas,Size size){final line=Paint()..color=const Color(0xFFEFEAFF)..strokeWidth=4..strokeCap=StrokeCap.round;final glow=Paint()..color=const Color(0x556C5CE7)..strokeWidth=10..strokeCap=StrokeCap.round;final dot=Paint()..color=Colors.white;final joints=[LandmarkType.leftShoulder,LandmarkType.rightShoulder,LandmarkType.leftElbow,LandmarkType.rightElbow,LandmarkType.leftWrist,LandmarkType.rightWrist,LandmarkType.leftHip,LandmarkType.rightHip,LandmarkType.leftKnee,LandmarkType.rightKnee,LandmarkType.leftAnkle,LandmarkType.rightAnkle];final pairs=<List<LandmarkType>>[[LandmarkType.leftShoulder,LandmarkType.rightShoulder],[LandmarkType.leftShoulder,LandmarkType.leftElbow],[LandmarkType.leftElbow,LandmarkType.leftWrist],[LandmarkType.rightShoulder,LandmarkType.rightElbow],[LandmarkType.rightElbow,LandmarkType.rightWrist],[LandmarkType.leftShoulder,LandmarkType.leftHip],[LandmarkType.rightShoulder,LandmarkType.rightHip],[LandmarkType.leftHip,LandmarkType.rightHip],[LandmarkType.leftHip,LandmarkType.leftKnee],[LandmarkType.leftKnee,LandmarkType.leftAnkle],[LandmarkType.rightHip,LandmarkType.rightKnee],[LandmarkType.rightKnee,LandmarkType.rightAnkle]];for(final pair in pairs){final a=_point(_p(pair[0]),size),b=_point(_p(pair[1]),size);if(a!=null&&b!=null){canvas.drawLine(a,b,glow);canvas.drawLine(a,b,line);}}for(final type in joints){final p=_point(_p(type),size);if(p!=null){canvas.drawCircle(p,7,dot);canvas.drawCircle(p,10,Paint()..style=PaintingStyle.stroke..strokeWidth=2..color=const Color(0xAA6C5CE7));}}}@override bool shouldRepaint(covariant _SkeletonPainter oldDelegate)=>oldDelegate.pose!=pose||oldDelegate.mirror!=mirror;}
-class _FramePainter extends CustomPainter{@override void paint(Canvas c,Size s){final p=Paint()..style=PaintingStyle.stroke..strokeWidth=2..color=Colors.white.withValues(alpha:.48);final r=Rect.fromCenter(center:Offset(s.width/2,s.height*.47),width:s.width*.62,height:s.height*.68);c.drawRRect(RRect.fromRectAndRadius(r,const Radius.circular(30)),p);final corner=Paint()..style=PaintingStyle.stroke..strokeWidth=4..strokeCap=StrokeCap.round..color=Colors.white.withValues(alpha:.9);const l=22.0;final x1=r.left,x2=r.right,y1=r.top,y2=r.bottom;c.drawLine(Offset(x1,y1+l),Offset(x1,y1),corner);c.drawLine(Offset(x1,y1),Offset(x1+l,y1),corner);c.drawLine(Offset(x2-l,y1),Offset(x2,y1),corner);c.drawLine(Offset(x2,y1),Offset(x2,y1+l),corner);c.drawLine(Offset(x1,y2-l),Offset(x1,y2),corner);c.drawLine(Offset(x1,y2),Offset(x1+l,y2),corner);c.drawLine(Offset(x2-l,y2),Offset(x2,y2),corner);c.drawLine(Offset(x2,y2-l),Offset(x2,y2),corner);}@override bool shouldRepaint(covariant _FramePainter oldDelegate)=>false;}
+class _LiveSquatCheckPageState extends State<LiveSquatCheckPage>
+    with WidgetsBindingObserver {
+  CameraController? camera;
+  NpuPoseDetector? detector;
+  Future<void>? cameraReady;
+  bool running = false, busy = false, front = true;
+  int reps = 0, frames = 0;
+  String status = 'READY';
+  String phase = 'Standing';
+  String feedback = 'Stand sideways and keep your whole body in frame';
+  double? knee;
+  int score = 0;
+  String scoreLabel = 'Ready';
+  String? error;
+  dynamic latestPose;
+  LandmarkQuality? quality;
+
+  final List<int> _repScores = [];
+  bool _reachedBottom = false, _ascendingSeen = false;
+  int _bottomFrames = 0, _ascendingFrames = 0;
+  int? _currentRepBest;
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addObserver(this);
+    initCamera();
+  }
+
+  Future<void> initCamera() async {
+    try {
+      await camera?.dispose();
+      final list = await availableCameras();
+      if (list.isEmpty) throw CameraException('NoCamera', 'No camera found.');
+      final selected = list.firstWhere(
+        (c) => c.lensDirection ==
+            (front ? CameraLensDirection.front : CameraLensDirection.back),
+        orElse: () => list.first,
+      );
+      final c = CameraController(
+        selected,
+        ResolutionPreset.medium,
+        enableAudio: false,
+        imageFormatGroup: ImageFormatGroup.yuv420,
+      );
+      final ready = c.initialize();
+      if (mounted) {
+        setState(() {
+          camera = c;
+          cameraReady = ready;
+          error = null;
+          latestPose = null;
+          quality = null;
+        });
+      }
+      await ready;
+    } on CameraException catch (e) {
+      if (mounted) setState(() => error = e.description ?? 'Camera could not start.');
+    }
+  }
+
+  Future<void> initDetector() async {
+    if (detector != null) return;
+    final d = NpuPoseDetector(config: PoseDetectorConfig.realtime());
+    await d.initialize();
+    detector = d;
+  }
+
+  void _resetRepState() {
+    reps = 0;
+    phase = 'Standing';
+    _reachedBottom = false;
+    _ascendingSeen = false;
+    _bottomFrames = 0;
+    _ascendingFrames = 0;
+    _currentRepBest = null;
+    score = 0;
+    scoreLabel = 'Ready';
+    _repScores.clear();
+  }
+
+  void _updateRepState(double angle, int currentScore) {
+    if (angle > 165) {
+      if (phase == 'Ascending' && _reachedBottom && _ascendingSeen) {
+        reps++;
+        _repScores.add((_currentRepBest ?? currentScore).clamp(0, 100));
+        _currentRepBest = null;
+        _reachedBottom = false;
+        _ascendingSeen = false;
+        _bottomFrames = 0;
+        _ascendingFrames = 0;
+      }
+      phase = 'Standing';
+      return;
+    }
+    if (phase == 'Standing') {
+      if (angle <= 150) phase = 'Descending';
+      return;
+    }
+    if (phase == 'Descending') {
+      if (angle <= 105) {
+        _bottomFrames++;
+        if (_bottomFrames >= 2) {
+          _reachedBottom = true;
+          phase = 'Bottom';
+        }
+      }
+      return;
+    }
+    if (phase == 'Bottom') {
+      _currentRepBest = _currentRepBest == null
+          ? currentScore
+          : (_currentRepBest! > currentScore ? _currentRepBest : currentScore);
+      if (angle >= 115) {
+        _ascendingFrames++;
+        if (_ascendingFrames >= 2) {
+          _ascendingSeen = true;
+          phase = 'Ascending';
+        }
+      } else {
+        _ascendingFrames = 0;
+      }
+      return;
+    }
+    if (phase == 'Ascending') {
+      _currentRepBest = _currentRepBest == null
+          ? currentScore
+          : (_currentRepBest! > currentScore ? _currentRepBest : currentScore);
+      if (angle < 115) {
+        phase = 'Bottom';
+        _ascendingSeen = false;
+        _ascendingFrames = 0;
+      }
+    }
+  }
+
+  Future<void> start() async {
+    final c = camera;
+    if (c == null || !c.value.isInitialized || running) return;
+    try {
+      setState(() {
+        error = null;
+        status = 'GETTING READY';
+        feedback = 'Stand 2–3 m away, use a side view, and keep your full body visible.';
+        _resetRepState();
+        frames = 0;
+        knee = null;
+        latestPose = null;
+        quality = null;
+      });
+      await initDetector();
+      if (!mounted) return;
+      setState(() {
+        running = true;
+        status = 'FIND YOUR BODY';
+      });
+      await c.startImageStream(onFrame);
+    } catch (e) {
+      if (mounted) {
+        setState(() {
+          running = false;
+          error = 'Pose detection could not start: $e';
+        });
+      }
+    }
+  }
+
+  Future<void> onFrame(CameraImage image) async {
+    if (!running || busy || detector == null) return;
+    busy = true;
+    frames++;
+    try {
+      final planes = image.planes
+          .map((p) => {
+                'bytes': p.bytes,
+                'bytesPerRow': p.bytesPerRow,
+                'bytesPerPixel': p.bytesPerPixel,
+              })
+          .toList();
+      final result = await detector!.processFrame(
+        planes: planes,
+        width: image.width,
+        height: image.height,
+        format: 'yuv420',
+        rotation: camera?.description.sensorOrientation ?? 90,
+      );
+      if (!result.hasPoses) {
+        if (mounted && frames % 8 == 0) {
+          setState(() {
+            status = 'FIND YOUR BODY';
+            feedback = 'Step back until your head, hips, knees and feet are visible.';
+            latestPose = null;
+            quality = null;
+          });
+        }
+        return;
+      }
+
+      final pose = result.firstPose!;
+      final q = LandmarkQuality.fromPose(pose);
+      if (!q.acceptable) {
+        if (mounted && frames % 6 == 0) {
+          setState(() {
+            status = 'LOW CONFIDENCE';
+            feedback = q.message;
+            latestPose = pose;
+            quality = q;
+          });
+        }
+        return;
+      }
+
+      final angle = pose.calculateAngle(
+        LandmarkType.leftHip,
+        LandmarkType.leftKnee,
+        LandmarkType.leftAnkle,
+      );
+      if (angle == null) return;
+
+      final metrics = SquatLandmarkMetrics.fromPose(pose);
+      final form = SquatFormScore.fromMetrics(
+        leftKneeAngle: angle,
+        rightKneeAngle: metrics.rightKneeAngle,
+        kneeAlignment: metrics.kneeAlignment,
+        torsoLean: metrics.torsoLean,
+      );
+
+      _updateRepState(angle, form.score);
+      score = phase == 'Bottom' || phase == 'Ascending'
+          ? form.score
+          : (_currentRepBest ?? score);
+      scoreLabel = form.label;
+
+      final message = phase == 'Bottom'
+          ? form.feedback
+          : phase == 'Ascending'
+              ? 'Drive up with control.'
+              : phase == 'Descending'
+                  ? 'Lower down with control.'
+                  : 'Stand tall, then begin your next rep.';
+
+      if (mounted && frames % 2 == 0) {
+        setState(() {
+          knee = angle;
+          feedback = message;
+          status = phase == 'Bottom' ? 'GREAT' : 'MOVE';
+          latestPose = pose;
+          quality = q;
+        });
+      }
+    } catch (e) {
+      if (mounted && frames % 30 == 0) {
+        setState(() => error = 'Frame skipped: $e');
+      }
+    } finally {
+      busy = false;
+    }
+  }
+
+  Future<void> stop({bool showSummary = true}) async {
+    if (!running) return;
+    if (camera?.value.isStreamingImages == true) await camera!.stopImageStream();
+    final values = List<int>.from(_repScores);
+    final average = values.isEmpty
+        ? score
+        : (values.reduce((a, b) => a + b) / values.length).round();
+    final best = values.isEmpty ? score : values.reduce((a, b) => a > b ? a : b);
+    if (!mounted) return;
+    setState(() {
+      running = false;
+      status = showSummary ? 'SESSION COMPLETE' : 'PAUSED';
+      feedback = values.isEmpty
+          ? 'No complete reps detected yet.'
+          : 'Nice work — you completed ${values.length} ${values.length == 1 ? 'rep' : 'reps'}.';
+    });
+    if (!showSummary) return;
+    await Future<void>.delayed(const Duration(milliseconds: 120));
+    if (!mounted) return;
+    await Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (_) => SessionCompletePage(
+          reps: values.length,
+          score: average,
+          bestScore: best,
+        ),
+      ),
+    );
+  }
+
+  Future<void> switchCamera() async {
+    if (running) return;
+    setState(() => front = !front);
+    await initCamera();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state != AppLifecycleState.resumed && running) {
+      stop(showSummary: false);
+    }
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    camera?.dispose();
+    detector?.dispose();
+    super.dispose();
+  }
+
+  Color _statusColor() {
+    if (status == 'GREAT') return const Color(0xFF7CF2B0);
+    if (status == 'LOW CONFIDENCE' || status == 'FIND YOUR BODY') {
+      return const Color(0xFFFFC76A);
+    }
+    return Colors.white;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final c = camera;
+    return Scaffold(
+      backgroundColor: Colors.black,
+      body: Stack(
+        fit: StackFit.expand,
+        children: [
+          if (c != null && cameraReady != null)
+            FutureBuilder<void>(
+              future: cameraReady,
+              builder: (_, s) => s.connectionState == ConnectionState.done && !s.hasError
+                  ? CameraPreview(c)
+                  : const Center(child: CircularProgressIndicator()),
+            )
+          else
+            const Center(child: CircularProgressIndicator()),
+          if (latestPose != null)
+            Positioned.fill(
+              child: IgnorePointer(
+                child: CustomPaint(
+                  painter: _SkeletonPainter(pose: latestPose!, mirror: front),
+                ),
+              ),
+            ),
+          const Positioned.fill(
+            child: IgnorePointer(
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [Color(0xAA000000), Color(0x11000000), Color(0xCC000000)],
+                    stops: [0, .45, 1],
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Positioned.fill(child: IgnorePointer(child: CustomPaint(painter: _FramePainter()))),
+          SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(16, 10, 16, 0),
+              child: Row(
+                children: [
+                  _RoundButton(icon: Icons.arrow_back_rounded, onTap: () => Navigator.of(context).pop()),
+                  const SizedBox(width: 12),
+                  const Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('Squat Check', style: TextStyle(color: Colors.white, fontSize: 19, fontWeight: FontWeight.w800)),
+                        Text('Live form coaching', style: TextStyle(color: Colors.white60, fontSize: 12)),
+                      ],
+                    ),
+                  ),
+                  _RoundButton(icon: Icons.flip_camera_android_rounded, onTap: running ? null : switchCamera),
+                ],
+              ),
+            ),
+          ),
+          Positioned(
+            top: 104,
+            left: 24,
+            right: 24,
+            child: Center(
+              child: Container(
+                padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
+                decoration: BoxDecoration(
+                  color: Colors.black.withValues(alpha: .55),
+                  borderRadius: BorderRadius.circular(30),
+                  border: Border.all(color: Colors.white24),
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Container(width: 8, height: 8, decoration: BoxDecoration(color: _statusColor(), shape: BoxShape.circle)),
+                    const SizedBox(width: 8),
+                    Text(status, style: TextStyle(color: _statusColor(), fontSize: 11, fontWeight: FontWeight.w900, letterSpacing: 1.1)),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          if (!running && status == 'READY')
+            Positioned(
+              left: 34,
+              right: 34,
+              top: 150,
+              child: _OnboardingHint(),
+            ),
+          Positioned(
+            left: 20,
+            right: 20,
+            bottom: 18,
+            child: _CoachPanel(
+              running: running,
+              reps: reps,
+              phase: phase,
+              knee: knee,
+              score: score,
+              scoreLabel: scoreLabel,
+              feedback: feedback,
+              error: error,
+              quality: quality,
+              onAction: c == null ? null : (running ? stop : start),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _OnboardingHint extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) => Container(
+        padding: const EdgeInsets.all(14),
+        decoration: BoxDecoration(
+          color: Colors.black.withValues(alpha: .55),
+          borderRadius: BorderRadius.circular(18),
+          border: Border.all(color: Colors.white12),
+        ),
+        child: const Row(
+          children: [
+            Icon(Icons.info_outline_rounded, color: Color(0xFFB9ADFF), size: 19),
+            SizedBox(width: 10),
+            Expanded(
+              child: Text(
+                'Best setup: side view • 2–3 m away • head to feet visible • bright, even lighting',
+                style: TextStyle(color: Colors.white, fontSize: 12, height: 1.35, fontWeight: FontWeight.w600),
+              ),
+            ),
+          ],
+        ),
+      );
+}
+
+class _CoachPanel extends StatelessWidget {
+  const _CoachPanel({required this.running, required this.reps, required this.phase, required this.knee, required this.score, required this.scoreLabel, required this.feedback, required this.error, required this.quality, required this.onAction});
+  final bool running;
+  final int reps, score;
+  final String phase, scoreLabel, feedback;
+  final double? knee;
+  final String? error;
+  final LandmarkQuality? quality;
+  final Future<void> Function()? onAction;
+
+  @override
+  Widget build(BuildContext context) => Container(
+        padding: const EdgeInsets.fromLTRB(18, 15, 18, 16),
+        decoration: BoxDecoration(
+          color: const Color(0xE8171720),
+          borderRadius: BorderRadius.circular(26),
+          border: Border.all(color: Colors.white12),
+          boxShadow: const [BoxShadow(blurRadius: 30, offset: Offset(0, 10), color: Colors.black54)],
+        ),
+        child: Column(
+          children: [
+            Row(
+              children: [
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text('FORM SCORE', style: TextStyle(color: Colors.white54, fontSize: 10, fontWeight: FontWeight.w800, letterSpacing: 1.2)),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Text('$score', style: const TextStyle(color: Colors.white, fontSize: 38, height: 1, fontWeight: FontWeight.w900)),
+                          const Padding(padding: EdgeInsets.only(bottom: 3, left: 4), child: Text('/100', style: TextStyle(color: Colors.white38, fontSize: 12, fontWeight: FontWeight.w700))),
+                        ],
+                      ),
+                      Text(scoreLabel, style: TextStyle(color: score >= 75 ? const Color(0xFF7CF2B0) : Colors.white54, fontSize: 10, fontWeight: FontWeight.w800)),
+                    ],
+                  ),
+                ),
+                _Metric(value: '$reps', label: 'REPS'),
+                const SizedBox(width: 20),
+                _Metric(value: phase, label: 'PHASE'),
+                const SizedBox(width: 20),
+                _Metric(value: knee == null ? '—' : '${knee!.round()}°', label: 'KNEE'),
+              ],
+            ),
+            const SizedBox(height: 12),
+            Container(
+              width: double.infinity,
+              padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+              decoration: BoxDecoration(color: Colors.white.withValues(alpha: .06), borderRadius: BorderRadius.circular(15)),
+              child: Row(
+                children: [
+                  const Icon(Icons.auto_awesome_rounded, color: Color(0xFFB9ADFF), size: 18),
+                  const SizedBox(width: 9),
+                  Expanded(child: Text(feedback, style: const TextStyle(color: Colors.white, fontSize: 13, height: 1.3, fontWeight: FontWeight.w600))),
+                ],
+              ),
+            ),
+            if (quality != null && quality!.acceptable)
+              Padding(
+                padding: const EdgeInsets.only(top: 7),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Icon(Icons.visibility_rounded, color: Color(0xFF7CF2B0), size: 13),
+                    const SizedBox(width: 5),
+                    Text('${quality!.message} • ${(quality!.confidence * 100).round()}%', style: const TextStyle(color: Colors.white38, fontSize: 10)),
+                  ],
+                ),
+              ),
+            if (error != null)
+              Padding(padding: const EdgeInsets.only(top: 8), child: Text(error!, textAlign: TextAlign.center, style: const TextStyle(color: Colors.orangeAccent, fontSize: 11))),
+            const SizedBox(height: 12),
+            SizedBox(
+              width: double.infinity,
+              height: 52,
+              child: FilledButton.icon(
+                onPressed: onAction == null ? null : () => onAction!(),
+                icon: Icon(running ? Icons.stop_rounded : Icons.play_arrow_rounded),
+                label: Text(running ? 'Finish session' : 'Start squat check'),
+                style: FilledButton.styleFrom(
+                  backgroundColor: const Color(0xFF6C5CE7),
+                  foregroundColor: Colors.white,
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+                  textStyle: const TextStyle(fontWeight: FontWeight.w800, fontSize: 15),
+                ),
+              ),
+            ),
+          ],
+        ),
+      );
+}
+
+class _Metric extends StatelessWidget {
+  const _Metric({required this.value, required this.label});
+  final String value, label;
+  @override
+  Widget build(BuildContext context) => Column(
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          Text(value, style: const TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.w800)),
+          const SizedBox(height: 3),
+          Text(label, style: const TextStyle(color: Colors.white38, fontSize: 9, fontWeight: FontWeight.w800, letterSpacing: 1)),
+        ],
+      );
+}
+
+class _RoundButton extends StatelessWidget {
+  const _RoundButton({required this.icon, required this.onTap});
+  final IconData icon;
+  final VoidCallback? onTap;
+  @override
+  Widget build(BuildContext context) => Material(
+        color: Colors.black.withValues(alpha: .55),
+        shape: const CircleBorder(),
+        child: InkWell(
+          onTap: onTap,
+          customBorder: const CircleBorder(),
+          child: Padding(padding: const EdgeInsets.all(11), child: Icon(icon, color: onTap == null ? Colors.white24 : Colors.white, size: 21)),
+        ),
+      );
+}
+
+class _SkeletonPainter extends CustomPainter {
+  final dynamic pose;
+  final bool mirror;
+  _SkeletonPainter({required this.pose, required this.mirror});
+  dynamic _p(LandmarkType type) { try { return pose.getLandmark(type); } catch (_) { return null; } }
+  Offset? _point(dynamic p, Size s) {
+    if (p == null) return null;
+    try {
+      double x = (p.x as num).toDouble(), y = (p.y as num).toDouble();
+      if (x.abs() > 1.5) x /= 1000;
+      if (y.abs() > 1.5) y /= 1000;
+      if (x < 0 || x > 1 || y < 0 || y > 1) return null;
+      if (mirror) x = 1 - x;
+      return Offset(x * s.width, y * s.height);
+    } catch (_) { return null; }
+  }
+  @override
+  void paint(Canvas canvas, Size size) {
+    final line = Paint()..color = const Color(0xFFEFEAFF)..strokeWidth = 4..strokeCap = StrokeCap.round;
+    final glow = Paint()..color = const Color(0x556C5CE7)..strokeWidth = 10..strokeCap = StrokeCap.round;
+    final dot = Paint()..color = Colors.white;
+    final joints = [LandmarkType.leftShoulder, LandmarkType.rightShoulder, LandmarkType.leftElbow, LandmarkType.rightElbow, LandmarkType.leftWrist, LandmarkType.rightWrist, LandmarkType.leftHip, LandmarkType.rightHip, LandmarkType.leftKnee, LandmarkType.rightKnee, LandmarkType.leftAnkle, LandmarkType.rightAnkle];
+    final pairs = <List<LandmarkType>>[
+      [LandmarkType.leftShoulder, LandmarkType.rightShoulder], [LandmarkType.leftShoulder, LandmarkType.leftElbow], [LandmarkType.leftElbow, LandmarkType.leftWrist], [LandmarkType.rightShoulder, LandmarkType.rightElbow], [LandmarkType.rightElbow, LandmarkType.rightWrist], [LandmarkType.leftShoulder, LandmarkType.leftHip], [LandmarkType.rightShoulder, LandmarkType.rightHip], [LandmarkType.leftHip, LandmarkType.rightHip], [LandmarkType.leftHip, LandmarkType.leftKnee], [LandmarkType.leftKnee, LandmarkType.leftAnkle], [LandmarkType.rightHip, LandmarkType.rightKnee], [LandmarkType.rightKnee, LandmarkType.rightAnkle],
+    ];
+    for (final pair in pairs) {
+      final a = _point(_p(pair[0]), size), b = _point(_p(pair[1]), size);
+      if (a != null && b != null) { canvas.drawLine(a, b, glow); canvas.drawLine(a, b, line); }
+    }
+    for (final type in joints) {
+      final p = _point(_p(type), size);
+      if (p != null) {
+        canvas.drawCircle(p, 7, dot);
+        canvas.drawCircle(p, 10, Paint()..style = PaintingStyle.stroke..strokeWidth = 2..color = const Color(0xAA6C5CE7));
+      }
+    }
+  }
+  @override
+  bool shouldRepaint(covariant _SkeletonPainter oldDelegate) => oldDelegate.pose != pose || oldDelegate.mirror != mirror;
+}
+
+class _FramePainter extends CustomPainter {
+  @override
+  void paint(Canvas c, Size s) {
+    final p = Paint()..style = PaintingStyle.stroke..strokeWidth = 2..color = Colors.white.withValues(alpha: .48);
+    final r = Rect.fromCenter(center: Offset(s.width / 2, s.height * .47), width: s.width * .62, height: s.height * .68);
+    c.drawRRect(RRect.fromRectAndRadius(r, const Radius.circular(30)), p);
+    final corner = Paint()..style = PaintingStyle.stroke..strokeWidth = 4..strokeCap = StrokeCap.round..color = Colors.white.withValues(alpha: .9);
+    const l = 22.0;
+    final x1 = r.left, x2 = r.right, y1 = r.top, y2 = r.bottom;
+    c.drawLine(Offset(x1, y1 + l), Offset(x1, y1), corner); c.drawLine(Offset(x1, y1), Offset(x1 + l, y1), corner);
+    c.drawLine(Offset(x2 - l, y1), Offset(x2, y1), corner); c.drawLine(Offset(x2, y1), Offset(x2, y1 + l), corner);
+    c.drawLine(Offset(x1, y2 - l), Offset(x1, y2), corner); c.drawLine(Offset(x1, y2), Offset(x1 + l, y2), corner);
+    c.drawLine(Offset(x2 - l, y2), Offset(x2, y2), corner); c.drawLine(Offset(x2, y2 - l), Offset(x2, y2), corner);
+  }
+  @override
+  bool shouldRepaint(covariant _FramePainter oldDelegate) => false;
+}
