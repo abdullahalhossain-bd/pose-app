@@ -1,0 +1,94 @@
+import 'package:camera/camera.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_pose_detection/flutter_pose_detection.dart';
+import '../../core/exercise/exercise_definition.dart';
+import '../../core/exercise/exercise_registry.dart';
+import '../../core/exercise/exercise_catalog.dart';
+import 'session_complete_page.dart';
+
+class LiveExerciseCheckPage extends StatefulWidget {
+  final String exerciseId;
+  const LiveExerciseCheckPage({super.key, required this.exerciseId});
+  @override State<LiveExerciseCheckPage> createState() => _LiveExerciseCheckPageState();
+}
+
+class _LiveExerciseCheckPageState extends State<LiveExerciseCheckPage> with WidgetsBindingObserver {
+  CameraController? camera;
+  NpuPoseDetector? detector;
+  ExerciseAnalyzer? analyzer;
+  Future<void>? ready;
+  bool running = false, busy = false, front = true;
+  String status = 'READY';
+  ExerciseFeedback? feedback;
+  dynamic pose;
+  int reps = 0;
+  final List<int> repScores = [];
+
+  ExerciseCatalogItem get exercise => exerciseById(widget.exerciseId);
+
+  @override void initState() { super.initState(); WidgetsBinding.instance.addObserver(this); analyzer = ExerciseRegistry.create(widget.exerciseId); _initCamera(); }
+
+  Future<void> _initCamera() async {
+    try {
+      final cams = await availableCameras();
+      if (cams.isEmpty) throw Exception('No camera found');
+      final selected = cams.firstWhere((c) => c.lensDirection == (front ? CameraLensDirection.front : CameraLensDirection.back), orElse: () => cams.first);
+      final c = CameraController(selected, ResolutionPreset.medium, enableAudio: false, imageFormatGroup: ImageFormatGroup.yuv420);
+      final f = c.initialize();
+      if (mounted) setState(() { camera = c; ready = f; });
+      await f;
+    } catch (e) { if (mounted) setState(() => status = 'CAMERA ERROR'); }
+  }
+
+  Future<void> _initDetector() async { detector ??= NpuPoseDetector(config: PoseDetectorConfig.realtime()); await detector!.initialize(); }
+
+  Future<void> _start() async {
+    final c = camera; if (c == null || !c.value.isInitialized || running) return;
+    analyzer!.reset(); repScores.clear(); reps = 0;
+    setState(() { running = true; status = 'FIND YOUR BODY'; feedback = null; pose = null; });
+    try { await _initDetector(); await c.startImageStream(_onFrame); } catch (e) { if (mounted) setState(() { running = false; status = 'ERROR'; }); }
+  }
+
+  Future<void> _onFrame(CameraImage image) async {
+    if (!running || busy || detector == null) return; busy = true;
+    try {
+      final result = await detector!.processFrame(planes: image.planes.map((p) => {'bytes': p.bytes, 'bytesPerRow': p.bytesPerRow, 'bytesPerPixel': p.bytesPerPixel}).toList(), width: image.width, height: image.height, format: 'yuv420', rotation: camera?.description.sensorOrientation ?? 90);
+      if (!result.hasPoses) { if (mounted) setState(() => status = 'FIND YOUR BODY'); return; }
+      final p = result.firstPose!;
+      final visible = p.getVisibleLandmarks(threshold: .55);
+      if (visible.length < 6) { if (mounted) setState(() { status = 'LOW CONFIDENCE'; pose = p; }); return; }
+      final before = analyzer!.analyze(visible.map((v) => v).toList());
+      final previousReps = reps;
+      if (before.validRep) { reps++; repScores.add(before.score.clamp(0, 100)); }
+      if (mounted) setState(() { pose = p; feedback = before; status = before.validRep ? 'REP COMPLETE' : before.score >= 75 ? 'GOOD' : 'MOVE'; });
+      assert(previousReps <= reps);
+    } catch (_) {} finally { busy = false; }
+  }
+
+  Future<void> _stop({bool summary = true}) async {
+    if (!running) return; if (camera?.value.isStreamingImages == true) await camera!.stopImageStream();
+    setState(() { running = false; status = summary ? 'SESSION COMPLETE' : 'PAUSED'; });
+    if (!summary || !mounted) return;
+    final scores = List<int>.from(repScores);
+    final avg = scores.isEmpty ? (feedback?.score ?? 0) : (scores.reduce((a,b) => a+b) / scores.length).round();
+    final best = scores.isEmpty ? avg : scores.reduce((a,b) => a>b ? a:b);
+    await Navigator.of(context).push(MaterialPageRoute(builder: (_) => SessionCompletePage(exercise: widget.exerciseId, reps: scores.length, score: avg, bestScore: best, repScores: scores)));
+  }
+
+  @override void didChangeAppLifecycleState(AppLifecycleState state) { if (state != AppLifecycleState.resumed && running) _stop(summary: false); }
+  @override void dispose() { WidgetsBinding.instance.removeObserver(this); camera?.dispose(); detector?.dispose(); super.dispose(); }
+
+  @override Widget build(BuildContext context) {
+    final c = camera; final f = feedback;
+    return Scaffold(backgroundColor: Colors.black, body: Stack(fit: StackFit.expand, children: [
+      if (c != null && ready != null) FutureBuilder<void>(future: ready, builder: (_, s) => s.connectionState == ConnectionState.done && !s.hasError ? CameraPreview(c) : const Center(child: CircularProgressIndicator())) else const Center(child: CircularProgressIndicator()),
+      const Positioned.fill(child: IgnorePointer(child: DecoratedBox(decoration: BoxDecoration(gradient: LinearGradient(begin: Alignment.topCenter,end: Alignment.bottomCenter,colors:[Color(0x99000000),Colors.transparent,Color(0xDD000000)]))))),
+      SafeArea(child: Padding(padding: const EdgeInsets.fromLTRB(16,10,16,0), child: Row(children: [IconButton(onPressed: () => Navigator.pop(context), icon: const Icon(Icons.arrow_back_rounded,color: Colors.white)), Expanded(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [Text('${exercise.name} Check',style: const TextStyle(color:Colors.white,fontSize:19,fontWeight:FontWeight.w900)),Text('Live form coaching',style: const TextStyle(color:Colors.white60,fontSize:12))])), IconButton(onPressed: running ? null : () async { front=!front; await _initCamera(); }, icon: const Icon(Icons.flip_camera_android_rounded,color:Colors.white))]))),
+      Positioned(top: 105,left: 24,right: 24,child: Center(child: Container(padding:const EdgeInsets.symmetric(horizontal:14,vertical:8),decoration:BoxDecoration(color:Colors.black54,borderRadius:BorderRadius.circular(30)),child: Text(status,style:const TextStyle(color:Colors.white,fontWeight:FontWeight.w900,fontSize:11,letterSpacing:1.1))))),
+      if (!running) Positioned(top:150,left:28,right:28,child: Container(padding:const EdgeInsets.all(15),decoration:BoxDecoration(color:Colors.black54,borderRadius:BorderRadius.circular(18)),child: Text(exercise.description + '  ' + exerciseById(widget.exerciseId).subtitle + '.\n\n' + (analyzer?.setupTips.join(' • ') ?? ''),style:const TextStyle(color:Colors.white,fontSize:12,height:1.4,fontWeight:FontWeight.w600)))),
+      Positioned(left:18,right:18,bottom:18,child: Container(padding:const EdgeInsets.all(18),decoration:BoxDecoration(color:const Color(0xEE171720),borderRadius:BorderRadius.circular(25)),child: Column(crossAxisAlignment:CrossAxisAlignment.start,children:[Row(children:[_Stat('REPS','$reps'),const SizedBox(width:10),_Stat('SCORE',f == null ? '—':'${f.score}'),const SizedBox(width:10),_Stat('PHASE',f == null ? 'Ready':f.phase.name)]),const SizedBox(height:14),Text(f?.messages.isNotEmpty == true ? f!.messages.first : (running ? 'Follow the movement cues.' : 'Ready when you are.'),style:const TextStyle(color:Colors.white,fontSize:14,fontWeight:FontWeight.w700)),const SizedBox(height:14),SizedBox(width:double.infinity,height:52,child:FilledButton(onPressed:c == null ? null : (running ? _stop : _start),style:FilledButton.styleFrom(backgroundColor:const Color(0xFF6C5CE7),shape:RoundedRectangleBorder(borderRadius:BorderRadius.circular(16))),child:Text(running?'Finish session':'Start ${exercise.name}',style:const TextStyle(fontWeight:FontWeight.w900))))]))),
+    ]));
+  }
+}
+
+class _Stat extends StatelessWidget { final String label,value; const _Stat(this.label,this.value); @override Widget build(BuildContext context)=>Expanded(child:Container(padding:const EdgeInsets.symmetric(vertical:10),decoration:BoxDecoration(color:Colors.white10,borderRadius:BorderRadius.circular(14)),child:Column(children:[Text(value,style:const TextStyle(color:Colors.white,fontSize:19,fontWeight:FontWeight.w900)),const SizedBox(height:2),Text(label,style:const TextStyle(color:Colors.white54,fontSize:9,fontWeight:FontWeight.w800))]))); }
