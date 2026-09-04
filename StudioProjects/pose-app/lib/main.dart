@@ -31,7 +31,7 @@ class AiVisualDirectorApp extends StatelessWidget {
     return MaterialApp(
       title: 'AI Visual Director',
       debugShowCheckedModeBanner: false,
-      theme: AppTheme.dark,
+      theme: AppTheme.dark(),
       home: const _RootGate(),
     );
   }

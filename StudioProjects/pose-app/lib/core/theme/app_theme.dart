@@ -55,9 +55,11 @@ class AppRadius {
 class AppTheme {
   AppTheme._();
 
-  static ThemeData get dark {
-    final base = ThemeData.dark(useMaterial3: true);
+  static ThemeData light() => _buildTheme(ThemeData.light(useMaterial3: true));
 
+  static ThemeData dark() => _buildTheme(ThemeData.dark(useMaterial3: true));
+
+  static ThemeData _buildTheme(ThemeData base) {
     return base.copyWith(
       scaffoldBackgroundColor: AppColors.background,
       colorScheme: base.colorScheme.copyWith(

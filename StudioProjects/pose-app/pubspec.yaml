@@ -39,11 +39,23 @@ dependencies:
   # for DI and reactive state without global mutable singletons.
   flutter_riverpod: ^2.6.1
 
+  # Declarative routing for the application shell and feature navigation.
+  go_router: ^16.2.0
+
+  # Functional error handling used throughout the domain/repository layers.
+  fpdart: ^1.1.0
+
+  # Structured app logging.
+  logger: ^1.4.0
+
   # Camera preview, capture, lifecycle.
   camera: ^0.11.0+2
 
   # On-device pose landmark detection (no network dependency, works offline).
   google_mlkit_pose_detection: ^0.14.0
+
+  # Direct import usage in the pose/data layer.
+  google_mlkit_commons: ^0.11.1
 
   # Runtime permission requests (camera, storage) with graceful denial states.
   permission_handler: ^11.3.1

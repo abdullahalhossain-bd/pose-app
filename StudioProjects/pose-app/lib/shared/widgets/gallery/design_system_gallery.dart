@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../core/extensions/context_extensions.dart';
-import 'widgets.dart';
+import '../../../core/extensions/context_extensions.dart';
+import '../widgets.dart';
 
 /// Visual gallery of every design-system widget.
 ///
